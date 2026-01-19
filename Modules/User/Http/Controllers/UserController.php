@@ -992,9 +992,14 @@ public function search(Request $request)
     // accept either ?q= or legacy ?inputsearch=
     $term = trim($request->input('q', $request->input('inputsearch', '')));
 
+    $desg = trim((string)$request->input('desg', ''));
+
     $user = \App\Models\User::query()
         ->with(['referrer'])
         ->whereIn('role', [2, 0])                         // â† role filter
+        ->when($desg !== '', function ($q) use ($desg) {
+            $q->where('desg', $desg);
+        })
         ->when($term !== '', function ($q) use ($term) {   // group the OR search
             $q->where(function ($qq) use ($term) {
                 $qq->where('name',   'LIKE', "%{$term}%")
@@ -1006,7 +1011,7 @@ public function search(Request $request)
         })
         ->latest()
         ->simplePaginate(20)
-        ->appends(['q' => $term]); // keep query in pagination links
+        ->appends(['q' => $term, 'desg' => $desg]); // keep query in pagination links
 
     // IMPORTANT: correct view key and variable name
     return view('user::users.index', [
@@ -1077,6 +1082,9 @@ public function export(Request $request)
             } elseif ($request->verified === '0') {
                 $q->whereDoesntHave('latestPayment', fn($qq) => $qq->whereNotNull('payment_rec'));
             }
+        }
+        if ($request->filled('desg')) {
+            $q->where('desg', $request->input('desg'));
         }
 
         foreach ($q->orderBy('id')->cursor() as $u) {

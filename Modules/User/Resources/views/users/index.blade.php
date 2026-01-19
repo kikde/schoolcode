@@ -89,6 +89,7 @@
   .table th.col-id, .table td.col-id{ white-space: nowrap; word-break: keep-all; width: 80px; max-width: 80px; }
 </style>
 
+@php($currentDesg = request()->route('desg') ?? request('desg'))
 <div class="content-wrapper">
   {{-- ============================ Page Header ============================ --}}
   <div class="content-header row">
@@ -96,11 +97,22 @@
       <div class="row breadcrumbs-top">
         <div class="col-12 d-flex align-items-center justify-content-between">
           <div>
-            <h2 class="content-header-title float-left mb-0">Members List</h2>
+            <h2 class="content-header-title float-left mb-0">
+              @if($currentDesg)
+                {{ $currentDesg }} Members
+              @else
+                Members List
+              @endif
+            </h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                <li class="breadcrumb-item active">Members List</li>
+                @if($currentDesg)
+                  <li class="breadcrumb-item"><a href="{{ url('/userslist') }}">Members List</a></li>
+                  <li class="breadcrumb-item active">{{ $currentDesg }}</li>
+                @else
+                  <li class="breadcrumb-item active">Members List</li>
+                @endif
               </ol>
             </div>
           </div>
@@ -135,6 +147,9 @@
               <form id="membersSearchForm" action="{{ route('users.search') }}" method="GET" class="search-wrap w-100 w-md-auto">
                 <div class="input-group input-group-sm search-group mb-1">
                   <input type="text" name="q" id="searchInput" value="{{ request('q') }}" class="form-control" placeholder="Search name, email, mobile…" autocomplete="off">
+                  @if($currentDesg)
+                    <input type="hidden" name="desg" id="desgHidden" value="{{ $currentDesg }}">
+                  @endif
                   <button class="btn btn-primary" type="submit">Search</button>
                 </div>
               </form>
@@ -570,7 +585,9 @@
       btn.addEventListener('click', function(){
         const q = encodeURIComponent(document.getElementById('searchInput')?.value || '');
         const v = encodeURIComponent(document.getElementById('verifiedFilter')?.value || '');
-        window.location = "{{ route('users.export') }}" + "?query=" + q + "&verified=" + v;
+        const d = encodeURIComponent(document.getElementById('desgHidden')?.value || (new URLSearchParams(location.search).get('desg') || ''));
+        const url = "{{ route('users.export') }}" + "?query=" + q + "&verified=" + v + (d?"&desg="+d:"");
+        window.location = url;
       });
     }
   });
