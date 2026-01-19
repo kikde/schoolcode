@@ -56,11 +56,22 @@
   /* =============== HEADER (MIDDLE) =============== */
   .boxed_wrapper{ overflow:visible !important; position:relative; }
   .header{
-    background:#fff;
+    background:rgba(255,255,255,.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow:var(--shadow);
-    position: sticky;
+    position: fixed;          /* overlay on content */
     top: var(--gsH);          /* sits below gov strip */
+    left: 0;
+    right: 0;
     z-index:10000;
+    border-bottom:1px solid rgba(229,231,235,.6);
+    transition: background .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+
+  /* solid background after scroll for readability */
+  .header.scrolled{
+    background:#fff;
     border-bottom:1px solid var(--line);
   }
   .header .bar{
@@ -156,6 +167,12 @@
   .contact a{ color:#0a7bd4; text-decoration:none; word-break:break-word; }
 
   @media (max-width:420px){ .brand img{ height:44px; } }
+
+  /* spacer to compensate for fixed header height */
+  .header-spacer{ height:var(--headerH); }
+  /* allow pages to opt-in to true overlay (e.g., hero under header) */
+  .overlay-hero .header-spacer{ height:0; }
+  .overlay-hero .header{ background:rgba(255,255,255,.35); border-bottom-color: transparent; }
 
   /* =============== SOCIAL STRIP (BOTTOM OF STACK) =============== */
   .strip{
@@ -283,6 +300,9 @@
     </div>
   </div>
 </header>
+
+<!-- Spacer so content is not hidden under fixed header -->
+<div class="header-spacer"></div>
 
 <!-- ======= SOCIAL STRIP ======= -->
 <div class="strip">
@@ -433,6 +453,18 @@
     });
   });
   setTimeout(apply, 200);
+})();
+
+/* toggle solid background when page is scrolled */
+(function stickyHeaderState(){
+  const header = document.querySelector('.header');
+  if(!header) return;
+  function onScroll(){
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    if (y > 10) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
 })();
 
 
