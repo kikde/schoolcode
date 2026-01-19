@@ -28,7 +28,14 @@
 
 <style>
 .vsf-bdays{ padding: 30px 16px; }
-.vsf-bday-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:16px; }
+.vsf-bday-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+  gap:16px;
+  justify-content:center; /* center tracks on wide screens */
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .bcard{ position:relative; border-radius:16px; overflow:hidden; box-shadow:0 10px 28px rgba(0,0,0,.08); background:#fff; }
 .bcard-bg{ position:absolute; inset:0; background: radial-gradient(120% 120% at 0% 0%, #ffe8b3 0%, #ffd0d0 50%, #ffffff 100%); filter:saturate(1.05); }
 .bcard-inner{ position:relative; padding:16px; text-align:center; }
@@ -39,4 +46,3 @@
 @media (max-width: 480px){ .avatar-wrap{ width:80px; height:80px;} }
 </style>
 @endif
-

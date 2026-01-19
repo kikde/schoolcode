@@ -291,7 +291,15 @@ protected function getHomepageCrowdfundData(): array
       $upcomingAnniversaries = collect();
       try {
         $annivCol = null;
-        foreach (['anniversary','anniversary_date','wedding_anniversary','marriage_date','doa','dom'] as $col) {
+        foreach ([
+            'anniversary',            // common
+            'anniversary_date',       // common
+            'wedding_anniversary',
+            'marriage_date',
+            'doa','dom',              // date of anniversary / marriage
+            'anniversery',            // common misspelling
+            'marrige_date'            // misspelling
+        ] as $col) {
             if (Schema::hasColumn('users', $col)) { $annivCol = $col; break; }
         }
         if ($annivCol) {
