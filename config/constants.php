@@ -47,7 +47,10 @@ return [
     "Secretary(State)"=>"Secretary(State)",
     "Spoke Person(State)" => "Spoke Person(State)",
     "Exe. Member(State)" => "Exe. Member(State)",
-    "Dist. Coordinator" => "Dist. Coordinator",
+    "Director" =>"Director",
+    "Coordinator" => "Coordinator",
+    "Treasurer"=>"Treasurer",
+    "Trustee"=>"Trustee",
 ],
 
 'bpscell' => [

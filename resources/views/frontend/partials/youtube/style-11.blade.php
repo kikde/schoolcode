@@ -11,7 +11,7 @@
   .tv-frame{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); background:#000; }
   .tv-media{ width:100%; aspect-ratio:16/9; display:block; background:#000; }
   .tv-overlay{ pointer-events:none; position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end;
-    background:linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%);}
+    background:linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%);} 
   .tv-meta{ display:flex; align-items:center; gap:10px; padding:10px 12px; color:#fff; font-size:14px; }
   .tv-title{ font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,.5); }
   .tv-muted{ color:#d1d5db; font-weight:600; }
@@ -42,14 +42,19 @@
       <div class="chip"><span class="pulse"></span> Trending</div>
     </div>
 
-    <!-- 
-      VIDEO URL + THUMBNAIL:
-      - Put your MP4 URL in <source src="..."> below.
-      - Put your thumbnail image URL in the poster="..." attribute on <video>.
-    -->
-    <video class="tv-media" preload="metadata"
-           poster="{{ asset('backend/uploads/'.$dmessage->breadcrumb) }}">  <!-- ← THUMBNAIL URL HERE -->
-      <source src="{{asset('frontend/custom/intro.mp4')}}" type="video/mp4"> <!-- ← VIDEO MP4 URL HERE -->
+    <!-- Populated from Gallery (first type='video') -->
+    @php
+      try {
+        $tvItem = \Modules\Gallery\Entities\Gallery::where('type','video')
+                    ->whereNotNull('video')
+                    ->latest()
+                    ->first();
+      } catch (\Throwable $e) { $tvItem = null; }
+      $tvSrc    = $tvItem && $tvItem->video ? asset('backend/gallery/video/'.$tvItem->video) : asset('frontend/custom/intro.mp4');
+      $tvPoster = $tvItem && $tvItem->images ? asset('backend/gallery/photo/'.$tvItem->images) : null;
+    @endphp
+    <video class="tv-media" preload="metadata" @if($tvPoster) poster="{{ $tvPoster }}" @endif>
+      <source src="{{ $tvSrc }}" type="video/mp4">
       <!-- Optional extra formats for broader support: 
       <source src="https://YOUR-VIDEO-FILE.webm" type="video/webm">
       -->
@@ -66,8 +71,8 @@
     <!-- Overlay meta -->
     <div class="tv-overlay" aria-hidden="true">
       <div class="tv-meta">
-        <div class="tv-title">Community Highlights</div>
-        <div class="tv-muted">2:10 · HD</div>
+        <div class="tv-title">{{ $tvItem->title ?? 'Community Highlights' }}</div>
+        <div class="tv-muted">HD</div>
       </div>
     </div>
 
@@ -86,8 +91,7 @@
 
   <!-- Caption row -->
   <div class="tv-caption">
-    <!-- <span>WordPress-style responsive video</span>
-    <span>Default paused · Plays on tap</span> -->
+    <!-- optional captions -->
   </div>
 </div>
 
@@ -103,24 +107,20 @@
     const pauseLab = pauseBt.querySelector('.lab');
     const muteLab  = muteBt.querySelector('.lab');
 
-    // Slide-in "Trending" when in view (mobile-friendly)
     const io = new IntersectionObserver(entries=>{
       entries.forEach(e=>wrap.classList.toggle('is-active', e.isIntersecting));
     }, {threshold:.35});
     io.observe(wrap);
 
-    // Start paused
     video.controls = false;
     video.preload = 'metadata';
-    video.playsInline = true;  // iOS inline
+    video.playsInline = true;
     video.setAttribute('playsinline','');
 
-    // Default muted for better UX on mobile
     video.muted = true;
-    muteLab.textContent = 'Unmute'; // because we start muted
+    muteLab.textContent = 'Unmute';
     pauseLab.textContent = 'Play';
 
-    // Play on button
     playBt.addEventListener('click', async ()=>{
       try{
         await video.play();
@@ -130,26 +130,23 @@
       }catch(e){ console.debug('play error', e); }
     });
 
-    // Pause/Resume
     pauseBt.addEventListener('click', ()=>{
       if(video.paused){ video.play(); pauseLab.textContent='Pause'; }
       else{ video.pause(); pauseLab.textContent='Play'; }
     });
 
-    // Mute toggle
     muteBt.addEventListener('click', ()=>{
       video.muted = !video.muted;
       muteLab.textContent = video.muted ? 'Unmute' : 'Mute';
     });
 
-    // Click video to toggle (optional)
     video.addEventListener('click', ()=>{
       if(video.paused){ video.play(); pauseLab.textContent='Pause'; }
       else{ video.pause(); pauseLab.textContent='Play'; }
     });
 
-    // Sync labels if user pauses/plays via system UI
     video.addEventListener('pause', ()=>{ pauseLab.textContent='Play'; });
     video.addEventListener('play',  ()=>{ pauseLab.textContent='Pause'; });
   })();
 </script>
+

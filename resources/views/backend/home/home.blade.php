@@ -6,6 +6,16 @@
     </div>
     <div class="content-body">
         <!-- Dashboard Analytics Start -->
+        @php
+            // Fallback in case controller variables are not bound (ensures non-zero values on view)
+            $__totalMembers = isset($totalMembers) && is_numeric($totalMembers)
+                ? (int) $totalMembers
+                : (int) DB::table('users')->where('role', 2)->count();
+
+            $__managementTeam = isset($managementTeamCount) && is_numeric($managementTeamCount)
+                ? (int) $managementTeamCount
+                : (int) DB::table('manageteams')->count();
+        @endphp
         <section id="dashboard-analytics">
             <div class="row match-height">
                 <!-- Greetings Card starts -->
@@ -39,7 +49,7 @@
                                     <i data-feather="users" class="font-medium-5"></i>
                                 </div>
                             </div>
-                            <h2 class="font-weight-bolder mt-1">{{ number_format($totalMembers ?? 0) }}</h2>
+                            <h2 class="font-weight-bolder mt-1">{{ number_format($__totalMembers) }}</h2>
                             <p class="card-text">Total Members</p>
                         </div>
                         <div id="gained-chart"></div>
@@ -56,7 +66,7 @@
                                     <i data-feather="package" class="font-medium-5"></i>
                                 </div>
                             </div>
-                            <h2 class="font-weight-bolder mt-1">{{ number_format($managementTeamCount ?? 0) }}</h2>
+                            <h2 class="font-weight-bolder mt-1">{{ number_format($__managementTeam) }}</h2>
                             <p class="card-text">Management Team</p>
                         </div>
                         <div id="order-chart"></div>
@@ -105,7 +115,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 mb-2">
-                                    <p class="mb-50">Users: 10K</p>
+                                    <p class="mb-50">Users: {{ number_format($__totalMembers) }}</p>
                                     <div class="progress progress-bar-warning" style="height: 6px">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="60" aria-valuemax="100" style="width: 60%"></div>
                                     </div>

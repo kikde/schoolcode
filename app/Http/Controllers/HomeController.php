@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 use Modules\Setting\Entities\Setting;
 use Modules\User\Entities\Note;
-use Modules\User\Entities\User as MemberUser;
-use Modules\Page\Entities\Manageteam;
+
 use Modules\User\Entities\SupportTicket;
 use Modules\Page\Entities\Donation;
 use Modules\User\Entities\Payment as MemberPayment;
@@ -12,11 +11,12 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User; // Auth m;odel used elsewhere in this controller
 
-use Modules\Page\Entities\Manageteam;
+
 use App\Models\Payment;
 use Session;
 use Image;
 use View;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -82,14 +82,9 @@ class HomeController extends Controller
         }
        
         else if(Auth::user()->role == 1){
-            // Total Members from module users: role = 2 and active status
-            $totalMembers = User::where('role', '2')
-                ->where('useractive', '1')
-                ->where('status', '1')
-                ->count();
-
-            // Management Team count
-            $managementTeamCount = Manageteam::count();
+            // Robust counts straight from tables (avoids model-level scopes)
+            $totalMembers = DB::table('users')->where('role', 2)->count();
+            $managementTeamCount = DB::table('manageteams')->count();
             $monthlyDonationPaise = \Modules\Page\Entities\Donation::where('status','paid')
                 ->whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])
                 ->sum('amount_paise');

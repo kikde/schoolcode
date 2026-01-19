@@ -134,7 +134,13 @@
   Minimal, dependency-free QR flow using a public image endpoint.
   Change THESE two constants to your real values:
 */
-const NGO_UPI_ID   = '123456789@upi';                 // your VPA
+@php
+  try {
+    $__upi = \Modules\Page\Entities\Bank::whereNotNull('upi_id')->value('upi_id');
+  } catch (\Throwable $e) { $__upi = null; }
+  $__upi = $__upi ?? 'abcd@upi';
+@endphp
+const NGO_UPI_ID   = @json($__upi);                  // your VPA
 const NGO_NAME     = '{{$setting->title}}';            // receiver name (UPI)
 const DEFAULT_AMT  = 500;                        // default amount if none typed
 const NOTE_PREFIX  = 'Donation';                 // remark in UPI app

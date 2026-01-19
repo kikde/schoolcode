@@ -89,7 +89,9 @@
   .table th.col-id, .table td.col-id{ white-space: nowrap; word-break: keep-all; width: 80px; max-width: 80px; }
 </style>
 
-@php($currentDesg = request()->route('desg') ?? request('desg'))
+@php
+  $currentDesg = request()->route('desg') ?? request('desg');
+@endphp
 <div class="content-wrapper">
   {{-- ============================ Page Header ============================ --}}
   <div class="content-header row">
