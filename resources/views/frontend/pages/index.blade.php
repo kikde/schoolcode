@@ -7,6 +7,10 @@
    @include ("frontend.partials.ticker.style-2")                  <!--Ticker Section-->
    @include ("frontend.partials.banner.style-1")              <!--Banner Section-->
 
+   {{-- Upcoming celebrations --}}
+   @include ("frontend.partials.events.birthday")
+   @include ("frontend.partials.events.anniversery")
+
    @include ("frontend.partials.todo.quick-link")                 <!--QUICK LINK-->
 
      @include ("frontend.partials.todo.style-1")               <!--What we do-->

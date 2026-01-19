@@ -30,6 +30,8 @@ use Config;
 // use Storage;
 // use GuzzleHttp\Client;
 use App\Models\User;
+use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 use App\Models\HomeBanner;
 use App\Models\TodoSection;
 use App\Models\StaticData;
@@ -231,7 +233,7 @@ protected function getHomepageCrowdfundData(): array
 
 
   protected function loadHomepageData(): array
-{
+  {
      $base = [
         'story'      => SuccessStory::latest()->take(4)->get(),
         'photos'     => Gallery::where('type','photo')->where('share_site', 'gallery')->where('status','published')->get(),
@@ -243,11 +245,90 @@ protected function getHomepageCrowdfundData(): array
         'all_events' => Events::where('status', 'published')->latest()->take(4)->get(),
         'newspost'   => Post::where('pagestatus','published')->latest()->take(4)->get(),
         'dmessage'  =>  Page::latest()->where('types', "DM")->first(),
-        'donors'   => Donor::latest()->take(4)->get(),
+         'donors'   => Donor::latest()->take(4)->get(),
 
-    ];
+     ];
+
+      // Compute upcoming birthdays (role=2)
+      $upcomingBirthdays = collect();
+      try {
+        $usersWithDob = User::where('role', 2)
+            ->whereNotNull('dob')
+            ->get(['id','name','profile_image','dob']);
+
+        $today = Carbon::today();
+        $inDays = 30; // window
+        $parsed = $usersWithDob->map(function ($u) use ($today) {
+            $dobRaw = trim((string)($u->dob ?? ''));
+            if ($dobRaw === '') return null;
+            $dt = null;
+            foreach (['Y-m-d','d-m-Y','d/m/Y','m/d/Y'] as $fmt) {
+                try { $dt = Carbon::createFromFormat($fmt, $dobRaw); break; } catch (\Exception $e) {}
+            }
+            if (!$dt) { // last resort
+                try { $dt = Carbon::parse($dobRaw); } catch (\Exception $e) { return null; }
+            }
+            $next = Carbon::create($today->year, $dt->month, $dt->day, 0,0,0);
+            if ($next->lt($today)) { $next->addYear(); }
+            $days = $today->diffInDays($next, false);
+            return $days >= 0 ? [
+                'id' => $u->id,
+                'name' => $u->name,
+                'profile_image' => $u->profile_image,
+                'date' => $next,
+                'days' => $days,
+            ] : null;
+        })->filter();
+        $upcomingBirthdays = $parsed->filter(fn($x) => $x['days'] <= $inDays)
+            ->sortBy(['days','name'])
+            ->values()
+            ->take(12);
+      } catch (\Throwable $e) {
+        $upcomingBirthdays = collect();
+      }
+
+      // Compute upcoming anniversaries if a column exists
+      $upcomingAnniversaries = collect();
+      try {
+        $annivCol = null;
+        foreach (['anniversary','anniversary_date','wedding_anniversary','marriage_date','doa','dom'] as $col) {
+            if (Schema::hasColumn('users', $col)) { $annivCol = $col; break; }
+        }
+        if ($annivCol) {
+            $usersWithAnniv = User::where('role', 2)
+                ->whereNotNull($annivCol)
+                ->get(['id','name','profile_image',$annivCol]);
+            $today = Carbon::today();
+            $inDays = 30;
+            $parsed = $usersWithAnniv->map(function ($u) use ($today, $annivCol) {
+                $raw = trim((string)($u->{$annivCol} ?? ''));
+                if ($raw === '') return null;
+                $dt = null;
+                foreach (['Y-m-d','d-m-Y','d/m/Y','m/d/Y'] as $fmt) {
+                    try { $dt = Carbon::createFromFormat($fmt, $raw); break; } catch (\Exception $e) {}
+                }
+                if (!$dt) { try { $dt = Carbon::parse($raw); } catch (\Exception $e) { return null; } }
+                $next = Carbon::create($today->year, $dt->month, $dt->day, 0,0,0);
+                if ($next->lt($today)) { $next->addYear(); }
+                $days = $today->diffInDays($next, false);
+                return $days >= 0 ? [
+                    'id' => $u->id,
+                    'name' => $u->name,
+                    'profile_image' => $u->profile_image,
+                    'date' => $next,
+                    'days' => $days,
+                ] : null;
+            })->filter();
+            $upcomingAnniversaries = $parsed->filter(fn($x) => $x['days'] <= $inDays)
+                ->sortBy(['days','name'])->values()->take(12);
+        }
+      } catch (\Throwable $e) { $upcomingAnniversaries = collect(); }
 
       $extra = [
+        'faq' => Faq::latest()->take(4)->get(),
+        'upcomingBirthdays' => $upcomingBirthdays,
+        'upcomingAnniversaries' => $upcomingAnniversaries,
+      ];
         'faq' => Faq::latest()->take(4)->get(),
     ];
 
