@@ -159,6 +159,23 @@
             </li>
             <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Members</span></a>
             </li>
+            <li class="nav-item {{ Request::is('userslist/desg/*') ? 'sidebar-group-active open' : '' }}">
+                <a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Members by Designation</span></a>
+                <ul class="menu-content">
+                    <li class="{{ Request::is('userslist/desg/Director') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Director') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Directors</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Coordinator') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Coordinator') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Coordinators</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Treasurer') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Treasurer') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Treasurers</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Trustee') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Trustee') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Trustees</span></a>
+                    </li>
+                </ul>
+            </li>
             @if (Module::has('User'))
             <li class="nav-item {{Request::is('users') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{route('users.index')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Admin</span></a> </li>      
             <li class="{{Request::is('/home/banner-list') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/home/banner-list')}}"><i data-feather="monitor"></i><span class="menu-item  text-truncate" data-i18n="User">Banner Section</span></a></li>
