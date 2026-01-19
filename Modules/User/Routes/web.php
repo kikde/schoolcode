@@ -101,6 +101,8 @@ Route::put('/admins-update/{id}', [UserController::class, 'Adminupdate'])->name(
 |--------------------------------------------------------------------------
 */
 Route::get('/userslist',          [UserController::class, 'usersIndex'])->name('members.index'); // clean name
+// Filtered by designation (Director/Coordinator/Treasurer/Trustee)
+Route::get('/userslist/desg/{desg}', [UserController::class, 'usersIndex'])->name('members.by_desg');
 Route::get('/users-add',          [UserController::class, 'addUser'])->name('members.create');
 Route::post('/users-add',         [UserController::class, 'store'])->name('members.store');      // keep POST separate from /users
 Route::get('/user-edit/{id}',     [UserController::class, 'editUser'])->name('members.edit');

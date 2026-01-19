@@ -33,7 +33,15 @@
             <li class="{{Request::is('/users-add') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/users-add')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Add Member</span></a>
                     </li>
                 <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">My Refferel</span></a>
-                         </li> 
+                         </li>
+                <li class="nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Members by Designation</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Director') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Directors</span></a></li>
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Coordinator') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Coordinators</span></a></li>
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Treasurer') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Treasurers</span></a></li>
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Trustee') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Trustees</span></a></li>
+                    </ul>
+                </li> 
 
             {{-- <li class="nav-item "><a class="d-flex align-items-center" href="#"><i data-feather="archive"></i><span class="menu-title text-truncate" data-i18n="Users">Support Tickets</span></a>
                 <ul class="menu-content"> 
@@ -57,6 +65,14 @@
                 <li class="nav-item {{Request::is('home') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/home')}}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span></a>           
                 </li>
                 <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Users</span></a>
+                </li>
+                <li class="nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Members by Designation</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Director') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Directors</span></a></li>
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Coordinator') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Coordinators</span></a></li>
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Treasurer') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Treasurers</span></a></li>
+                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Trustee') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Trustees</span></a></li>
+                    </ul>
                 </li>
                     @if (Module::has('User'))
                     <li class="nav-item {{Request::is('users') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{route('users.index')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Admin</span></a> </li>      
@@ -214,7 +230,27 @@
                     
                 </ul>
             </li>
-
+                {{-- ===== Operations / Tools ===== --}}
+            <li class="nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="tool"></i><span class="menu-title text-truncate" data-i18n="User">Operations</span></a>
+                <ul class="menu-content">
+                    <li class="{{Request::is('tools/qr-image') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/qr-image') }}"><i data-feather="image"></i><span class="menu-item text-truncate">QR Image Change</span></a></li>
+                    <li class="{{Request::is('supporters/monthly') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/supporters/monthly') }}"><i data-feather="users"></i><span class="menu-item text-truncate">Monthly Supporters</span></a></li>
+                    <li class="{{Request::is('tools/backup') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/backup') }}"><i data-feather="database"></i><span class="menu-item text-truncate">Database Backup</span></a></li>
+                    <li class="{{Request::is('users/birthdays') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/users/birthdays') }}"><i data-feather="calendar"></i><span class="menu-item text-truncate">Upcoming BirthDay</span></a></li>
+                    <li class="{{Request::is('tools/popup-message') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/popup-message') }}"><i data-feather="message-square"></i><span class="menu-item text-truncate">Popup Message</span></a></li>
+                    <li class="{{Request::is('reports') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/reports') }}"><i data-feather="bar-chart-2"></i><span class="menu-item text-truncate">Reports</span></a></li>
+                    <li class="{{Request::is('tools/sms') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/sms') }}"><i data-feather="smartphone"></i><span class="menu-item text-truncate">SMS</span></a></li>
+                    <li class="{{Request::is('tools/whatsapp') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/whatsapp') }}"><i data-feather="message-circle"></i><span class="menu-item text-truncate">WhatsApp</span></a></li>
+                    <li class="{{Request::is('csr') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/csr') }}"><i data-feather="briefcase"></i><span class="menu-item text-truncate">CSR</span></a></li>
+                    <li class="{{Request::is('volunteer') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/volunteer') }}"><i data-feather="user-check"></i><span class="menu-item text-truncate">Volunteer</span></a></li>
+                    <li class="{{Request::is('ecommerce') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/ecommerce') }}"><i data-feather="shopping-bag"></i><span class="menu-item text-truncate">Ecommerce</span></a></li>
+                    <li class="{{Request::is('branding') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/branding') }}"><i data-feather="type"></i><span class="menu-item text-truncate">Branding</span></a></li>
+                    <li class="{{Request::is('tools/collage-maker') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/collage-maker') }}"><i data-feather="grid"></i><span class="menu-item text-truncate">Collage Maker</span></a></li>
+                    <li class="{{Request::is('tools/breaking-news-maker') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/breaking-news-maker') }}"><i data-feather="alert-triangle"></i><span class="menu-item text-truncate">Breaking News Maker</span></a></li>
+                    <li class="{{Request::is('tools/watermark') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/watermark') }}"><i data-feather="droplet"></i><span class="menu-item text-truncate">WaterMark</span></a></li>
+                    <li class="{{Request::is('tools/daily-poster') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/tools/daily-poster') }}"><i data-feather="image"></i><span class="menu-item text-truncate">Daily Poster</span></a></li>
+                </ul>
+            </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="film"></i><span class="menu-title text-truncate" data-i18n="Users">Media Coverage</span></a>
                 <ul class="menu-content"> 
                 <li class="{{Request::is('successstory') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ route('successstory.index')}}"><i data-feather="droplet"></i><span class="menu-item  text-truncate" data-i18n="User">All Success Story</span></a>

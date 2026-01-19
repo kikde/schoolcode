@@ -526,7 +526,7 @@ if ($request->hasFile('idproof_doc')) {
 /* =========================================================================
  | USERS LIST (members) â€” clearer name
  |========================================================================= */
-public function usersIndex()
+public function usersIndex(Request $request, $desg = null)
 {
       $authUser = Auth::user();
 
@@ -546,12 +546,20 @@ public function usersIndex()
             }
         ]);
 
+    // Optional filter by designation (desg) via route param or ?desg=
+    $filterDesg = $desg ?? trim((string) $request->query('desg', ''));
+    if ($filterDesg !== '') {
+        $query->where('desg', $filterDesg);
+    }
+
     // ðŸ§© Show all if admin, or only referrer's users otherwise
     if ($authUser->role != 1) {
         $query->where('referrer_id', $authUser->id);
     }
 
-    $user = $query->latest()->simplePaginate(10);
+    $user = $query->latest()->simplePaginate(10)->appends([
+        'desg' => $filterDesg,
+    ]);
 
     return view('user::users.index', compact('user'));
 }
