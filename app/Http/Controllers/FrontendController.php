@@ -329,8 +329,6 @@ protected function getHomepageCrowdfundData(): array
         'upcomingBirthdays' => $upcomingBirthdays,
         'upcomingAnniversaries' => $upcomingAnniversaries,
       ];
-        'faq' => Faq::latest()->take(4)->get(),
-    ];
 
      // merge base data with crowdfunding data
     return array_merge($base, $this->getHomepageCrowdfundData(), $extra);
