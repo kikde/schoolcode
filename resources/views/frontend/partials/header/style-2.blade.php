@@ -9,13 +9,14 @@
     /* JS updates these so sticky bars stack perfectly */
     --gsH: 40px;      /* gov-strip height fallback */
     --headerH: 120px; /* header height fallback */
+    --stripH: 44px;   /* social strip height fallback */
   }
 
   /* =============== GOV STRIP (TOP) =============== */
   .gov-strip{
-    position: sticky;
-    top: 0;
-    z-index: 10003; /* above backdrop(10001)/drawer(10002) */
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 10003; /* above backdrop/drawer/header */
     background: linear-gradient(90deg, var(--saffron), #e11d19);
     color:#fff;
     font-size:12px;
@@ -168,17 +169,18 @@
 
   @media (max-width:420px){ .brand img{ height:44px; } }
 
-  /* spacer to compensate for fixed header height */
-  .header-spacer{ height:var(--headerH); }
+  /* spacer to compensate for fixed bars (gov + header + social) */
+  .header-spacer{ height: calc(var(--gsH) + var(--headerH) + var(--stripH)); }
   /* allow pages to opt-in to true overlay (e.g., hero under header) */
   .overlay-hero .header-spacer{ height:0; }
   .overlay-hero .header{ background:rgba(255,255,255,.35); border-bottom-color: transparent; }
 
   /* =============== SOCIAL STRIP (BOTTOM OF STACK) =============== */
   .strip{
-    position: sticky;
+    position: fixed;
     top: calc(var(--gsH) + var(--headerH)); /* sits under gov + header */
-    z-index: 9999; /* below drawer/backdrop, above content */
+    left: 0; right: 0;
+    z-index: 9999; /* below header/gov */
     background: linear-gradient(90deg,var(--saffron),#e11d19);
     color:#fff; border-bottom:0; box-shadow: var(--shadow); width:100%;
   }
@@ -439,14 +441,17 @@
 (function measureBars(){
   const gov = document.querySelector('.gov-strip');
   const header = document.querySelector('.header');
+  const strip = document.querySelector('.strip');
   function apply(){
     const gsH = gov ? gov.offsetHeight : 0;
     const hH  = header ? header.offsetHeight : 0;
+    const stH = strip ? strip.offsetHeight : 0;
     document.documentElement.style.setProperty('--gsH', gsH + 'px');
     document.documentElement.style.setProperty('--headerH', hH + 'px');
+    document.documentElement.style.setProperty('--stripH', stH + 'px');
   }
   ['load','resize'].forEach(evt => window.addEventListener(evt, () => requestAnimationFrame(apply)));
-  [gov, header].forEach(el => {
+  [gov, header, strip].forEach(el => {
     if (!el) return;
     el.querySelectorAll('img').forEach(img => {
       if (!img.complete) img.addEventListener('load', apply, { once:true });
