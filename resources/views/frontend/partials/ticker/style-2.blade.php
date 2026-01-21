@@ -1,5 +1,17 @@
 <!-- Ribbon / Testimonials Ticker (clickable) -->
- <div class="ribbon-ticker" role="region" aria-label="Testimonials">
+<style>
+  /* Make ticker full-bleed and flush on mobile */
+  .ribbon-ticker{position:relative; width:100%; box-sizing:border-box; overflow:hidden}
+  /* break out of centered containers to remove side gutters */
+  @media (max-width: 768px){
+    .ribbon-ticker{width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); border-radius:0}
+  }
+  .ribbon-track{display:inline-flex; gap:28px; white-space:nowrap; padding:8px 12px}
+  .ribbon-label{display:inline-flex; align-items:center; background:#2b1979; color:#fff; font-weight:800; padding:8px 14px; margin-right:10px}
+  .ribbon-text{color:#111827; text-decoration:none; font-weight:600}
+  .ribbon-text:hover{text-decoration:underline}
+</style>
+<div class="ribbon-ticker" role="region" aria-label="Testimonials">
   <div class="ribbon-label">Events</div>
   <div class="ribbon-track">
      @foreach( $all_events  as $tickers)
