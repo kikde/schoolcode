@@ -4,12 +4,21 @@ namespace Modules\Setting\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Setting\Entities\Ad;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\File;
 
 class AdsController extends Controller
 {
     public function index()
     {
+        if (!Schema::hasTable('ads')) {
+            // Render the page with a helpful notice instead of throwing
+            return view('setting::ads.index', [
+                'style7' => null,
+                'style8' => null,
+                'needsMigration' => true,
+            ]);
+        }
         $style7 = Ad::firstOrCreate(['slot' => 'home_style7']);
         $style8 = Ad::firstOrCreate(['slot' => 'home_style8']);
         return view('setting::ads.index', compact('style7','style8'));
@@ -33,4 +42,3 @@ class AdsController extends Controller
         return back()->with('message', ucfirst(str_replace('_',' ', $slot)).' saved');
     }
 }
-
