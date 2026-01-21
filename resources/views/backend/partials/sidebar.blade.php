@@ -301,6 +301,8 @@
 
                 <li class="{{Request::is('seo-settings') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/seo-settings')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">SEO Settings</span></a>
                 </li>  
+                <li class="{{Request::is('ads') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/ads') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Ads</span></a>
+                </li>
              </ul>
             </li>
             @endif

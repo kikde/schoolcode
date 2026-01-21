@@ -40,4 +40,8 @@ Route::resource('/settings', 'SettingController');
 
     Route::get('/payment-gateways', 'SettingController@editPayment');
 
-     Route::post('/payment-gateways', 'SettingController@updatePayment');
+    Route::post('/payment-gateways', 'SettingController@updatePayment');
+
+// Ads management
+Route::get('/ads', 'AdsController@index')->name('ads.index');
+Route::post('/ads/{slot}', 'AdsController@update')->name('ads.update');

@@ -261,7 +261,11 @@
       {{-- Left: About text --}}
       <div class="vsf-about-main">
         <h4>Who We Are</h4>
-        <h2>{{ $setting->title }} – A confluence of hope, education and empowerment.</h2>
+        <h2>{{ $aboutTitle ?? ($setting->title.' – A confluence of hope, education and empowerment.') }}</h2>
+
+        @if(!empty($aboutDesc))
+          {!! $aboutDesc !!}
+        @else
 
         <p>
           <b>{{ $setting->title }}</b> We are a non-profit organisation working for the 
@@ -281,7 +285,7 @@
           <b>{{ $setting->title }}</b> is committed to this pledge: – 
           <em>‘Where there is need, there is our service; where there is darkness, there is the light of our efforts.’</em>
         </p>
-
+       @endif
         <div class="vsf-pill-row">
           <span class="vsf-pill">Education &amp; Skill Development</span>
           <span class="vsf-pill">Health • Nutrition • Shelter</span>
@@ -291,10 +295,12 @@
 
       {{-- Middle: Photo + overlay --}}
       <div class="vsf-about-photo-card">
-        <img src="{{ asset('backend/uploads/'.$dmessage->breadcrumb) }}" alt="Vihatmaa Sewa Foundation Leader">
+        @php $bgImg = $aboutBg ?? ($dmessage->breadcrumb ?? null); @endphp
+        <img src="{{ $bgImg ? asset('backend/uploads/'.$bgImg) : asset('frontend/assets/images/background/default-banner.jpg') }}" alt="
+        ">
 
         <div class="vsf-photo-overlay">
-            <img src="{{ asset('backend/uploads/'.$dmessage->image) }}" alt="Vihatmaa Sewa Foundation">
+            <img src="{{ asset('backend/uploads/'.$dmessage->image) }}" alt="">
           <!-- <h4>{{ $setting->meta_author }}</h4> -->
           <span>Founder, {{ $setting->title }}</span>
           <span style="font-size:.78rem;opacity:.9;">
@@ -319,7 +325,7 @@
 
           <div class="vsf-mission-author">
             <h4>{{ $setting->meta_author }}</h4>
-            <h6>Manager • {{ $setting->title }}</h6>
+            <h6>Director • {{ $setting->title }}</h6>
           </div>
         </div>
 

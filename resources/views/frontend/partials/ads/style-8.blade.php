@@ -106,14 +106,20 @@
 }
 </style>
 
-<div class="advert-card">
-  <div class="ad-bg" aria-hidden="true"></div>
-  <div class="ad-inner">
-    <div class="ad-icon">📣</div>
-    <div class="ad-text">
-      <h3>Showcase Your Brand on Our Platform</h3>
-      <p>High-impact placement. Great visibility. Better conversions.</p>
+@php($ad = \Modules\Setting\Entities\Ad::where('slot','home_style8')->first())
+@if($ad && $ad->enabled)
+  <div class="advert-card">
+    <div class="ad-bg" aria-hidden="true"></div>
+    <div class="ad-inner">
+      <div class="ad-icon">📣</div>
+      <div class="ad-text">
+        <h3>{{ $ad->title ?? 'Showcase Your Brand on Our Platform' }}</h3>
+        <p>{{ $ad->subtitle ?? 'High-impact placement. Great visibility. Better conversions.' }}</p>
+      </div>
+      @if(($ad->button_url ?? null) && ($ad->button_text ?? null))
+        <a href="{{ $ad->button_url }}" class="ad-btn">{{ $ad->button_text }}</a>
+      @endif
     </div>
-    <a href="#" class="ad-btn">Start Advertising</a>
   </div>
-</div>
+@endif
+

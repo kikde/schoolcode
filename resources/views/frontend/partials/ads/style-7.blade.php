@@ -92,14 +92,21 @@
 }
 </style>
 
-<div class="ad-image-section">
-  <div class="ad-content">
-    <h3>📢 Advertise with Us Today!</h3>
-    <p>Showcase your brand to thousands of real visitors. Get premium visibility and better engagement.</p>
-    <a href="#" class="ad-btn">Place Your Ad</a>
-  </div>
+@php($ad = \Modules\Setting\Entities\Ad::where('slot','home_style7')->first())
+@if($ad && $ad->enabled)
+  <div class="ad-image-section">
+    <div class="ad-content">
+      <h3>{{ $ad->title ?? 'Advertise with Us Today!' }}</h3>
+      <p>{{ $ad->subtitle ?? 'Showcase your brand to thousands of real visitors. Get premium visibility and better engagement.' }}</p>
+      @if(($ad->button_url ?? null) && ($ad->button_text ?? null))
+        <a href="{{ $ad->button_url }}" class="ad-btn">{{ $ad->button_text }}</a>
+      @endif
+    </div>
 
-  <div class="ad-photo">
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=600&q=80" alt="Advertise banner sample">
+    <div class="ad-photo">
+      @php $img = $ad->image_path ? asset($ad->image_path) : 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=600&q=80'; @endphp
+      <img src="{{ $img }}" alt="Ad image">
+    </div>
   </div>
-</div>
+@endif
+
