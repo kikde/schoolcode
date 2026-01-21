@@ -1,7 +1,7 @@
 <!-- Ribbon / Testimonials Ticker (clickable) -->
 <style>
   /* Make ticker full-bleed and flush on mobile */
-  .ribbon-ticker{position:relative; width:100%; box-sizing:border-box; overflow:hidden}
+  .ribbon-ticker{position:relative; width:100%; box-sizing:border-box; overflow:hidden; margin:0 !important; padding-top:0}
   /* break out of centered containers to remove side gutters */
   @media (max-width: 768px){
     .ribbon-ticker{width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); border-radius:0}
@@ -23,3 +23,4 @@
   </div>
 </div>
   
+
