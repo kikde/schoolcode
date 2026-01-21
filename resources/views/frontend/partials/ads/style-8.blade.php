@@ -113,8 +113,6 @@
   }
 @endphp
 @if($ad && ($ad->enabled ?? false))
-  }
-@endphp
   <div class="advert-card">
     <div class="ad-bg" aria-hidden="true"></div>
     <div class="ad-inner">
@@ -129,3 +127,4 @@
     </div>
   </div>
 @endif
+
