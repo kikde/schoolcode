@@ -38,6 +38,9 @@ use App\Models\StaticData;
 use App\Models\AwardSection;
 use Modules\Partner\Entities\Partner;
 use App\Models\Events;
+use Modules\Setting\Entities\Setting as SiteSetting;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
 
 use Illuminate\Http\Request;
 use Modules\Setting\Entities\EmailTemplate;
@@ -342,10 +345,46 @@ protected function getHomepageCrowdfundData(): array
     return array_merge($base, $this->getHomepageCrowdfundData(), $extra);
 }
 
-public function index()
-{
-    return view('frontend.pages.index', $this->loadHomepageData());
-}
+    public function index()
+    {
+        $data = $this->loadHomepageData();
+
+        // Apply SEO tags from settings so we don't get the default
+        // "It's Over 9000!" placeholders from seotools
+        try {
+            $setting = SiteSetting::first();
+            if ($setting) {
+                $title = (string) ($setting->title ?? config('app.name'));
+                $desc  = (string) ($setting->meta_description ?? '');
+                $keys  = (string) ($setting->meta_keywords ?? '');
+
+                SEOMeta::setTitle($title);
+                if ($desc !== '') SEOMeta::setDescription($desc);
+                if ($keys !== '') {
+                    $arr = array_values(array_filter(array_map('trim', explode(',', $keys))));
+                    if (!empty($arr)) SEOMeta::addKeyword($arr);
+                }
+
+                OpenGraph::setTitle($title);
+                if ($desc !== '') OpenGraph::setDescription($desc);
+                OpenGraph::setUrl(url()->current());
+                OpenGraph::addProperty('type', 'website');
+
+                // best-effort image
+                $img = null;
+                if (!empty($setting->site_logo)) {
+                    $img = asset('backend/uploads/'.$setting->site_logo);
+                } elseif (!empty($setting->favicon_icon)) {
+                    $img = asset('backend/icons/'.$setting->favicon_icon);
+                }
+                if ($img) OpenGraph::addImage($img);
+            }
+        } catch (\Throwable $e) {
+            // Do not break page rendering if seotools not configured
+        }
+
+        return view('frontend.pages.index', $data);
+    }
 
 public function demoNumeric(int $num)
 {
