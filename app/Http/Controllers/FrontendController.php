@@ -358,7 +358,7 @@ protected function getHomepageCrowdfundData(): array
                 $desc  = (string) ($setting->meta_description ?? '');
                 $keys  = (string) ($setting->meta_keywords ?? '');
 
-                SEOMeta::setTitle($title);
+                SEOMeta::setTitle($title, false);
                 if ($desc !== '') SEOMeta::setDescription($desc);
                 if ($keys !== '') {
                     $arr = array_values(array_filter(array_map('trim', explode(',', $keys))));
@@ -923,3 +923,4 @@ public function demo(string $slug)
         //
     }
 }
+
