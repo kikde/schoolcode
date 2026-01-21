@@ -16,8 +16,7 @@
   align-items:center;
   justify-content:space-between;
   padding:20px 25px;
-  flex-wrap:wrap;
-}
+  flex-wrap:wrap;\n  gap:18px;\n}
 
 .ad-image-section::before{
   content:"";
@@ -63,18 +62,9 @@
   box-shadow:0 12px 30px rgba(0,91,255,0.4);
 }
 
-.ad-image-section .ad-photo{
-  flex:1 1 280px;
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
+.ad-image-section .ad-photo{\n  flex:0 1 420px;\n  max-width:520px;\n  text-align:center;\n  position:relative;\n  z-index:1;\n}
 
-.ad-image-section .ad-photo img{
-  max-width:100%;
-  border-radius:16px;
-  transition:transform 0.3s ease;
-}
+.ad-image-section .ad-photo img{\n  width:100%;\n  height:auto;\n  max-width:480px;\n  max-height:360px;\n  object-fit:cover;\n  border-radius:16px;\n  transition:transform 0.3s ease;\n}
 
 .ad-image-section:hover .ad-photo img{
   transform:scale(1.03);
@@ -86,9 +76,7 @@
     text-align:center;
     padding:30px 20px;
   }
-  .ad-image-section .ad-photo img{
-    max-width:90%;
-  }
+  .ad-image-section .ad-photo img{\n  width:100%;\n  height:auto;\n  max-width:480px;\n  max-height:360px;\n  object-fit:cover;\n  border-radius:16px;\n  transition:transform 0.3s ease;\n}
 }
 </style>
 
@@ -114,6 +102,7 @@
     </div>
   </div>
 @endif
+
 
 
 
