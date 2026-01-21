@@ -108,8 +108,11 @@
 
 @php
   $ad = null;
-  if (\\Illuminate\\Support\\Facades\\Schema::hasTable(''ads'')) {
-    $ad = \\Modules\\Setting\\Entities\\Ad::where(''slot'',''home_style8'')->first();
+  if (\Illuminate\Support\Facades\Schema::hasTable('ads')) {
+    $ad = \Modules\Setting\Entities\Ad::where('slot','home_style8')->first();
+  }
+@endphp
+@if($ad && ($ad->enabled ?? false))
   }
 @endphp
   <div class="advert-card">

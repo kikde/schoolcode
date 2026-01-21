@@ -93,13 +93,13 @@
 </style>
 
 @php
+@php
   $ad = null;
-  if (\\Illuminate\\Support\\Facades\\Schema::hasTable(''ads'')) {
-    $ad = \\Modules\\Setting\\Entities\\Ad::where(''slot'',''home_style7'')->first();
+  if (\Illuminate\Support\Facades\Schema::hasTable('ads')) {
+    $ad = \Modules\Setting\Entities\Ad::where('slot','home_style7')->first();
   }
 @endphp
 @if($ad && ($ad->enabled ?? false))
-  <div class="ad-image-section">
     <div class="ad-content">
       <h3>{{ $ad->title ?? 'Advertise with Us Today!' }}</h3>
       <p>{{ $ad->subtitle ?? 'Showcase your brand to thousands of real visitors. Get premium visibility and better engagement.' }}</p>
@@ -115,4 +115,7 @@
   </div>
 
 @endif
+
+
+
 
