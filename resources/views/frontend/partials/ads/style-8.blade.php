@@ -106,9 +106,12 @@
 }
 </style>
 
-@php($ad = null)
-@php( $ad = \Illuminate\Support\Facades\Schema::hasTable('ads') ? \Modules\Setting\Entities\Ad::where('slot','home_style8')->first() : null )
-@if($ad && ($ad->enabled ?? false))
+@php
+  $ad = null;
+  if (\\Illuminate\\Support\\Facades\\Schema::hasTable(''ads'')) {
+    $ad = \\Modules\\Setting\\Entities\\Ad::where(''slot'',''home_style8'')->first();
+  }
+@endphp
   <div class="advert-card">
     <div class="ad-bg" aria-hidden="true"></div>
     <div class="ad-inner">

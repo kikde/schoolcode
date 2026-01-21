@@ -92,8 +92,12 @@
 }
 </style>
 
-@php($ad = null)
-@php( $ad = \Illuminate\Support\Facades\Schema::hasTable('ads') ? \Modules\Setting\Entities\Ad::where('slot','home_style7')->first() : null )
+@php
+  $ad = null;
+  if (\\Illuminate\\Support\\Facades\\Schema::hasTable(''ads'')) {
+    $ad = \\Modules\\Setting\\Entities\\Ad::where(''slot'',''home_style7'')->first();
+  }
+@endphp
 @if($ad && ($ad->enabled ?? false))
   <div class="ad-image-section">
     <div class="ad-content">
@@ -109,4 +113,6 @@
       <img src="{{ $img }}" alt="Ad image">
     </div>
   </div>
+
 @endif
+
