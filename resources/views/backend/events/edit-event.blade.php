@@ -18,12 +18,17 @@
 
   /* WYSIWYG editor sizing (Quill + fallback) */
   /* Quill present */
-  #blog-editor-container .ql-toolbar{border-radius:6px 6px 0 0}
-  #blog-editor-container .ql-container{border-radius:0 0 6px 6px}
+  #blog-editor-wrapper{margin-bottom:1rem}
+  #blog-editor-container .ql-toolbar{border-radius:6px 6px 0 0;border-color:#e5e7eb}
+  #blog-editor-container .ql-container{
+    border-radius:0 0 6px 6px;
+    border-color:#e5e7eb;
+    max-height:280px;      /* keep inside card */
+    overflow-y:auto;       /* scroll long content */
+  }
   #blog-editor-container .ql-editor{
-    min-height:220px;
-    max-height:280px;
-    overflow-y:auto;
+    min-height:220px;      /* comfortable typing area */
+    height:auto;
   }
   /* Fallback when Quill is not loaded and we use contenteditable .editor */
   #blog-editor-container .editor:not(.ql-container){
