@@ -181,14 +181,7 @@ Route::post('/media-upload/loadmore', [MediaUploadController::class, 'get_image_
         Route::post('/new', [EventsController::class,'store_event']);
         Route::get('/edit/{id}', [EventsController::class,'edit_event'])->name('admin.events.edit');
         Route::post('/update', [EventsController::class,'update_event'])->name('admin.events.update');
-        Route::post('/delete/{id}', [EventsController::class,'delete_event'])->name('admin.events.delete');
-        // Helper GET endpoint to land on the correct edit screen
-        Route::get('/update', function(\Illuminate\Http\Request $request){
-            $id = (int) $request->query('event_id', 0);
-            return $id > 0
-                ? redirect()->route('admin.events.edit', ['id' => $id])
-                : redirect()->route('admin.events.all');
-        });
+        Route::post('/delete/{id}', [EventsController::class,'delete_event'])->name('admin.events.delete'); 
         Route::post('/clone', [EventsController::class,'clone_event'])->name('admin.events.clone');
         Route::post('/bulk-action', [EventsController::class,'bulk_action'])->name('admin.events.bulk.action');
 

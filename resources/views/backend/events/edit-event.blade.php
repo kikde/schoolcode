@@ -52,7 +52,7 @@
         <form class="mt-2" id="event-edit-form" action="{{ route('admin.events.update') }}" method="POST" enctype="multipart/form-data">
           @csrf
           {{-- Route is POST, so do NOT add @method('PUT') --}}
-          <input type="hidden" name="event_id" value="{{ $event->id }}">
+          <input type="hidden" name="id" value="{{ $event->id }}">
 
           <div class="row">
             {{-- LEFT --}}
