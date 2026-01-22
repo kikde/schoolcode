@@ -182,7 +182,7 @@ Route::post('/media-upload/loadmore', [MediaUploadController::class, 'get_image_
         Route::get('/edit/{id}', [EventsController::class,'edit_event'])->name('admin.events.edit');
         Route::post('/update', [EventsController::class,'update_event'])->name('admin.events.update');
         Route::post('/delete/{id}', [EventsController::class,'delete_event'])->name('admin.events.delete');
-        Route::get('/update', function(){ return redirect()->route('admin.events.all'); });
+        Route::get('/update', function(\\Illuminate\\Http\\Request ){  = (int) ->input('event_id'); return  ? redirect()->route('admin.events.edit', ['id'=>]) : redirect()->route('admin.events.all'); });
         Route::post('/clone', [EventsController::class,'clone_event'])->name('admin.events.clone');
         Route::post('/bulk-action', [EventsController::class,'bulk_action'])->name('admin.events.bulk.action');
 
@@ -309,3 +309,4 @@ Route::get('cache-cron', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
