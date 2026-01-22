@@ -115,7 +115,7 @@
               </div>
 
               {{-- Detailed Description (Quill-compatible; also works without Quill) --}}
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label>{{ __('Detailed Description') }}</label>
                 <p class="my-50">
                   <a href="javascript:void(0);" id="blog-image-text">Recommended inline image 700×442, max ~10 MB.</a>
@@ -128,7 +128,7 @@
                     <div class="editor" contenteditable="true">{!! old('description', $event->description) !!}</div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="section-title-small mt-4">{{ __('Date & Time') }}</div>
               <div class="divider-soft"></div>
