@@ -16,14 +16,24 @@
   @media (max-width:575.98px){#account-upload-img{width:100%;height:auto}}
   @media (max-width:575.98px){.header-bar{flex-direction:column;align-items:flex-start}}
 
-  /* Constrain the rich text editor height */
-  #blog-editor-container .editor{
-    height: 280px;           /* consistent visible height */
-    overflow-y: auto;        /* scroll when content grows */
-    padding: 10px;           /* breathing room inside */
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    background: #fff;
+  /* WYSIWYG editor sizing (Quill + fallback) */
+  /* Quill present */
+  #blog-editor-container .ql-toolbar{border-radius:6px 6px 0 0}
+  #blog-editor-container .ql-container{border-radius:0 0 6px 6px}
+  #blog-editor-container .ql-editor{
+    min-height:220px;
+    max-height:280px;
+    overflow-y:auto;
+  }
+  /* Fallback when Quill is not loaded and we use contenteditable .editor */
+  #blog-editor-container .editor:not(.ql-container){
+    min-height:220px;
+    max-height:280px;
+    overflow-y:auto;
+    padding:10px;
+    border:1px solid #e5e7eb;
+    border-radius:6px;
+    background:#fff;
   }
 </style>
 @endsection
