@@ -15,6 +15,16 @@
   .account-upload-overlay{position:absolute;left:0;right:0;bottom:0;padding:6px 10px;background:linear-gradient(to top,rgba(0,0,0,.65),transparent);color:#fff;font-size:13px;text-align:center;pointer-events:none}
   @media (max-width:575.98px){#account-upload-img{width:100%;height:auto}}
   @media (max-width:575.98px){.header-bar{flex-direction:column;align-items:flex-start}}
+
+  /* Constrain the rich text editor height */
+  #blog-editor-container .editor{
+    height: 280px;           /* consistent visible height */
+    overflow-y: auto;        /* scroll when content grows */
+    padding: 10px;           /* breathing room inside */
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: #fff;
+  }
 </style>
 @endsection
 
