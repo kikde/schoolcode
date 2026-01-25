@@ -12,7 +12,6 @@
 </style>
 
 @php($items = $items ?? collect())
-@if($items->count())
 <section class="desg-section">
   <div class="auto-container">
     <div class="desg-title">
@@ -21,18 +20,21 @@
         <a href="{{ $moreUrl }}" class="btn btn-sm btn-outline-primary">View All</a>
       @endif
     </div>
-    <div class="desg-grid">
-      @foreach($items as $m)
-        <div class="desg-card">
-          <div class="desg-photo" style="background-image:url('{{ $m->profile_image ? asset('backend/uploads/'.$m->profile_image) : asset('frontend/assets/images/team/team-1.jpg') }}')"></div>
-          <div class="desg-meta">
-            <p class="desg-name">{{ $m->name }}</p>
-            <div class="desg-role">{{ $m->desg }}</div>
+    @if($items->count())
+      <div class="desg-grid">
+        @foreach($items as $m)
+          <div class="desg-card">
+            <div class="desg-photo" style="background-image:url('{{ $m->profile_image ? asset('backend/uploads/'.$m->profile_image) : asset('frontend/assets/images/team/team-1.jpg') }}')"></div>
+            <div class="desg-meta">
+              <p class="desg-name">{{ $m->name }}</p>
+              <div class="desg-role">{{ $m->desg }}</div>
+            </div>
           </div>
-        </div>
-      @endforeach
-    </div>
+        @endforeach
+      </div>
+    @else
+      <div class="text-center text-muted" style="padding:16px 0;">No members found.</div>
+    @endif
   </div>
   </section>
-@endif
-
+ 
