@@ -9,6 +9,8 @@
 .desg-meta{padding:10px 12px}
 .desg-name{font-size:16px;font-weight:600;margin:0}
 .desg-role{font-size:13px;color:#6b7280}
+/* Match events CTA style */
+.events-btn{background:linear-gradient(90deg,#ff7a00,#ff4b2b);color:#fff;padding:8px 28px;border-radius:999px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border:none}
 </style>
 
 @php($items = $items ?? collect())
@@ -17,14 +19,14 @@
     <div class="desg-title">
       <h3 style="margin:0;color:#230c74;font-weight:700;">{{ $title ?? 'Team' }}</h3>
       @if(!empty($moreUrl))
-        <a href="{{ $moreUrl }}" class="btn btn-sm btn-outline-primary">View All</a>
+        <a href="{{ $moreUrl }}" class="events-btn">View All</a>
       @endif
     </div>
     @if($items->count())
       <div class="desg-grid">
         @foreach($items as $m)
           <div class="desg-card">
-            <div class="desg-photo" style="background-image:url('{{ $m->profile_image ? asset('backend/uploads/'.$m->profile_image) : asset('frontend/assets/images/team/team-1.jpg') }}')"></div>
+          <div class="desg-photo" style="background-image:url('{{ $m->profile_image ? asset('backend/uploads/members/'.$m->profile_image) : asset('frontend/assets/images/team/team-1.jpg') }}')"></div>
             <div class="desg-meta">
               <p class="desg-name">{{ $m->name }}</p>
               <div class="desg-role">{{ $m->desg }}</div>
