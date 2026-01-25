@@ -248,9 +248,32 @@ protected function getHomepageCrowdfundData(): array
         'all_events' => Events::where('status', 'published')->latest()->take(4)->get(),
         'newspost'   => Post::where('pagestatus','published')->latest()->take(4)->get(),
         'dmessage'  =>  Page::latest()->where('types', "DM")->first(),
-         'donors'   => Donor::latest()->take(4)->get(),
+        'donors'   => Donor::latest()->take(4)->get(),
 
      ];
+
+     // Role-based designation groups for homepage sections
+     try {
+        $desgMap = [
+            'Directors'    => 'Director',
+            'Coordinators' => 'Coordinator',
+            'Treasurers'   => 'Treasurer',
+            'Trustees'     => 'Trustee',
+        ];
+        foreach ($desgMap as $key => $value) {
+            $base['desg'.$key] = User::where('role', 2)
+                ->where('useractive', 1)
+                ->where('desg', $value)
+                ->latest()
+                ->take(12)
+                ->get(['id','name','profile_image','desg']);
+        }
+     } catch (\Throwable $e) {
+        $base['desgDirectors'] = collect();
+        $base['desgCoordinators'] = collect();
+        $base['desgTreasurers'] = collect();
+        $base['desgTrustees'] = collect();
+     }
 
       // Compute upcoming birthdays (role=2)
       $upcomingBirthdays = collect();

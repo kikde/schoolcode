@@ -29,6 +29,28 @@
  
    @include('frontend.partials.team.style-2')                <!--Management Team-->
 
+   {{-- Management filters on homepage --}}
+   @include('frontend.partials.team.desg-block', [
+      'title' => 'Directors',
+      'items' => $desgDirectors ?? collect(),
+      'moreUrl' => url('userslist/desg/Director')
+   ])
+   @include('frontend.partials.team.desg-block', [
+      'title' => 'Coordinators',
+      'items' => $desgCoordinators ?? collect(),
+      'moreUrl' => url('userslist/desg/Coordinator')
+   ])
+   @include('frontend.partials.team.desg-block', [
+      'title' => 'Treasurers',
+      'items' => $desgTreasurers ?? collect(),
+      'moreUrl' => url('userslist/desg/Treasurer')
+   ])
+   @include('frontend.partials.team.desg-block', [
+      'title' => 'Trustees',
+      'items' => $desgTrustees ?? collect(),
+      'moreUrl' => url('userslist/desg/Trustee')
+   ])
+
     @include('frontend.partials.volunteers.style-3')               <!--Members-->
    
   @include('frontend.partials.donor.style-1')          <!--Donor-->
