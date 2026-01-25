@@ -255,15 +255,17 @@ protected function getHomepageCrowdfundData(): array
      // Role-based designation groups for homepage sections
      try {
         $desgMap = [
-            'Directors'    => 'Director',
-            'Coordinators' => 'Coordinator',
-            'Treasurers'   => 'Treasurer',
-            'Trustees'     => 'Trustee',
+            'Directors'    => ['Director','Directors'],
+            'Coordinators' => ['Coordinator','Coordinators'],
+            'Treasurers'   => ['Treasurer','Treasurers','Treasure','Treasures'],
+            'Trustees'     => ['Trustee','Trustees'],
         ];
-        foreach ($desgMap as $key => $value) {
+        foreach ($desgMap as $key => $matches) {
             $base['desg'.$key] = User::where('role', 2)
-                ->where('useractive', 1)
-                ->where('desg', $value)
+                ->whereNotNull('desg')
+                ->where(function($q) use ($matches){
+                    foreach ($matches as $m) { $q->orWhere('desg', $m); }
+                })
                 ->latest()
                 ->take(12)
                 ->get(['id','name','profile_image','desg']);
