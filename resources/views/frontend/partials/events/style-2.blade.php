@@ -48,7 +48,8 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      /* Let content decide height so we don't get big blank space */
+      height: auto;
     }
 
     .vsf-evt2-media {

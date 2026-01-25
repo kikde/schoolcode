@@ -17,7 +17,8 @@
 
 /* Card base */
 .objective-slider .news-block-one .inner-box{
-  height:100%;
+  /* Let cards size to content to avoid big empty space when some slides are taller */
+  height:auto;
   display:flex;
   flex-direction:column;
   border-radius:16px;
