@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -38,6 +38,7 @@
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="{{asset('frontend/custom/navbottom/app.css')}}"> -->
+@stack('styles')
 </head>
 
 <!-- page wrapper -->
@@ -79,7 +80,7 @@
     ])
 
 
-@include ("frontend.partials.whatsapp.whatsapp")
+{{--@include ("frontend.partials.whatsapp.whatsapp")--}}
 
   {{-- @include ("frontend.partials.whatsapp.bottom-1")--}} 
 
@@ -220,6 +221,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+@stack('scripts')
 </body><!-- End of .page_wrapper -->
 </html>
+
+
+
+
 

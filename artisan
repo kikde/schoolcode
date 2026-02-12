@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+﻿#!/usr/bin/env php
 <?php
 
 define('LARAVEL_START', microtime(true));
@@ -15,7 +15,11 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-require __DIR__.'/vendor/autoload.php';
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (!file_exists($autoload)) {
+    $autoload = __DIR__ . '/vendor2/autoload.php';
+}
+require $autoload;
 
 $app = require_once __DIR__.'/bootstrap/app.php';
 
@@ -51,3 +55,5 @@ $status = $kernel->handle(
 $kernel->terminate($input, $status);
 
 exit($status);
+
+
