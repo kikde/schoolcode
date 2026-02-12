@@ -52,38 +52,37 @@ class FrontendController extends Controller
 {
 
     public function __construct()
-    {
-        $res_query = Sector::query();
-        $setting = Setting::first();
-        $footer = Sector::query();
-        $testi = Testimonial::latest()->limit(6)->get();
-        $manage = Manageteam::latest()->limit(8)->get();
-        $statics = StaticData::first();
-        $award = AwardSection::get();
-        $footermenu = $footer->limit(5)->get(['sector_name','id', 'slug','pagestatus']);
-        $dmessage  =  Page::where('types', "DM")->first();
-        // Provide a safe default object so views never error if DM page is removed
-        if (!$dmessage) {
-            $dmessage = (object) [
-                'name' => null,
-                'breadcrumb' => null,
-                'image' => null,
-                'description' => null,
-            ];
-        }
-        View::share([
-            'setting'=>$setting,
-            'secmenu' =>$secmenu,
-            'testi' =>$testi,
-            'footermenu' =>$footermenu,
-            'manage'=>$manage,
-            'statics'=>$statics,
-            'award'=>$award,
-            'dmessage'=>$dmessage
-        ,
-            'site' => $this->prepareSettingViewData($setting)
-        ]);
+{
+    $res_query = Sector::query();
+    $setting = Setting::first();
+    $secmenu = $res_query->get(["sector_name","id", "slug","pagestatus", "breadcrumb","description", "pagekeyword"]);
+    $footer = Sector::query();
+    $testi = Testimonial::latest()->limit(6)->get();
+    $manage = Manageteam::latest()->limit(8)->get();
+    $statics = StaticData::first();
+    $award = AwardSection::get();
+    $footermenu = $footer->limit(5)->get(["sector_name","id", "slug","pagestatus"]);
+    $dmessage  =  Page::where("types", "DM")->first();
+    if (!$dmessage) {
+        $dmessage = (object) [
+            "name" => null,
+            "breadcrumb" => null,
+            "image" => null,
+            "description" => null,
+        ];
     }
+    View::share([
+        'setting'   => $setting,
+        'secmenu'   => $secmenu,
+        'testi'     => $testi,
+        'footermenu'=> $footermenu,
+        'manage'    => $manage,
+        'statics'   => $statics,
+        'award'     => $award,
+        'dmessage'  => $dmessage,
+        'site'      => $this->prepareSettingViewData($setting),
+    ]);
+}
     
     protected function prepareSettingViewData($setting): array
     {
@@ -243,7 +242,7 @@ protected function getHomepageCrowdfundData(): array
 
     // 3) Get total paid donations + paid donor count per campaign (campaign = slug)
     $stats = Donation::whereIn('campaign', $slugs)
-        ->where('status', 'paid')   // âœ… only paid donations
+        ->where('status', 'paid')   // Ã¢Å“â€¦ only paid donations
         ->selectRaw('campaign, SUM(amount_paise) as total_paise, COUNT(*) as donor_count')
         ->groupBy('campaign')
         ->get()
@@ -969,6 +968,7 @@ public function demo(string $slug)
         //
     }
 }
+
 
 
 
