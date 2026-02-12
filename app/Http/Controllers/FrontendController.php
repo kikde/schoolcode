@@ -55,7 +55,6 @@ class FrontendController extends Controller
     {
         $res_query = Sector::query();
         $setting = Setting::first();
-        $secmenu = $res_query->get(['sector_name','id', 'slug','pagestatus', 'breadcrumb','description', 'pagekeyword']);
         $footer = Sector::query();
         $testi = Testimonial::latest()->limit(6)->get();
         $manage = Manageteam::latest()->limit(8)->get();
@@ -81,11 +80,33 @@ class FrontendController extends Controller
             'statics'=>$statics,
             'award'=>$award,
             'dmessage'=>$dmessage
+        ,
+            'site' => $this->prepareSettingViewData($setting)
         ]);
     }
-
+    
+    protected function prepareSettingViewData($setting): array
+    {
+        $site = [
+            'title'    => (string)($setting->title ?? config('app.name')),
+            'email'    => (string)($setting->site_email ?? ''),
+            'phone'    => (string)($setting->phone ?? ''),
+            'address'  => (string)($setting->address ?? ''),
+            'logo_url' => null,
+            'favicon'  => null,
+            'facebook' => (string)($setting->facebook_url ?? ''),
+            'instagram'=> (string)($setting->insta_url ?? ''),
+            'youtube'  => (string)($setting->youtube ?? ''),
+        ];
+        if (!empty($setting->site_logo)) {
+            $site['logo_url'] = asset('backend/uploads/'.$setting->site_logo);
+        }
+        if (!empty($setting->favicon_icon)) {
+            $site['favicon'] = asset('backend/icons/'.$setting->favicon_icon);
+        }
+        return $site;
+    }
     public function getData(){
-
         return ['name' => 'sara'];
     }
 
@@ -222,7 +243,7 @@ protected function getHomepageCrowdfundData(): array
 
     // 3) Get total paid donations + paid donor count per campaign (campaign = slug)
     $stats = Donation::whereIn('campaign', $slugs)
-        ->where('status', 'paid')   // ✅ only paid donations
+        ->where('status', 'paid')   // âœ… only paid donations
         ->selectRaw('campaign, SUM(amount_paise) as total_paise, COUNT(*) as donor_count')
         ->groupBy('campaign')
         ->get()
@@ -948,4 +969,9 @@ public function demo(string $slug)
         //
     }
 }
+
+
+
+
+
 
