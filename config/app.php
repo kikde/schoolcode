@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Utsah Foundation Sinnar'),
+    'name' => env('APP_NAME', 'Mamta Educational Acadmey'),
 
     /*
     |--------------------------------------------------------------------------

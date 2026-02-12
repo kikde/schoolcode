@@ -45,7 +45,7 @@
                 {{ $setting->title }}
               </div>
               <div class="brand-subtitle">
-                {{ $setting->meta_author ?? $setting->address }}
+                {{ $setting->meta_keywords ?? $setting->address }}
               </div>
             </div>
           </div>

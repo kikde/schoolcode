@@ -19,7 +19,7 @@
               </span>
             </h1>
             <p class="home-hero__desc">
-              Modern learning, expert faculty, and hands-on clinical training — all under one roof.
+              Modern learning, expert faculty, and hands-on clinical training ï¿½ all under one roof.
             </p>
             <a class="home-hero__cta" href="#">
               <span>LEARN MORE</span>
@@ -123,42 +123,7 @@
           </div>
         </div>
       </section>
-      <section class="gallery" aria-label="Photo Gallery">
-        <div class="container">
-          <div class="gallery__top">
-            <div class="gallery__kicker">MOMENTS THAT MATTER</div>
-            <h2 class="gallery__title">Our Photo <span>Gallery</span></h2>
-            <p class="gallery__sub">
-              Capturing smiles, success, and memories from every corner of HDC - a visual journey through our campus
-              life, achievements, and cherished moments.
-            </p>
-          </div>
-
-          <div class="gallery__grid">
-            <figure class="gallery__item gallery__item--lt">
-              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Campus event highlights" loading="lazy" />
-            </figure>
-            <figure class="gallery__item gallery__item--mt">
-              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Health camp and outreach activity" loading="lazy" />
-            </figure>
-            <figure class="gallery__item gallery__item--rt">
-              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Award ceremony moment" loading="lazy" />
-            </figure>
-            <figure class="gallery__item gallery__item--lb">
-              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Cultural programme celebrations" loading="lazy" />
-            </figure>
-            <figure class="gallery__item gallery__item--mm">
-              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Yoga and wellness session" loading="lazy" />
-            </figure>
-            <figure class="gallery__item gallery__item--mb">
-              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Sports and awards function" loading="lazy" />
-            </figure>
-            <figure class="gallery__item gallery__item--rb">
-              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Hostel and campus facilities" loading="lazy" />
-            </figure>
-          </div>
-        </div>
-      </section>
+      @include ("frontend.partials.gallery.style-2")
 
       <section class="about" aria-label="Why Choose Us">
         <div class="container">
@@ -233,7 +198,7 @@
             <div class="updates__kicker">CAMPUS HEADLINES</div>
             <h2 class="updates__title">Latest <span>Updates</span></h2>
             <p class="updates__sub">
-              Stay up to date with the latest news, announcements, and events from Himachal Dental College — including
+              Stay up to date with the latest news, announcements, and events from Himachal Dental College ï¿½ including
               academic updates, achievements, and important notices.
             </p>
           </div>
@@ -245,7 +210,7 @@
                   <img class="update-embed__logo" src="{{ asset('backend/uploads/'.$setting->site_logo) }}" alt="" aria-hidden="true" />
                   <div class="update-embed__meta">
                     <div class="update-embed__name">Himachal Dental College</div>
-                    <div class="update-embed__small">Social updates • Follow us</div>
+                    <div class="update-embed__small">Social updates ï¿½ Follow us</div>
                   </div>
                 </div>
                 <div class="update-embed__body">
@@ -274,7 +239,7 @@
                 </div>
                 <h3 class="update-card__title">Twelve Healthcare stream</h3>
                 <p class="update-card__text">
-                  Team HDC proudly hosted twelve Healthcare stream students from Government Senior Secondary School…
+                  Team HDC proudly hosted twelve Healthcare stream students from Government Senior Secondary Schoolï¿½
                 </p>
                 <a class="update-card__btn" href="#">
                   <span>READ MORE</span>
@@ -300,7 +265,7 @@
                   Himachal Dental College, Sundernagar outstanding performance of its students in the BDS
                 </h3>
                 <p class="update-card__text">
-                  Himachal Dental College, Sundernagar is extremely pleased to announce the outstanding performance…
+                  Himachal Dental College, Sundernagar is extremely pleased to announce the outstanding performanceï¿½
                 </p>
                 <a class="update-card__btn" href="#">
                   <span>READ MORE</span>
