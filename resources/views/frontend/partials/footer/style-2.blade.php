@@ -19,82 +19,19 @@
               professionals to serve with skill and compassion.
             </p>
 
-            <div class="footer__map" aria-label="Campus location map">
-              <iframe
-                title="Himachal Dental College location map"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Himachal%20Dental%20College%20Sundernagar&output=embed"
-              ></iframe>
+                        <div class="footer__map" aria-label="Campus location map">
+              @php $map = $setting->map_iframe ?? ''; @endphp
+              @if(!empty($map))
+                @if(stripos($map, '<iframe') !== false)
+                  {!! $map !!}
+                @else
+                  <iframe title="Location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="{{ $map }}"></iframe>
+                @endif
+              @endif
             </div>
           </div>
 
           <div class="footer__col">
-            <h3 class="footer__h">Quick Links</h3>
-            <ul class="footer__list">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Campus Facilities</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">FAQ's</a></li>
-              <li><a href="#">Blogs</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-            </ul>
-          </div>
-
-          <div class="footer__col">
-            <h3 class="footer__h">Departments</h3>
-            <ul class="footer__list">
-              <li><a href="#">Periodontology</a></li>
-              <li><a href="#">Prosthodontics</a></li>
-              <li><a href="#">Pedodontics &amp; Preventive Dentistry</a></li>
-              <li><a href="#">Oral Medicine &amp; Radiology</a></li>
-              <li><a href="#">Public Health Dentistry</a></li>
-              <li><a href="#">Oral Pathology &amp; Microbiology</a></li>
-            </ul>
-          </div>
-
-          <div class="footer__col">
-            <h3 class="footer__h">Contact Us</h3>
-
-            <div class="footer__phoneLead" aria-hidden="true">
-              <i class="fa-solid fa-phone"></i>
-            </div>
-
-            <div class="footer__phones" aria-label="Phone contacts">
-              <div class="footer__phone">
-                <div class="footer__plabel">Principal</div>
-                <a class="footer__pvalue" href="tel:+911907267183">+91-1907-267183</a>
-              </div>
-              <div class="footer__phone">
-                <div class="footer__plabel">Alumni Student Query</div>
-                <a class="footer__pvalue" href="tel:+911907267163">+91-1907-267163</a>
-              </div>
-              <div class="footer__phone">
-                <div class="footer__plabel">Patient Care</div>
-                <a class="footer__pvalue" href="tel:+911907267165">+91-1907-267165</a>
-              </div>
-              <div class="footer__phone">
-                <div class="footer__plabel">Admission</div>
-                <a class="footer__pvalue" href="tel:+919915101234">+91-99151-01234</a>
-              </div>
-              <div class="footer__phone">
-                <div class="footer__plabel">Career Opportunities</div>
-                <a class="footer__pvalue" href="tel:+911907267163">+91-1907-267163</a>
-              </div>
-            </div>
-
-            <div class="footer__meta" aria-label="Address and email">
-              <div class="footer__metaItem">
-                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                <span>{{ $setting->address }}</span>
-              </div>
-              <a class="footer__metaItem" href="mailto:{{ $setting->site_email }}">
-                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-                <span>{{ $setting->site_email }}</span>
-              </a>
-            </div>
-          </div>
-        </div>
 
         <div class="footer__bottom" aria-label="Footer bottom">
           <div class="footer__line" aria-hidden="true"></div>
@@ -115,3 +52,4 @@
         </div>
       </div>
     </footer>
+
