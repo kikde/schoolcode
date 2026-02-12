@@ -3,16 +3,16 @@
         <div class="container topbar-inner">
           <div class="topbar-left">
             <span class="follow-label">Follow Us:</span>
-            <a class="social social-fb" href="{{ $setting->facebook_url ?? >
+            <a class="social social-fb" href="#" aria-label="Facebook">
               <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
             </a>
-            <a class="social social-ig" href="{{ $setting->insta_url ?? >
+            <a class="social social-ig" href="#" aria-label="Instagram">
               <i class="fa-brands fa-instagram" aria-hidden="true"></i>
             </a>
-            <a class="social social-yt" href="{{ $setting->youtube ?? >
+            <a class="social social-yt" href="#" aria-label="YouTube">
               <i class="fa-brands fa-youtube" aria-hidden="true"></i>
             </a>
-            <a class="social social-wa" href="{{ isset($setting->phone) ? ("https://wa.me/".preg_replace("/[^0-9]/","", $setting->phone)) : >
+            <a class="social social-wa" href="#" aria-label="WhatsApp">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
             </a>
           </div>
@@ -161,3 +161,5 @@
         </div>
       </div>
     </header>
+
+
