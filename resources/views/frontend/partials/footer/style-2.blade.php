@@ -66,15 +66,15 @@
             <div class="footer__phones" aria-label="Phone contacts">
               <div class="footer__phone">
                 <div class="footer__plabel">Principal</div>
-                <a class="footer__pvalue" href="tel:+911907267183">+91-1907-267183</a>
+                <a class="footer__pvalue" href="tel:+911907267183">+91-9918359025</a>
               </div>
               <div class="footer__phone">
                 <div class="footer__plabel">Alumni Student Query</div>
-                <a class="footer__pvalue" href="tel:+911907267163">+91-1907-267163</a>
+                <a class="footer__pvalue" href="tel:+911907267163">+91-8400244949</a>
               </div>
               <div class="footer__phone">
-                <div class="footer__plabel">Patient Care</div>
-                <a class="footer__pvalue" href="tel:+911907267165">+91-1907-267165</a>
+                <div class="footer__plabel">Student Support</div>
+                <a class="footer__pvalue" href="tel:+911907267165">+91-9936233951</a>
               </div>
               <div class="footer__phone">
                 <div class="footer__plabel">Admission</div>
@@ -82,7 +82,7 @@
               </div>
               <div class="footer__phone">
                 <div class="footer__plabel">Career Opportunities</div>
-                <a class="footer__pvalue" href="tel:+911907267163">+91-1907-267163</a>
+                <a class="footer__pvalue" href="tel:+911907267163">+91-9621877659</a>
               </div>
             </div>
 

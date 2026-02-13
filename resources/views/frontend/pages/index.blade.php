@@ -12,15 +12,14 @@
           <div class="home-hero__content">
             <div class="home-hero__kicker">WELCOME TO MEA!</div>
             <h1 class="home-hero__title">
-              <span class="home-hero__line home-hero__line--top">à¤‰.à¤ªà¥à¤°. à¤¸à¤°à¤•à¤¾à¤° à¤¦à¥à¤µà¤¾à¤°à¤¾ à¤®à¤¾à¤¨à¥à¤¯à¤¤à¤¾ à¤ªà¥à¤°à¤¾à¤ªà¥à¤¤
-               à¤ªà¥à¤°à¤µà¥‡à¤¶ à¤ªà¥à¤°à¤¾à¤°à¤®à¥à¤­ â€“ 01 à¤…à¤ªà¥à¤°à¥ˆà¤² 2025 à¤¸à¥‡</span>
+              <span class="home-hero__line home-hero__line--top">Start Your Beautiful And</span>
               <span class="home-hero__line home-hero__line--bottom">
                 <span class="home-hero__stroke">Bright</span>
                 <span class="home-hero__solid">Future</span>
               </span>
             </h1>
             <p class="home-hero__desc">
-             à¤¸à¥à¤µà¤šà¥à¤› à¤à¤µà¤‚ à¤¸à¥à¤‚à¤¦à¤° à¤µà¤¿à¤¦à¥à¤¯à¤¾à¤²à¤¯ à¤ªà¥à¤°à¤¾à¤‚à¤—à¤£à¥¤ à¤¬à¤šà¥à¤šà¥‹à¤‚ à¤•à¥‡ à¤¬à¥ˆà¤ à¤¨à¥‡ à¤•à¥€ à¤¸à¤®à¥à¤šà¤¿à¤¤ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤ à¤¯à¥‹à¤—à¥à¤¯ à¤…à¤¨à¥à¤­à¤µà¥€ à¤à¤µà¤‚ à¤ªà¥à¤°à¤¶à¤¿à¤•à¥à¤·à¤¿à¤¤ à¤¶à¤¿à¤•à¥à¤·à¤•à¥‹à¤‚ à¤¦à¥à¤µà¤¾à¤°à¤¾ à¤…à¤§à¥à¤¯à¤¾à¤ªà¤¨ à¤•à¥€ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤
+            Modern learning, expert faculty, and hands-on clinical training — all under one roof
             </p>
             <a class="home-hero__cta" href="#">
               <span>LEARN MORE</span>
@@ -43,8 +42,7 @@
                 To Lead In Dentistry
               </h2>
               <p class="about__desc">
-                At {{$setting->title}}, à¤†à¤°à¥à¤¥à¤¿à¤• à¤°à¥‚à¤ª à¤¸à¥‡ à¤ªà¤¿à¤›à¤¡à¤¼à¥‡ à¤›à¤¾à¤¤à¥à¤°à¥‹à¤‚ à¤•à¥‹ à¤¨à¤¿à¤ƒà¤¶à¥à¤²à¥à¤• à¤¶à¤¿à¤•à¥à¤·à¤¾ à¤•à¥€ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤ à¤¸à¤®à¤¯-à¤¸à¤®à¤¯ à¤ªà¤° à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¥€ à¤ªà¤°à¥€à¤•à¥à¤·à¤¾à¤“à¤‚ à¤®à¥‡à¤‚ à¤¸à¤®à¥à¤®à¤¿à¤²à¤¿à¤¤ à¤¹à¥‹à¤¨à¥‡ à¤µà¤¾à¤²à¥‡ à¤›à¤¾à¤¤à¥à¤°à¥‹à¤‚ à¤•à¥‹ à¤µà¤¿à¤¶à¥‡à¤· à¤¶à¤¿à¤•à¥à¤·à¤£ à¤•à¥€ à¤‰à¤¤à¥à¤¤à¤® à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤
-                à¤µà¤¿à¤¶à¤¾à¤² à¤•à¥à¤°à¥€à¤¡à¤¼à¤¾à¤•à¥à¤·à¥‡à¤¤à¥à¤° à¤à¤µà¤‚ à¤–à¥‡à¤² à¤•à¥€ à¤‰à¤¤à¥à¤¤à¤® à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤
+                At {{$setting->title}},  we empower students with the skills, knowledge, and confidence they need to lead in the dynamic field of dentistry and make a meaningful impact.
               </p>
 
               <ul class="about__cards">
