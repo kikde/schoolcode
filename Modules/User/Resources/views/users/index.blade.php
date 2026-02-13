@@ -101,9 +101,9 @@
           <div>
             <h2 class="content-header-title float-left mb-0">
               @if($currentDesg)
-                {{ $currentDesg }} Members
+                {{ $currentDesg }} Students
               @else
-                Members List
+                Student List
               @endif
             </h2>
             <div class="breadcrumb-wrapper">
@@ -113,7 +113,7 @@
                   <li class="breadcrumb-item"><a href="{{ url('/userslist') }}">Members List</a></li>
                   <li class="breadcrumb-item active">{{ $currentDesg }}</li>
                 @else
-                  <li class="breadcrumb-item active">Members List</li>
+                  <li class="breadcrumb-item active">Student List</li>
                 @endif
               </ol>
             </div>

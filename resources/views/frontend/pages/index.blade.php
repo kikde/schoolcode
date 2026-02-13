@@ -1,4 +1,4 @@
-@extends('layouts.master')
+﻿@extends('layouts.master')
 @push('styles')
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
               </span>
             </h1>
             <p class="home-hero__desc">
-            Modern learning, expert faculty, and hands-on clinical training Ã¢â‚¬â€ all under one roof
+            Modern learning, expert faculty, and hands-on clinical training all under one roof
             </p>
             <a class="home-hero__cta" href="#">
               <span>LEARN MORE</span>

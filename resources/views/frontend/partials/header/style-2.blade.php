@@ -106,7 +106,7 @@
                   <li><a href="#">Clubs</a></li>
                 </ul>
               </li>
-              <li class="navitem has-dropdown">
+              <!-- <li class="navitem has-dropdown">
                 <a href="#" class="navlink">
                   Patient Care <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                 </a>
@@ -115,7 +115,7 @@
                   <li><a href="#">Specialties</a></li>
                   <li><a href="#">Appointments</a></li>
                 </ul>
-              </li>
+              </li> -->
               <li class="navitem has-dropdown">
                 <a href="#" class="navlink">
                   Institutional Committees <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>

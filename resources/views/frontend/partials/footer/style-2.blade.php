@@ -47,12 +47,13 @@
           <div class="footer__col">
             <h3 class="footer__h">Departments</h3>
             <ul class="footer__list">
-              <li><a href="#">Periodontology</a></li>
-              <li><a href="#">Prosthodontics</a></li>
-              <li><a href="#">Pedodontics &amp; Preventive Dentistry</a></li>
-              <li><a href="#">Oral Medicine &amp; Radiology</a></li>
-              <li><a href="#">Public Health Dentistry</a></li>
-              <li><a href="#">Oral Pathology &amp; Microbiology</a></li>
+              <li><a href="#">Class 6</a></li>
+              <li><a href="#">Class 7</a></li>
+              <li><a href="#">Class 8</a></li>
+              <li><a href="#">Class 9</a></li>
+              <li><a href="#">Class 10</a></li>
+              <li><a href="#">Class 11</a></li>
+              <li><a href="#">Class 12</a></li>
             </ul>
           </div>
 
