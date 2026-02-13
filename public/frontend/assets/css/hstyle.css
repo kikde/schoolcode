@@ -1603,3 +1603,18 @@ img{max-width:100%;display:block}
 .about__frame .tv-media{ width:100%; height:100%; display:block; object-fit:cover; border:0 }
 .about__frame iframe.tv-media{ width:100%; height:100%; border:0 }
 @media (max-width:980px){ .about__frame{ aspect-ratio:16/9 } }
+/* Mobile header style-2 fixes: remove side whitespace, center content */
+@media (max-width: 520px){
+  .site-header .container{ max-width:100%; padding-left:12px; padding-right:12px }
+  .topbar{ padding:8px 0; margin:0; border-radius:0 }
+  .brandbar{ padding:10px 0; margin:0; border-radius:0 }
+  .navwrap{ margin:0; border-radius:0 }
+
+  .topbar-inner{ flex-direction:column; align-items:center; justify-content:center; gap:8px }
+  .topbar-left, .topbar-right{ justify-content:center; flex-wrap:wrap; gap:10px }
+
+  .brandbar-inner{ display:grid; grid-template-columns:1fr auto; align-items:center; gap:10px }
+  .brand{ align-items:center }
+  .apply-btn{ justify-self:start }
+  .nav-toggle{ justify-self:end; display:inline-block }
+}
