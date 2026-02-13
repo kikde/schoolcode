@@ -1,17 +1,18 @@
-﻿@extends('layouts.master')
+@extends('layouts.master')
 @push('styles')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/hstyle.css') }}">
 @php
-  \ = collect(\ ?? [])->first();
-  \ = \ && !empty(\->images)
-    ? asset('backend/home/banner/'.\->images)
+  $firstBanner = collect($homebanner ?? [])->first();
+  $heroUrl = $firstBanner && !empty($firstBanner->images)
+    ? asset('backend/home/banner/'.$firstBanner->images)
     : asset('frontend/assets/images/background/default-banner.jpg');
 @endphp
 <style>
-  .home-hero__bg{ background-image: linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.25) 58%, rgba(0,0,0,.05) 100%), url('{{ \ }}'), linear-gradient(135deg,#2a5a5b 0%, #1d3f56 45%, #1d2a3a 100%) }
+  .home-hero__bg{ background-image: linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.25) 58%, rgba(0,0,0,.05) 100%), url('{{ $heroUrl }}'), linear-gradient(135deg,#2a5a5b 0%, #1d3f56 45%, #1d2a3a 100%) }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer"><link rel="stylesheet" href="{{ asset('frontend/assets/css/hstyle.css') }}">
 @endpush
 @section('content')<main class="page">
       <section class="home-hero" aria-label="Hero">
@@ -28,7 +29,7 @@
               </span>
             </h1>
             <p class="home-hero__desc">
-            Modern learning, expert faculty, and hands-on clinical training — all under one roof
+            Modern learning, expert faculty, and hands-on clinical training Ã¢â‚¬â€ all under one roof
             </p>
             <a class="home-hero__cta" href="#">
               <span>LEARN MORE</span>
@@ -134,7 +135,7 @@
         <a class="home-social__btn home-social__btn--yt" href="{{ $setting->youtube}}" aria-label="YouTube">
           <i class="fa-brands fa-youtube" aria-hidden="true"></i>
         </a>
-        <a class="home-social__btn home-social__btn--wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,ðŸ‘‹\nThank you for your support!') }}" aria-label="WhatsApp">
+        <a class="home-social__btn home-social__btn--wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ¢â‚¬Â¹\nThank you for your support!') }}" aria-label="WhatsApp">
           <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         </a>
       </nav>
