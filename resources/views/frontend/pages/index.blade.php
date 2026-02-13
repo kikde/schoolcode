@@ -1,4 +1,4 @@
-@extends('layouts.master')
+﻿@extends('layouts.master')
 @push('styles')
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,16 +10,17 @@
         <div class="container home-hero__inner">
           <div class="home-hero__panel" aria-hidden="true"></div>
           <div class="home-hero__content">
-            <div class="home-hero__kicker">WELCOME TO HDC!</div>
+            <div class="home-hero__kicker">WELCOME TO MEA!</div>
             <h1 class="home-hero__title">
-              <span class="home-hero__line home-hero__line--top">Start Your Beautiful And</span>
+              <span class="home-hero__line home-hero__line--top">à¤‰.à¤ªà¥à¤°. à¤¸à¤°à¤•à¤¾à¤° à¤¦à¥à¤µà¤¾à¤°à¤¾ à¤®à¤¾à¤¨à¥à¤¯à¤¤à¤¾ à¤ªà¥à¤°à¤¾à¤ªà¥à¤¤
+               à¤ªà¥à¤°à¤µà¥‡à¤¶ à¤ªà¥à¤°à¤¾à¤°à¤®à¥à¤­ â€“ 01 à¤…à¤ªà¥à¤°à¥ˆà¤² 2025 à¤¸à¥‡</span>
               <span class="home-hero__line home-hero__line--bottom">
                 <span class="home-hero__stroke">Bright</span>
                 <span class="home-hero__solid">Future</span>
               </span>
             </h1>
             <p class="home-hero__desc">
-              Modern learning, expert faculty, and hands-on clinical training � all under one roof.
+             à¤¸à¥à¤µà¤šà¥à¤› à¤à¤µà¤‚ à¤¸à¥à¤‚à¤¦à¤° à¤µà¤¿à¤¦à¥à¤¯à¤¾à¤²à¤¯ à¤ªà¥à¤°à¤¾à¤‚à¤—à¤£à¥¤ à¤¬à¤šà¥à¤šà¥‹à¤‚ à¤•à¥‡ à¤¬à¥ˆà¤ à¤¨à¥‡ à¤•à¥€ à¤¸à¤®à¥à¤šà¤¿à¤¤ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤ à¤¯à¥‹à¤—à¥à¤¯ à¤…à¤¨à¥à¤­à¤µà¥€ à¤à¤µà¤‚ à¤ªà¥à¤°à¤¶à¤¿à¤•à¥à¤·à¤¿à¤¤ à¤¶à¤¿à¤•à¥à¤·à¤•à¥‹à¤‚ à¤¦à¥à¤µà¤¾à¤°à¤¾ à¤…à¤§à¥à¤¯à¤¾à¤ªà¤¨ à¤•à¥€ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤
             </p>
             <a class="home-hero__cta" href="#">
               <span>LEARN MORE</span>
@@ -42,8 +43,8 @@
                 To Lead In Dentistry
               </h2>
               <p class="about__desc">
-                At {{$setting->title}}, we empower students with the skills, knowledge, and confidence they need to
-                lead in the dynamic field of dentistry and make a meaningful impact.
+                At {{$setting->title}}, à¤†à¤°à¥à¤¥à¤¿à¤• à¤°à¥‚à¤ª à¤¸à¥‡ à¤ªà¤¿à¤›à¤¡à¤¼à¥‡ à¤›à¤¾à¤¤à¥à¤°à¥‹à¤‚ à¤•à¥‹ à¤¨à¤¿à¤ƒà¤¶à¥à¤²à¥à¤• à¤¶à¤¿à¤•à¥à¤·à¤¾ à¤•à¥€ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤ à¤¸à¤®à¤¯-à¤¸à¤®à¤¯ à¤ªà¤° à¤ªà¥à¤°à¤¤à¤¿à¤¯à¥‹à¤—à¥€ à¤ªà¤°à¥€à¤•à¥à¤·à¤¾à¤“à¤‚ à¤®à¥‡à¤‚ à¤¸à¤®à¥à¤®à¤¿à¤²à¤¿à¤¤ à¤¹à¥‹à¤¨à¥‡ à¤µà¤¾à¤²à¥‡ à¤›à¤¾à¤¤à¥à¤°à¥‹à¤‚ à¤•à¥‹ à¤µà¤¿à¤¶à¥‡à¤· à¤¶à¤¿à¤•à¥à¤·à¤£ à¤•à¥€ à¤‰à¤¤à¥à¤¤à¤® à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤
+                à¤µà¤¿à¤¶à¤¾à¤² à¤•à¥à¤°à¥€à¤¡à¤¼à¤¾à¤•à¥à¤·à¥‡à¤¤à¥à¤° à¤à¤µà¤‚ à¤–à¥‡à¤² à¤•à¥€ à¤‰à¤¤à¥à¤¤à¤® à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾à¥¤
               </p>
 
               <ul class="about__cards">
@@ -101,7 +102,7 @@
 
             <div class="about__right">
               <div class="about__frame">
-                 <video class="tv-media" preload="metadata" @if($tvPoster) poster="{{ $tvPoster }}" @endif>
+                 <video class="tv-media" preload="metadata" @if($tvPoster) poster="{{ $tvPoster }}" @endif controls playsinline>
       <source src="{{ $tvSrc }}" type="video/mp4">
      
       Your browser does not support HTML5 video.
@@ -126,7 +127,7 @@
         <a class="home-social__btn home-social__btn--yt" href="{{ $setting->youtube}}" aria-label="YouTube">
           <i class="fa-brands fa-youtube" aria-hidden="true"></i>
         </a>
-        <a class="home-social__btn home-social__btn--wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,👋\nThank you for your support!') }}" aria-label="WhatsApp">
+        <a class="home-social__btn home-social__btn--wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,ðŸ‘‹\nThank you for your support!') }}" aria-label="WhatsApp">
           <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         </a>
       </nav>
@@ -138,6 +139,10 @@
 @push('scripts')
 <script src="{{ asset('frontend/assets/js/hscript.js') }}"></script>
 @endpush
+
+
+
+
 
 
 
