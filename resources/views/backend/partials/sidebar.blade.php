@@ -84,7 +84,7 @@
                       <li class="{{Request::is('newsList') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/newsList') }}"><i data-feather="layout"></i><span class="menu-item text-truncate" data-i18n="List">News Post</span></a>
                      </li>
                     
-                    <li class="{{Request::is('pages') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/pages') }}"><i data-feather="target"></i><span class="menu-item text-truncate" data-i18n="List">Objective</span></a>
+                    <li class="{{Request::is('pages') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{ url('/pages') }}"><i data-feather="target"></i><span class="menu-item text-truncate" data-i18n="List">Courses</span></a>
 
                     </li>
                     <li class="{{Request::is('testimonials') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{route('testimonials.index')}}"><i data-feather="smile"></i><span class="menu-item text-truncate" data-i18n="List">Testimonials</span></a>

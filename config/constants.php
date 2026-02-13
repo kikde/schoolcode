@@ -27,6 +27,7 @@ return [
     "CF" =>  "Crowd Funding",
     "SP"  => "shipping-policy",
     "CRP"  => "Cancellation & Refund Policy",
+    "ab" => "About Us"
 
 ],
 
