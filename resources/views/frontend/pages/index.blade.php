@@ -1,5 +1,14 @@
 ﻿@extends('layouts.master')
 @push('styles')
+@php
+  \ = collect(\ ?? [])->first();
+  \ = \ && !empty(\->images)
+    ? asset('backend/home/banner/'.\->images)
+    : asset('frontend/assets/images/background/default-banner.jpg');
+@endphp
+<style>
+  .home-hero__bg{ background-image: linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.25) 58%, rgba(0,0,0,.05) 100%), url('{{ \ }}'), linear-gradient(135deg,#2a5a5b 0%, #1d3f56 45%, #1d2a3a 100%) }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer"><link rel="stylesheet" href="{{ asset('frontend/assets/css/hstyle.css') }}">
@@ -137,6 +146,7 @@
 @push('scripts')
 <script src="{{ asset('frontend/assets/js/hscript.js') }}"></script>
 @endpush
+
 
 
 
