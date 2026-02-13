@@ -1,94 +1,55 @@
-    <section class="courses" aria-label="Our Academic Programmes">
-        <div class="container">
-          <div class="courses__top">
-            <div class="courses__kicker">OUR ACADEMIC PROGRAMMES</div>
-            <h2 class="courses__title">
-              Let's Check Our <span>Courses</span>
-            </h2>
-            <p class="courses__sub">
-              From foundational knowledge to advanced practice, our courses support every stage of your dental journey.
-            </p>
+﻿<section class="courses" aria-label="Our Academic Programmes">
+  <div class="container">
+    <div class="courses__top">
+      <div class="courses__kicker">OUR OBJECTIVES</div>
+      <h2 class="courses__title">Let’s Check Our <span>Objectives</span></h2>
+      <p class="courses__sub">
+        Explore key objectives and initiatives — curated from our sections.
+      </p>
+    </div>
+
+    <div class="courses__grid">
+      @foreach(($secmenu ?? collect())->take(6) as $items)
+        @php
+          $href = url('/objective-details/'.$items->id.'/'.$items->slug);
+          $img  = asset('backend/uploads/'.$items->breadcrumb);
+          $name = $items->sector_name ?? 'Objective';
+          $desc = \Illuminate\Support\Str::limit(strip_tags($items->pagekeyword ?? $items->description ?? ''), 140);
+        @endphp
+        <article class="course-card">
+          <a class="course-card__media" href="{{ $href }}" aria-label="Open: {{ $name }}">
+            <div class="course-card__badge">
+              <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+              <span>Objective</span>
+            </div>
+            <img src="{{ $img }}" alt="{{ $name }}" loading="lazy" />
+          </a>
+          <div class="course-card__body">
+            <h3 class="course-card__name">
+              <a href="{{ $href }}">{{ $name }}</a>
+            </h3>
+            @if(!empty($desc))
+              <p class="course-card__desc">{{ $desc }}</p>
+            @endif
           </div>
+        </article>
+      @endforeach
 
-          <div class="courses__grid">
-            <article class="course-card">
-              <div class="course-card__media">
-                <div class="course-card__badge">
-                  <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
-                  <span>Undergraduate</span>
-                </div>
-                <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="BDS program training" loading="lazy" />
-              </div>
-              <div class="course-card__body">
-                <div class="course-card__rating" role="img" aria-label="Rated 5 out of 5">
-                  <span class="course-card__stars" aria-hidden="true">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </span>
-                  <span class="course-card__score">(5.0)</span>
-                </div>
-                <h3 class="course-card__name">BDS Program</h3>
-                <p class="course-card__desc">
-                  A 5-year degree course offering core knowledge and clinical skills for a strong foundation in
-                  dentistry.
-                </p>
-              </div>
-            </article>
-
-            <article class="course-card">
-              <div class="course-card__media">
-                <div class="course-card__badge">
-                  <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
-                  <span>Postgraduate</span>
-                </div>
-                <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="MDS program clinical practice" loading="lazy" />
-              </div>
-              <div class="course-card__body">
-                <div class="course-card__rating" role="img" aria-label="Rated 5 out of 5">
-                  <span class="course-card__stars" aria-hidden="true">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </span>
-                  <span class="course-card__score">(5.0)</span>
-                </div>
-                <h3 class="course-card__name">MDS Program</h3>
-                <p class="course-card__desc">
-                  A 3-year advanced programme focused on specialization, research, and expert clinical training.
-                </p>
-              </div>
-            </article>
-
-            <article class="course-card">
-              <div class="course-card__media">
-                <div class="course-card__badge">
-                  <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
-                  <span>Diploma</span>
-                </div>
-                <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Diploma dental courses" loading="lazy" />
-              </div>
-              <div class="course-card__body">
-                <div class="course-card__rating" role="img" aria-label="Rated 5 out of 5">
-                  <span class="course-card__stars" aria-hidden="true">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </span>
-                  <span class="course-card__score">(5.0)</span>
-                </div>
-                <h3 class="course-card__name">Diploma Courses</h3>
-                <p class="course-card__desc">
-                  Short-term dental courses aimed at skill enhancement in specific areas of dental practice.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+      @if(($secmenu ?? collect())->isEmpty())
+        {{-- Fallback when no sections are available --}}
+        @for($i=0;$i<3;$i++)
+          <article class="course-card">
+            <div class="course-card__media">
+              <div class="course-card__badge"><i class="fa-solid fa-bookmark"></i><span>Objective</span></div>
+              <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Placeholder" loading="lazy" />
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__name">Coming Soon</h3>
+              <p class="course-card__desc">Content will appear here once objectives are published.</p>
+            </div>
+          </article>
+        @endfor
+      @endif
+    </div>
+  </div>
+</section>
