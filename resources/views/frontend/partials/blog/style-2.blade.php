@@ -1,8 +1,8 @@
 ﻿<section class="courses" aria-label="Our Academic Programmes">
   <div class="container">
     <div class="courses__top">
-      <div class="courses__kicker">OUR OBJECTIVES</div>
-      <h2 class="courses__title">Let’s Check Our <span>Objectives</span></h2>
+      <div class="courses__kicker">OUR COURSES</div>
+      <h2 class="courses__title">Let’s Check Our <span>Courses</span></h2>
       <p class="courses__sub">
         Explore key objectives and initiatives — curated from our sections.
       </p>

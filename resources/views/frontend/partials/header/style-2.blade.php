@@ -3,16 +3,16 @@
         <div class="container topbar-inner">
           <div class="topbar-left">
             <span class="follow-label">Follow Us:</span>
-            <a class="social social-fb" href="#" aria-label="Facebook">
+            <a class="social social-fb" href="{{ $setting->facebook_url}}" aria-label="Facebook">
               <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
             </a>
-            <a class="social social-ig" href="#" aria-label="Instagram">
+            <a class="social social-ig" href="{{ $setting->insta_url}}" aria-label="Instagram">
               <i class="fa-brands fa-instagram" aria-hidden="true"></i>
             </a>
-            <a class="social social-yt" href="#" aria-label="YouTube">
+            <a class="social social-yt" href="{{ $setting->youtube}}" aria-label="YouTube">
               <i class="fa-brands fa-youtube" aria-hidden="true"></i>
             </a>
-            <a class="social social-wa" href="#" aria-label="WhatsApp">
+            <a class="social social-wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,👋\nThank you for your support!') }}" aria-label="WhatsApp">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
             </a>
           </div>
@@ -50,7 +50,7 @@
             </div>
           </div>
 
-          <a class="apply-btn" href="#">
+          <a class="apply-btn" href="{{url('/member-registration')}}">
             <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
             <span>APPLY NOW</span>
           </a>

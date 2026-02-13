@@ -176,7 +176,7 @@ h1,h2,h3,h4,h5,h6{
   position:relative;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  color: #0a267a;
+  /* color: #0a267a; */
   margin: 0px;
   transition: all 500ms ease;
 }

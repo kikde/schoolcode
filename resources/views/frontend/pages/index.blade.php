@@ -42,7 +42,7 @@
                 To Lead In Dentistry
               </h2>
               <p class="about__desc">
-                At Himachal Dental College, we empower students with the skills, knowledge, and confidence they need to
+                At {{$setting->title}}, we empower students with the skills, knowledge, and confidence they need to
                 lead in the dynamic field of dentistry and make a meaningful impact.
               </p>
 
@@ -88,10 +88,24 @@
                 </li>
               </ul>
             </div>
+             @php
+      try {
+        $tvItem = \Modules\Gallery\Entities\Gallery::where('type','video')
+                    ->whereNotNull('video')
+                    ->latest()
+                    ->first();
+      } catch (\Throwable $e) { $tvItem = null; }
+      $tvSrc    = $tvItem && $tvItem->video ? asset('backend/gallery/video/'.$tvItem->video) : asset('frontend/custom/intro.mp4');
+      $tvPoster = $tvItem && $tvItem->images ? asset('backend/gallery/photo/'.$tvItem->images) : null;
+    @endphp
 
             <div class="about__right">
               <div class="about__frame">
-                <img src="{{ asset('frontend/assets/images/clients/clients-logo-1.png') }}" alt="Hands-on clinical training at HDC" loading="lazy" />
+                 <video class="tv-media" preload="metadata" @if($tvPoster) poster="{{ $tvPoster }}" @endif>
+      <source src="{{ $tvSrc }}" type="video/mp4">
+     
+      Your browser does not support HTML5 video.
+    </video>
               </div>
             </div>
           </div>
@@ -99,83 +113,20 @@
       </section>
    
      @include ("frontend.partials.breakingnews.style-2")
-      <section class="departments" aria-label="Departments">
-        <div class="departments__wrap">
-          <div class="departments__top">
-            <div class="departments__kicker">DEPARTMENT</div>
-            <h2 class="departments__title">Browse Our <span>Department</span></h2>
-            <p class="departments__sub">
-              Explore specialized departments dedicated to in-depth knowledge, hands-on training, and excellence across
-              dentistry.
-            </p>
-          </div>
-
-          <div class="departments__track" aria-label="Department cards">
-            <article class="dept-card">
-              <div class="dept-card__icon" aria-hidden="true">
-                <i class="fa-solid fa-tooth"></i>
-              </div>
-              <h3 class="dept-card__title">Conservative Dentistry and Endodontics</h3>
-              <a class="dept-card__link" href="#">
-                <span>READ MORE</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </article>
-
-            <article class="dept-card">
-              <div class="dept-card__icon" aria-hidden="true">
-                <i class="fa-solid fa-teeth"></i>
-              </div>
-              <h3 class="dept-card__title">Orthodontics and Dental Orthopaedics</h3>
-              <a class="dept-card__link" href="#">
-                <span>READ MORE</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </article>
-
-            <article class="dept-card">
-              <div class="dept-card__icon" aria-hidden="true">
-                <i class="fa-solid fa-teeth-open"></i>
-              </div>
-              <h3 class="dept-card__title">Prosthodontics and Crown and Bridge</h3>
-              <a class="dept-card__link" href="#">
-                <span>READ MORE</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </article>
-
-            <article class="dept-card">
-              <div class="dept-card__icon" aria-hidden="true">
-                <i class="fa-solid fa-tooth"></i>
-              </div>
-              <h3 class="dept-card__title">Periodontology and Oral Implantology</h3>
-              <a class="dept-card__link" href="#">
-                <span>READ MORE</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </article>
-          </div>
-
-          <div class="departments__dots" aria-hidden="true">
-            <span class="dot dot--active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
-      </section>
+     @include ("frontend.partials.todo.style-2")
+      
 
       <nav class="home-social" aria-label="Social links">
-        <a class="home-social__btn home-social__btn--fb" href="#" aria-label="Facebook">
+        <a class="home-social__btn home-social__btn--fb" href="{{ $setting->facebook_url}}" aria-label="Facebook">
           <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
-        <a class="home-social__btn home-social__btn--ig" href="#" aria-label="Instagram">
+        <a class="home-social__btn home-social__btn--ig" href="{{ $setting->insta_url}}" aria-label="Instagram">
           <i class="fa-brands fa-instagram" aria-hidden="true"></i>
         </a>
-        <a class="home-social__btn home-social__btn--yt" href="#" aria-label="YouTube">
+        <a class="home-social__btn home-social__btn--yt" href="{{ $setting->youtube}}" aria-label="YouTube">
           <i class="fa-brands fa-youtube" aria-hidden="true"></i>
         </a>
-        <a class="home-social__btn home-social__btn--wa" href="#" aria-label="WhatsApp">
+        <a class="home-social__btn home-social__btn--wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,👋\nThank you for your support!') }}" aria-label="WhatsApp">
           <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         </a>
       </nav>

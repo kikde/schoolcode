@@ -35,12 +35,12 @@
           <div class="footer__col">
             <h3 class="footer__h">Quick Links</h3>
             <ul class="footer__list">
-              <li><a href="#">About Us</a></li>
+              <li><a href="{{ url('/about') }}">About Us</a></li>
               <li><a href="#">Campus Facilities</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">FAQ's</a></li>
+              <li><a href="{{ url('/events') }}">Events</a></li>
+              <li><a href="{{ url('/faq') }}">FAQ's</a></li>
               <li><a href="#">Blogs</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="{{ url('/privacy-policy') }}">Privacy Policy</a></li>
             </ul>
           </div>
 
