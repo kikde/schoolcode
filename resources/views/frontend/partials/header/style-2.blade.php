@@ -151,9 +151,9 @@
                   Contact Us <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                 </a>
                 <ul class="dropdown">
-                  <li><a href="{{ route(''contact'') }}">Contact Details</a></li>
-                  <li><a href="{{ route(''contact.enquiry'') }}">Enquiry</a></li>
-                  <li><a href="{{ route(''contact.location'') }}">Map</a></li>
+                  <li><a href="{{ route('contact') }}">Contact Details</a></li>
+                  <li><a href="{{ route('contact.enquiry') }}">Enquiry</a></li>
+                  <li><a href="{{ route('contact.location') }}">Map</a></li>
                 </ul>
               </li>
             </ul>
