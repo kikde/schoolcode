@@ -97,7 +97,7 @@ Route::post('/send-mail',[FrontendController::class, 'sendmail']);
 
 //=======================================================About Section=======================================================//
 
-Route::get('/contact/location', [FrontendController::class, 'contactLocation'])->name('contact.location');
+Route::get('/contact', [FrontendController::class, 'contactus'])->name('contact');Route::get('/contact/location', [FrontendController::class, 'contactLocation'])->name('contact.location');
 Route::get('/contact/enquiry', [FrontendController::class, 'contactEnquiry'])->name('contact.enquiry');
 Route::get('/about', [FrontendController::class, 'aboutUs']);
 Route::get('/success-story', [FrontendController::class, 'successStory']);
