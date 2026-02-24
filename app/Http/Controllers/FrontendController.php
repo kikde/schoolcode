@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace App\Http\Controllers;
 // use Modules\Member\Entities\Member;
@@ -242,7 +242,7 @@ protected function getHomepageCrowdfundData(): array
 
     // 3) Get total paid donations + paid donor count per campaign (campaign = slug)
     $stats = Donation::whereIn('campaign', $slugs)
-        ->where('status', 'paid')   // Ã¢Å“â€¦ only paid donations
+        ->where('status', 'paid')   // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ only paid donations
         ->selectRaw('campaign, SUM(amount_paise) as total_paise, COUNT(*) as donor_count')
         ->groupBy('campaign')
         ->get()
@@ -849,7 +849,16 @@ public function demo(string $slug)
     }
 
 
-    public function notfound()
+    
+    public function contactLocation()
+    {
+        return view('frontend.pages.contact-location');
+    }
+
+    public function contactEnquiry()
+    {
+        return view('frontend.pages.contact-enquiry');
+    }public function notfound()
     {
         return view('frontend.pages.404');
     }

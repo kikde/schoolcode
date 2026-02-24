@@ -38,6 +38,7 @@
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="{{asset('frontend/custom/navbottom/app.css')}}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
     <link href="{{ asset('frontend/assets/css/hstyle.css') }}" rel="stylesheet">
 @stack('styles')
 </head>

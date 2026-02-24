@@ -1,9 +1,90 @@
-@extends('layouts.master')
+﻿@extends('layouts.master')
 
 @section('content')
 
+  <main class="page">
+      <section class="page-hero" aria-label="Phone and email">
+        <div class="container page-hero__inner">
+          <div class="page-hero__kicker">CONTACT US</div>
+          <h1 class="page-hero__title">Phone &amp; Email</h1>
+          <p class="page-hero__sub">Reach the right department quickly.</p>
+        </div>
+      </section>
+
+      <nav class="contact-tabs" aria-label="Contact pages">
+        <div class="container contact-tabs__inner">
+          <a class="contact-tab" href="{{ route('contact.location') }}">Location</a>
+          <a class="contact-tab is-active" href="{{ route('contact') }}#phone-email">Phone &amp; Email</a>
+          <a class="contact-tab" href="{{ route('contact.enquiry') }}">Inquiry Form</a>
+         
+        </div>
+      </nav>
+
+      <section class="contact-section" aria-label="Phone and email details">
+        <div class="container">
+          <div class="contact-grid">
+            <article class="contact-card">
+              <div class="contact-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <h2 class="contact-card__title">Phone</h2>
+              <ul class="contact-list" aria-label="Phone contacts">
+                <li>
+                  <span class="contact-list__label">Principal</span>
+                  <a class="contact-list__value" href="tel:+911907267183">+91-1907-267183</a>
+                </li>
+                <li>
+                  <span class="contact-list__label">Alumni Student Query</span>
+                  <a class="contact-list__value" href="tel:+911907267163">+91-1907-267163</a>
+                </li>
+                <li>
+                  <span class="contact-list__label">Patient Care</span>
+                  <a class="contact-list__value" href="tel:+911907267165">+91-1907-267165</a>
+                </li>
+                <li>
+                  <span class="contact-list__label">Admission</span>
+                  <a class="contact-list__value" href="tel:+919915101234">+91-99151-01234</a>
+                </li>
+                <li>
+                  <span class="contact-list__label">Career Opportunities</span>
+                  <a class="contact-list__value" href="tel:+911907267163">+91-1907-267163</a>
+                </li>
+              </ul>
+            </article>
+
+            <article class="contact-card">
+              <div class="contact-card__icon" aria-hidden="true">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <h2 class="contact-card__title">Email</h2>
+              <ul class="contact-list" aria-label="Email contacts">
+                <li>
+                  <span class="contact-list__label">Admissions</span>
+                  <a class="contact-list__value" href="mailto:admission@hdc.ac.in">admission@mamtaedu.in</a>
+                </li>
+                <li>
+                  <span class="contact-list__label">General</span>
+                  <a class="contact-list__value" href="mailto:info@hdc.ac.in">info@mamtaedu.in</a>
+                </li>
+              </ul>
+
+              <div class="contact-note" role="note">
+                If you do not know where to start, email admissions  the team will guide you to the correct department.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <a class="home-top" href="#top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </main>
+
+
+
         <!-- Page Title -->
-        <section class="page-title contact-page style-two centred" style="background-image: url({{asset('frontend/assets/images/background/contact.png')}});">
+        <!-- <section class="page-title contact-page style-two centred" style="background-image: url({{asset('frontend/assets/images/background/contact.png')}});">
             <div class="auto-container">
                 <div class="content-box">
                     <div class="title">
@@ -12,12 +93,12 @@
                    
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- End Page Title -->
 
 
         <!-- contact-info-section -->
-        <section class="contact-info-section">
+        <!-- <section class="contact-info-section">
             <div class="auto-container">
                 <div class="inner-container">
                     <div class="row clearfix">
@@ -52,12 +133,12 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- contact-info-section -->
 
 
         <!-- contact-section -->
-        <section class="contact-section sec-pad">
+        <!-- <section class="contact-section sec-pad">
             <div class="auto-container">
                 <div class="sec-title text-center">
                     <h6>Send Your Message</h6>
@@ -93,19 +174,19 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- contact-section end -->
 
 
         <!-- google-map-section -->
-        <section class="google-map-section">
+        <!-- <section class="google-map-section">
             <div class="map-inner">
                 <div 
                     class="google-map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7310.971940464816!2d72.93813414488372!3d23.62276119485529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395db974f9b87997%3A0xb9755180e2423c17!2sHimatnagar%20sabarkantha!5e0!3m2!1sen!2sin!4v1763709685119!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- google-map-section end -->
 
 
