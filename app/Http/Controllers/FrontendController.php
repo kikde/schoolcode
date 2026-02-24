@@ -1,5 +1,4 @@
-﻿<?php
-
+<?php
 namespace App\Http\Controllers;
 // use Modules\Member\Entities\Member;
 use App\Models\Frontend;
