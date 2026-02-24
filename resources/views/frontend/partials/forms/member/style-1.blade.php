@@ -167,13 +167,23 @@
 
         {{-- Row: DOB / Father --}}
         <div class="mr-grid">
+           <div class="mr-field">
+            <label><i class="fa-solid fa-user-tie"></i> Father Name</label>
+            <input type="text" class="mr-input" name="father_name" placeholder="Father Name" value="{{ old('father_name') }}">
+          </div>
+          <div class="mr-field">
+            <label><i class="fa-solid fa-user-tie"></i> Mother Name</label>
+            <input type="text" class="mr-input" name="mother_name" placeholder="Mother Name" value="{{ old('mother_name') }}">
+          </div>
+        </div>
+        <div class="mr-grid">
           <div class="mr-field">
             <label><i class="fa-solid fa-cake-candles"></i> DOB</label>
             <input type="date" class="mr-input" name="dob" value="{{ old('dob') }}">
           </div>
           <div class="mr-field">
-            <label><i class="fa-solid fa-user-tie"></i> Father Name</label>
-            <input type="text" class="mr-input" name="father_name" placeholder="Father Name" value="{{ old('father_name') }}">
+            <label><i class="fa-solid fa-user-tie"></i>Pan No</label>
+            <input type="text" class="mr-input" name="address_no" placeholder="Pan No" value="{{ old('Pan No') }}">
           </div>
         </div>
 
