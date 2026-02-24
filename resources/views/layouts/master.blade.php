@@ -38,6 +38,7 @@
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="{{asset('frontend/custom/navbottom/app.css')}}"> -->
+    <link href="{{ asset('frontend/assets/css/hstyle.css') }}" rel="stylesheet">
 @stack('styles')
 </head>
 
@@ -222,9 +223,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    <script src="{{ asset('frontend/assets/js/hscript.js') }}"></script>
 @stack('scripts')
 </body><!-- End of .page_wrapper -->
 </html>
+
 
 
 
