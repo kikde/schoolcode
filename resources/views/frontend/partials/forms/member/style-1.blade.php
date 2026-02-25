@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-:root{
-  --brand:#ff4d4d; --brand2:#ff944d;
+:root{ 
+  --brand:#a02226; --brand2:#8e1d21;
   --ink:#0f172a; --muted:#6b7280;
   --card:#ffffff; --bg:#f8fafc; --line:#e5e7eb;
   --focus:rgba(255,77,77,.28);

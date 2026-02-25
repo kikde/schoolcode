@@ -28,7 +28,7 @@
                 </span>
                 <div class="contact-simple__meta">
                   <div class="contact-simple__label">Principal</div>
-                  <a class="contact-simple__value" href="tel:+911907267183">01907-267183</a>
+                  <a class="contact-simple__value" href="tel:+919918359025">+91-9918359025</a>
                 </div>
               </li>
 
@@ -38,7 +38,7 @@
                 </span>
                 <div class="contact-simple__meta">
                   <div class="contact-simple__label">Alumni Student Query</div>
-                  <a class="contact-simple__value" href="tel:+911907267163">01907-267163</a>
+                  <a class="contact-simple__value" href="tel:+918400244949">+91-8400244949</a>
                 </div>
               </li>
 
@@ -47,8 +47,8 @@
                   <i class="fa-solid fa-heart-pulse"></i>
                 </span>
                 <div class="contact-simple__meta">
-                  <div class="contact-simple__label">Patient Care</div>
-                  <a class="contact-simple__value" href="tel:+911907267165">01907-267165</a>
+                  <div class="contact-simple__label">Student Support</div>
+                  <a class="contact-simple__value" href="tel:+919936233951">+91-9936233951</a>
                 </div>
               </li>
 
@@ -58,7 +58,7 @@
                 </span>
                 <div class="contact-simple__meta">
                   <div class="contact-simple__label">Admission</div>
-                  <a class="contact-simple__value" href="tel:+919915101234">99151-01234</a>
+                  <a class="contact-simple__value" href="tel:+919915101234">+91-99151-01234</a>
                 </div>
               </li>
 
@@ -68,7 +68,7 @@
                 </span>
                 <div class="contact-simple__meta">
                   <div class="contact-simple__label">Career Opportunities</div>
-                  <a class="contact-simple__value" href="tel:+911907267163">01907-267163</a>
+                  <a class="contact-simple__value" href="tel:+919621877659">+91-9621877659</a>
                 </div>
               </li>
             </ul>
@@ -78,7 +78,8 @@
             <div class="contact-simple__kicker">HAVE A QUESTION?</div>
             <h2 class="contact-simple__title">Fill Out the Form for General Queries or Feedback</h2>
 
-            <form class="contact-simple__form" data-demo-form>
+            <form class="contact-simple__form" method="post" action="{{url('/send-mail')}}" data-demo-form>
+                   @csrf
               <div class="contact-simple__row">
                 <div class="contact-simple__field">
                   <label class="contact-simple__flabel" for="c-name">Full Name</label>
@@ -131,24 +132,19 @@
       <section class="contact-mapstrip" aria-label="Campus map">
         <div class="container contact-mapstrip__inner">
           <div class="contact-mapstrip__frame">
-            <iframe
-              title="Himachal Dental College location map"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Himachal%20Dental%20College%20Sundernagar&output=embed"
-            ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7310.971940464816!2d72.93813414488372!3d23.62276119485529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395db974f9b87997%3A0xb9755180e2423c17!2sHimatnagar%20sabarkantha!5e0!3m2!1sen!2sin!4v1763709685119!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </section>
 
       <div class="home-social" aria-label="Social links">
-        <a class="home-social__btn home-social__btn--fb" href="#" aria-label="Facebook">
+        <a class="home-social__btn home-social__btn--fb" href="{{$setting->facebook_url}}" aria-label="Facebook">
           <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
-        <a class="home-social__btn home-social__btn--ig" href="#" aria-label="Instagram">
+        <a class="home-social__btn home-social__btn--ig" href="{{$setting->insta_url}}" aria-label="Instagram">
           <i class="fa-brands fa-instagram" aria-hidden="true"></i>
         </a>
-        <a class="home-social__btn home-social__btn--yt" href="#" aria-label="YouTube">
+        <a class="home-social__btn home-social__btn--yt" href="{{$setting->youtube}}" aria-label="YouTube">
           <i class="fa-brands fa-youtube" aria-hidden="true"></i>
         </a>
         <a class="home-social__btn home-social__btn--wa" href="#" aria-label="WhatsApp">

@@ -39,7 +39,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="{{asset('frontend/custom/navbottom/app.css')}}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
-    <link href="{{ asset('frontend/assets/css/hstyle.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/assets/css/hstyle.css') }}?v={{ @file_exists(public_path('frontend/assets/css/hstyle.css')) ? @filemtime(public_path('frontend/assets/css/hstyle.css')) : time() }}" rel="stylesheet">
 @stack('styles')
 </head>
 
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    <script src="{{ asset('frontend/assets/js/hscript.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/hscript.js') }}?v={{ @file_exists(public_path('frontend/assets/js/hscript.js')) ? @filemtime(public_path('frontend/assets/js/hscript.js')) : time() }}"></script>
 @stack('scripts')
 </body><!-- End of .page_wrapper -->
 </html>

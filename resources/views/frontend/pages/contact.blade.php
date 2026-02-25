@@ -31,23 +31,23 @@
               <ul class="contact-list" aria-label="Phone contacts">
                 <li>
                   <span class="contact-list__label">Principal</span>
-                  <a class="contact-list__value" href="tel:+911907267183">+91-1907-267183</a>
+                  <a class="contact-list__value" href="tel:+9119918359025">+91-9918-359025</a>
                 </li>
                 <li>
                   <span class="contact-list__label">Alumni Student Query</span>
-                  <a class="contact-list__value" href="tel:+911907267163">+91-1907-267163</a>
+                  <a class="contact-list__value" href="tel:+918400244949">+91-8400-244949</a>
                 </li>
                 <li>
                   <span class="contact-list__label">Patient Care</span>
-                  <a class="contact-list__value" href="tel:+911907267165">+91-1907-267165</a>
+                  <a class="contact-list__value" href="tel:+919936233951">+91-9936-233951</a>
                 </li>
                 <li>
                   <span class="contact-list__label">Admission</span>
-                  <a class="contact-list__value" href="tel:+919915101234">+91-99151-01234</a>
+                  <a class="contact-list__value" href="tel:+919915101234">+91-9915-101234</a>
                 </li>
                 <li>
                   <span class="contact-list__label">Career Opportunities</span>
-                  <a class="contact-list__value" href="tel:+911907267163">+91-1907-267163</a>
+                  <a class="contact-list__value" href="tel:+919621877659">+91-9621-877659</a>
                 </li>
               </ul>
             </article>
