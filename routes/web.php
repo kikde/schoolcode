@@ -99,7 +99,13 @@ Route::post('/send-mail',[FrontendController::class, 'sendmail']);
 
 Route::get('/contact', [FrontendController::class, 'contactus'])->name('contact');Route::get('/contact/location', [FrontendController::class, 'contactLocation'])->name('contact.location');
 Route::get('/contact/enquiry', [FrontendController::class, 'contactEnquiry'])->name('contact.enquiry');
-Route::get('/about', [FrontendController::class, 'aboutUs']);
+
+Route::get('/about/mission-vision', [FrontendController::class, 'aboutMission'])->name('about.mission');
+Route::get('/about/history', [FrontendController::class, 'aboutHistory'])->name('about.history');
+Route::get('/about/leadership', [FrontendController::class, 'aboutLeadership'])->name('about.leadership');
+Route::get('/about/principal-message', [FrontendController::class, 'aboutPrincipal'])->name('about.principal');
+//about page
+
 Route::get('/success-story', [FrontendController::class, 'successStory']);
 Route::get('/success-story-details/{id}/{slug}', [FrontendController::class, 'story_Details']);
 Route::get('/latest-story', [FrontendController::class, 'latestStory']);

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 namespace App\Http\Controllers;
 // use Modules\Member\Entities\Member;
 use App\Models\Frontend;
@@ -241,7 +241,7 @@ protected function getHomepageCrowdfundData(): array
 
     // 3) Get total paid donations + paid donor count per campaign (campaign = slug)
     $stats = Donation::whereIn('campaign', $slugs)
-        ->where('status', 'paid')   // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ only paid donations
+        ->where('status', 'paid')   // ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ only paid donations
         ->selectRaw('campaign, SUM(amount_paise) as total_paise, COUNT(*) as donor_count')
         ->groupBy('campaign')
         ->get()
@@ -678,7 +678,11 @@ public function demo(string $slug)
         return view('frontend.pages.about');
     }
 
-    public function newsPost()
+    
+    public function aboutMission(){ return view('frontend.pages.about-mission'); }
+    public function aboutHistory(){ return view('frontend.pages.about-history'); }
+    public function aboutLeadership(){ return view('frontend.pages.about-leadership'); }
+    public function aboutPrincipal(){ return view('frontend.pages.about-principal'); }public function newsPost()
         {
             // paginate only (limit+paginate together is pointless)
             $newspost = Post::where('pagestatus', 'Published')

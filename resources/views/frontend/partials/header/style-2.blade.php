@@ -39,7 +39,7 @@
       <div class="brandbar">
         <div class="container brandbar-inner">
           <div class="brand">
-            <img class="brand-logo" src="{{ !empty($setting->site_logo) ? asset('backend/uploads/'.$setting->site_logo) : asset('backend/icons/'.$setting->favicon_icon) }}" alt="Himachal Dental College logo" />
+            <img class="brand-logo" src="{{ !empty($setting->site_logo) ? asset('backend/uploads/'.$setting->site_logo) : asset('backend/icons/'.$setting->favicon_icon) }}" alt="{{$setting->title}} logo" />
             <div class="brand-text">
               <div class="brand-title">
                 {{ $setting->title }}
@@ -67,13 +67,25 @@
             <ul class="navlist">
               <li class="navitem has-dropdown">
                 
-                <a href="#" class="navlink">
+                <a href="{{url('/about')}}" class="navlink">
                   About Us <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                 </a>
                 <ul class="dropdown">
                   <li><a href="#">Overview</a></li>
-                  <li><a href="#">Mission &amp; Vision</a></li>
-                  <li><a href="#">Leadership</a></li>
+                  <li><a href="{{url('/')}}">Mission &amp; Vision</a></li>
+                  <li class="has-sub">
+                    <a class="dropdown__item dropdown__item--arrow" href="#leadership" data-sub-toggle>
+                      <span>Leadership</span>
+                      <span class="dropdown__arrow" aria-hidden="true">&rsaquo;</span>
+                    </a>
+                    <ul class="dropdown-sub" aria-label="Leadership">
+                      <li><a href="{{url('/leadership-sonelal')}}">Dr. Sonelal Patel, Director</a></li>
+                      <li><a href="{{url('/leadership-sanjay')}}">Dr. Sanjay Kumar, Principal</a></li>
+                    
+                    </ul>
+                  </li>
+                  <li><a href="{{url('/why-us')}}">Why Us</a></li>
+                  <li><a href="{{url('/bank-details')}}">Bank Details</a></li>
                 </ul>
               </li>
               <li class="navitem has-dropdown">

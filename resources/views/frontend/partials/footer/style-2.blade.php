@@ -3,7 +3,7 @@
         <div class="footer__grid">
           <div class="footer__col">
             <div class="footer__brandtop">
-              <img class="footer__logo" src="{{ !empty($setting->site_logo) ? asset('backend/uploads/'.$setting->site_logo) : asset('backend/icons/'.$setting->favicon_icon) }}" alt="Himachal Dental College logo" />
+              <img class="footer__logo" src="{{ !empty($setting->site_logo) ? asset('backend/uploads/'.$setting->site_logo) : asset('backend/icons/'.$setting->favicon_icon) }}" alt="{{$setting->title}} logo" />
               <div>
                 <div class="footer__name">
                   {{ $setting->title }}
@@ -67,23 +67,23 @@
             <div class="footer__phones" aria-label="Phone contacts">
               <div class="footer__phone">
                 <div class="footer__plabel">Principal</div>
-                <a class="footer__pvalue" href="tel:+911907267183">+91-9918359025</a>
+                <a class="footer__pvalue" href="tel:+919918359025">+91-9918359025</a>
               </div>
               <div class="footer__phone">
                 <div class="footer__plabel">Alumni Student Query</div>
-                <a class="footer__pvalue" href="tel:+911907267163">+91-8400244949</a>
+                <a class="footer__pvalue" href="tel:+918400244949">+91-8400244949</a>
               </div>
               <div class="footer__phone">
                 <div class="footer__plabel">Student Support</div>
-                <a class="footer__pvalue" href="tel:+911907267165">+91-9936233951</a>
+                <a class="footer__pvalue" href="tel:+919936233951">+91-9936233951</a>
               </div>
               <div class="footer__phone">
                 <div class="footer__plabel">Admission</div>
-                <a class="footer__pvalue" href="tel:+919915101234">+91-99151-01234</a>
+                <a class="footer__pvalue" href="tel:+919915101234">+91-9915101234</a>
               </div>
               <div class="footer__phone">
                 <div class="footer__plabel">Career Opportunities</div>
-                <a class="footer__pvalue" href="tel:+911907267163">+91-9621877659</a>
+                <a class="footer__pvalue" href="tel:+919621877659">+91-9621877659</a>
               </div>
             </div>
 
@@ -92,7 +92,7 @@
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 <span>{{ $setting->address }}</span>
               </div>
-              <a class="footer__metaItem" href="mailto:admission@hdc.ac.in">
+              <a class="footer__metaItem" href="mailto:{{ $setting->site_email }}">
                 <i class="fa-regular fa-envelope" aria-hidden="true"></i>
                 <span>{{ $setting->site_email }}</span>
               </a>

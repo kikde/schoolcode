@@ -1,8 +1,120 @@
-@extends('layouts.master')
+﻿@extends('layouts.master')
 
 @section('content')
 
-<style>
+<main class="page">
+      <section class="contact-banner" aria-label="About us banner">
+        <div class="container contact-banner__inner">
+          <h1 class="contact-banner__title">About Us</h1>
+          <nav class="contact-banner__crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="contact-banner__sep" aria-hidden="true">&raquo;</span>
+            <span class="contact-banner__current" aria-current="page">About Us</span>
+          </nav>
+        </div>
+      </section>
+
+      <section class="about-menu" aria-label="About sections">
+        <div class="container">
+          <div class="about-menu__panel">
+            <a class="about-menu__item" href="{{ route('about.history') }}">
+              <span>Our History</span>
+            </a>
+            <a class="about-menu__item" href="{{ route('about.mission') }}">
+              <span>Mission &amp; Vision</span>
+            </a>
+            <a class="about-menu__item about-menu__item--arrow" href="{{ route('about.leadership') }}">
+              <span>Leadership</span>
+              <span class="about-menu__arrow" aria-hidden="true">&rsaquo;</span>
+            </a>
+            <a class="about-menu__item" href="#">
+              <span>Infrastructure</span>
+            </a>
+            <a class="about-menu__item" href="#">
+              <span>Affiliations &amp; Accreditation</span>
+            </a>
+            <a class="about-menu__item about-menu__item--arrow" href="#nirf">
+              <span>NIRF</span>
+              <span class="about-menu__arrow" aria-hidden="true">&rsaquo;</span>
+            </a>
+            <a class="about-menu__item" href="#">
+              <span>Why Us</span>
+            </a>
+            <a class="about-menu__item" href="#">
+              <span>Bank Details</span>
+            </a>
+            <a class="about-menu__item about-menu__item--alt" href="how-to-reach-us.html">
+              <span>How To Reach Us</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-content" aria-label="About content">
+        <div class="container">
+          <section class="about-block" id="history" aria-label="Our history">
+            <h2 class="about-block__title">Our History</h2>
+            <div class="placeholder">Add your history content here.</div>
+          </section>
+
+          <section class="about-block" id="mission-vision" aria-label="Mission and vision">
+            <h2 class="about-block__title">Mission &amp; Vision</h2>
+            <div class="placeholder">Add your mission and vision content here.</div>
+          </section>
+
+          <section class="about-block" id="leadership" aria-label="Leadership">
+            <h2 class="about-block__title">Leadership</h2>
+            <div class="about-leadership" aria-label="Leadership profiles">
+              <a class="about-leadership__card" href="leadership-anil-singla.html">
+                <div class="about-leadership__role">Dr. Sonelal Patel</div>
+                <div class="about-leadership__cta">Director</div>
+              </a>
+              <a class="about-leadership__card" href="leadership-vikas-jindal.html">
+                <div class="about-leadership__role">Dr. Sanjay Kumar</div>
+                <div class="about-leadership__cta">Director</div>
+              </a>
+              <a class="about-leadership__card" href="leadership-baljeet-singh.html">
+                <div class="about-leadership__role">Dr. Sanjay Kumar</div>
+                <div class="about-leadership__cta">Principal</div>
+              </a>
+            </div>
+          </section>
+
+          <section class="about-block" id="infrastructure" aria-label="Infrastructure">
+            <h2 class="about-block__title">Infrastructure</h2>
+            <div class="placeholder">Add infrastructure content here.</div>
+          </section>
+
+          <section class="about-block" id="affiliations" aria-label="Affiliations and accreditation">
+            <h2 class="about-block__title">Affiliations &amp; Accreditation</h2>
+            <div class="placeholder">Add affiliations and accreditation content here.</div>
+          </section>
+
+          <section class="about-block" id="nirf" aria-label="NIRF">
+            <h2 class="about-block__title">NIRF</h2>
+            <div class="contact-tabs__inner" style="padding:0">
+              <a class="contact-tab" href="nirf-dental.html">Dental</a>
+              <a class="contact-tab" href="nirf-overall.html">Overall</a>
+            </div>
+          </section>
+
+          <section class="about-block" id="why-us" aria-label="Why us">
+            <h2 class="about-block__title">Why Us</h2>
+            <div class="placeholder">Add your why-us content here.</div>
+          </section>
+
+          <section class="about-block" id="bank-details" aria-label="Bank details">
+            <h2 class="about-block__title">Bank Details</h2>
+            <div class="placeholder">Add bank details content here.</div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+
+
+
+<!-- <style>
   /* ====== Scoped About Page Styling (won't touch other pages) ====== */
   .vsf-about-section{
     position: relative;
@@ -233,15 +345,15 @@
       font-size:1.45rem;
     }
   }
-</style>
+</style> -->
 
-<section class="vsf-about-section">
-  <div class="auto-container">
+<!-- <section class="vsf-about-section">
+  <div class="auto-container"> -->
     <!-- Heading -->
-    <div class="vsf-title-wrap">
+    <!-- <div class="vsf-title-wrap">
       <div class="vsf-badge">
-        <span class="icon">❤️</span>
-        <span>{{ $setting->title }} • About Us</span>
+        <span class="icon">â¤ï¸</span>
+        <span>{{ $setting->title }} â€¢ About Us</span>
       </div>
 
       <h1>
@@ -251,17 +363,17 @@
       <p class="vsf-sub">
         <strong>{{ $setting->title }}</strong> It is a non-profit organization dedicated to 
         the holistic development of underprivileged and needy children, 
-        families, and vulnerable sections of society – through education, healthcare, 
+        families, and vulnerable sections of society â€“ through education, healthcare, 
         nutrition, and empowerment for self-reliance.
       </p>
-    </div>
+    </div> -->
 
     <!-- 3-column content -->
-    <div class="vsf-about-grid">
+    <!-- <div class="vsf-about-grid"> -->
       {{-- Left: About text --}}
-      <div class="vsf-about-main">
+      <!-- <div class="vsf-about-main">
         <h4>Who We Are</h4>
-        <h2>{{ $aboutTitle ?? ($setting->title.' – A confluence of hope, education and empowerment.') }}</h2>
+        <h2>{{ $aboutTitle ?? ($setting->title.' â€“ A confluence of hope, education and empowerment.') }}</h2>
 
         @if(!empty($aboutDesc))
           {!! $aboutDesc !!}
@@ -271,46 +383,46 @@
           <b>{{ $setting->title }}</b> We are a non-profit organisation working for the 
           holistic development of underprivileged and needy children in India. 
           Our mission is to ensure that every child can reach their fullest potential in life
-           – physically, mentally, and academically.
+           â€“ physically, mentally, and academically.
         </p>
 
         <p>
          We work consistently across education, health, nutrition, shelter and skill development
           so that every child can become self-reliant, confident and an empowered citizen of society. 
           We believe that every child carries a unique spark of a brighter future 
-         — all they need is the right opportunity and the right guidance.
+         â€” all they need is the right opportunity and the right guidance.
         </p>
 
         <p>
-          <b>{{ $setting->title }}</b> is committed to this pledge: – 
-          <em>‘Where there is need, there is our service; where there is darkness, there is the light of our efforts.’</em>
+          <b>{{ $setting->title }}</b> is committed to this pledge: â€“ 
+          <em>â€˜Where there is need, there is our service; where there is darkness, there is the light of our efforts.â€™</em>
         </p>
        @endif
         <div class="vsf-pill-row">
           <span class="vsf-pill">Education &amp; Skill Development</span>
-          <span class="vsf-pill">Health • Nutrition • Shelter</span>
+          <span class="vsf-pill">Health â€¢ Nutrition â€¢ Shelter</span>
           <span class="vsf-pill">Dignity &amp; Equal Opportunity</span>
         </div>
-      </div>
+      </div> -->
 
       {{-- Middle: Photo + overlay --}}
-      <div class="vsf-about-photo-card">
+      <!-- <div class="vsf-about-photo-card">
         @php $bgImg = $aboutBg ?? ($dmessage->breadcrumb ?? null); @endphp
         <img src="{{ $bgImg ? asset('backend/uploads/'.$bgImg) : asset('frontend/assets/images/background/default-banner.jpg') }}" alt="
         ">
 
         <div class="vsf-photo-overlay">
             <img src="{{ asset('backend/uploads/'.$dmessage->image) }}" alt="">
-          <!-- <h4>{{ $setting->meta_author }}</h4> -->
+          
           <span>Founder, {{ $setting->title }}</span>
           <span style="font-size:.78rem;opacity:.9;">
-           “Service is our true calling, and empowerment is our ultimate goal.”
+           â€œService is our true calling, and empowerment is our ultimate goal.â€
           </span>
         </div>
-      </div>
+      </div> -->
 
       {{-- Right: Mission + Our Statements --}}
-      <div class="vsf-right-stack">
+      <!-- <div class="vsf-right-stack">
         <div class="vsf-mission-box">
           <div class="vsf-mission-icon">
             <i class="flaticon-quote"></i>
@@ -319,21 +431,21 @@
           <div class="vsf-mission-text">
            Our mission is to help underprivileged and marginalised 
            communities realise their true potential, and to educate, empower and enable 
-           them to become self-reliant — so that they not only improve their own lives, but also become active partners 
+           them to become self-reliant â€” so that they not only improve their own lives, but also become active partners 
            in building a brighter future for society.
           </div>
 
           <div class="vsf-mission-author">
             <h4>{{ $setting->meta_author }}</h4>
-            <h6>Director • {{ $setting->title }}</h6>
+            <h6>Director â€¢ {{ $setting->title }}</h6>
           </div>
         </div>
 
         <div class="vsf-statements">
           <h3>Our Statements</h3>
           <p>
-            {{ $setting->title }} We work on six core principles — 
-            these are the identity of our work and the driving force behind our commitment to social service.”
+            {{ $setting->title }} We work on six core principles â€” 
+            these are the identity of our work and the driving force behind our commitment to social service.â€
           </p>
           <ul>
             <li>Noble Intentions</li>
@@ -346,8 +458,8 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </div> -->
+<!-- </section> -->
 
 @include ("frontend.partials.donate.style-2")
 
