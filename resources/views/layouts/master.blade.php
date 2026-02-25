@@ -49,7 +49,7 @@
     <div class="boxed_wrapper red-color">
 
     @includeFirst([
-      "frontend.partials.header." . ($theme['header'] ?? 'header'),
+      "frontend.partials.header." . ($theme['header'] ?? "style-2"),
       "frontend.partials.header.style-2"
     ])
     @if(session()->has('message'))
