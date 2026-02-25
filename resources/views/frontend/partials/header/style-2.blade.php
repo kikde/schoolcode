@@ -67,24 +67,24 @@
             <ul class="navlist">
               <li class="navitem has-dropdown">
                 
-                <a href="{{ route(''about'') }}" class="navlink">
+                <a href="{{ route('about') }}" class="navlink">
                   About Us <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                 </a>
                 <ul class="dropdown">
                   <li><a href="{{ route('about') }}">Overview</a></li>
-                  <li><a href="{{ route(''about.mission'') }}">Mission &amp; Vision</a></li>
+                  <li><a href="{{ route('about.mission') }}">Mission &amp; Vision</a></li>
                   <li class="has-sub">
                     <a class="dropdown__item dropdown__item--arrow" href="#leadership" data-sub-toggle>
                       <span>Leadership</span>
                       <span class="dropdown__arrow" aria-hidden="true">&rsaquo;</span>
                     </a>
                     <ul class="dropdown-sub" aria-label="Leadership">
-                      <li><a href="{{ route(''about.leadership'') }}">Dr. Sonelal Patel, Director</a></li>
-                      <li><a href="{{ route(''about.principal'') }}">Dr. Sanjay Kumar, Principal</a></li>
+                      <li><a href="{{ route('about.leadership') }}">Dr. Sonelal Patel, Director</a></li>
+                      <li><a href="{{ route('about.principal') }}">Dr. Sanjay Kumar, Principal</a></li>
                     
                     </ul>
                   </li>
-                  <li><a href="{{ route(''about'') }}">Why Us</a></li>
+                  <li><a href="{{ route('about') }}">Why Us</a></li>
                   <li><a href="{{url('/bank-details')}}">Bank Details</a></li>
                 </ul>
               </li>
