@@ -64,7 +64,7 @@
       <div class="navwrap" data-nav>
         <div class="container nav-inner">
           <nav class="mainnav" aria-label="Primary">
-            <ul class="navlist">
+            <ul class="navlist" data-keep="1">
               <li class="navitem has-dropdown">
                 
                 <a href="{{ route('about') }}" class="navlink">

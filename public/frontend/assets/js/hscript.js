@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const getSiteRoot = () => {
     const currentUrl = new URL(window.location.href);
     const pathname = currentUrl.pathname || "";
@@ -14,8 +14,7 @@
   };
 
   const normalizePrimaryNavbar = () => {
-    const navList = document.querySelector(".mainnav .navlist");
-    if (!navList) return;
+    const navList = document.querySelector(".mainnav .navlist");\n    if (!navList || navList.hasAttribute("data-keep") || navList.dataset.keep === "1") return;
 
     const { makeUrl } = getSiteRoot();
     const u = (p) => makeUrl(p);
