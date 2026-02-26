@@ -690,11 +690,25 @@ public function demo(string $slug)
         return view('frontend.pages.about-history', compact('about'));
     }
     public function aboutLeadership(){ return view('frontend.pages.about-leadership'); }
-    public function aboutPrincipal()
+        public function aboutPrincipal()
     {
         try {
             $pmessage = \Modules\Page\Entities\Page::where('types','PM')->orderByDesc('id')->first();
-        } 
+        } catch (\Throwable $e) {
+            $pmessage = null;
+        }
+        return view('frontend.pages.about-principal', compact('pmessage'));
+    }
+
+    public function whyUs()
+    {
+        return view('frontend.pages.why-us');
+    }
+
+    public function bankDetails()
+    {
+        return view('frontend.pages.bank-details');
+    }
     public function whyUs(){ return view('frontend.pages.why-us'); }
     public function bankDetails(){ return view('frontend.pages.bank-details'); }catch (\Throwable $e) {
             $pmessage = null;
