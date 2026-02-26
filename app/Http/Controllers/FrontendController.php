@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 namespace App\Http\Controllers;
 // use Modules\Member\Entities\Member;
 use App\Models\Frontend;
@@ -241,7 +241,7 @@ protected function getHomepageCrowdfundData(): array
 
     // 3) Get total paid donations + paid donor count per campaign (campaign = slug)
     $stats = Donation::whereIn('campaign', $slugs)
-        ->where('status', 'paid')   // ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ only paid donations
+        ->where('status', 'paid')   // ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ only paid donations
         ->selectRaw('campaign, SUM(amount_paise) as total_paise, COUNT(*) as donor_count')
         ->groupBy('campaign')
         ->get()
@@ -680,7 +680,7 @@ public function demo(string $slug)
 
     
     public function aboutMission(){ return view('frontend.pages.about-mission'); }
-    public function aboutHistory(){ return view('frontend.pages.about-history'); }
+    public function aboutHistory(){\n    \ = \\Modules\\Page\\Entities\\Page::where('types','ab')->orderByDesc('id')->first();\n    return view('frontend.pages.about-history', compact('about'));\n  }
     public function aboutLeadership(){ return view('frontend.pages.about-leadership'); }
     public function aboutPrincipal(){ return view('frontend.pages.about-principal'); }public function newsPost()
         {
