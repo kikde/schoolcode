@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 namespace App\Http\Controllers;
 // use Modules\Member\Entities\Member;
 use App\Models\Frontend;
@@ -241,7 +241,7 @@ protected function getHomepageCrowdfundData(): array
 
     // 3) Get total paid donations + paid donor count per campaign (campaign = slug)
     $stats = Donation::whereIn('campaign', $slugs)
-        ->where('status', 'paid')   // ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ only paid donations
+        ->where('status', 'paid')   // ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦ only paid donations
         ->selectRaw('campaign, SUM(amount_paise) as total_paise, COUNT(*) as donor_count')
         ->groupBy('campaign')
         ->get()
@@ -690,7 +690,15 @@ public function demo(string $slug)
         return view('frontend.pages.about-history', compact('about'));
     }
     public function aboutLeadership(){ return view('frontend.pages.about-leadership'); }
-    public function aboutPrincipal(){ return view('frontend.pages.about-principal'); }public function newsPost()
+    public function aboutPrincipal()
+    {
+        try {
+            $pmessage = \Modules\Page\Entities\Page::where('types','PM')->orderByDesc('id')->first();
+        } catch (\Throwable $e) {
+            $pmessage = null;
+        }
+        return view('frontend.pages.about-principal', compact('pmessage'));
+    }public function newsPost()
         {
             // paginate only (limit+paginate together is pointless)
             $newspost = Post::where('pagestatus', 'Published')
