@@ -61,9 +61,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 // Keep this LAST if you still want flat slugs like /complaint-1 (otherwise remove it)
-Route::get('/{slug}', [FrontendController::class, 'demo'])
-    ->where('slug', '^(?:(?:demo|donation|complaint)-[a-z0-9\-]+)$')
-    ->name('demo.flat');
+
 
 
 //---------------------------------------Donation And Donors-------------------------------------------//
@@ -103,6 +101,7 @@ Route::get('/contact/enquiry', [FrontendController::class, 'contactEnquiry'])->n
 
 Route::get('/why-us', [FrontendController::class, 'whyUs'])->name('about.why');
 Route::get('/bank-details', [FrontendController::class, 'bankDetails'])->name('about.bank');
+Route::get('/about', [FrontendController::class, 'aboutUs'])->name('about');
 Route::get('/about/mission-vision', [FrontendController::class, 'aboutMission'])->name('about.mission');
 Route::get('/about/history', [FrontendController::class, 'aboutHistory'])->name('about.history');
 Route::get('/about/leadership', [FrontendController::class, 'aboutLeadership'])->name('about.leadership');
@@ -322,3 +321,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
+
+Route::get('/{slug}', [FrontendController::class, 'demo'])
+    ->where('slug', '^(?:(?:demo|donation|complaint)-[a-z0-9\-]+)$')
+    ->name('demo.flat');
