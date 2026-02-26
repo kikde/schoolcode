@@ -1,4 +1,4 @@
-﻿@extends('layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -27,7 +27,7 @@
               <span>Leadership</span>
               <span class="about-menu__arrow" aria-hidden="true">&rsaquo;</span>
             </a>
-            <a class="about-menu__item" href="#">
+            <!-- <a class="about-menu__item" href="#">
               <span>Infrastructure</span>
             </a>
             <a class="about-menu__item" href="#">
@@ -36,7 +36,7 @@
             <a class="about-menu__item about-menu__item--arrow" href="#nirf">
               <span>NIRF</span>
               <span class="about-menu__arrow" aria-hidden="true">&rsaquo;</span>
-            </a>
+            </a> -->
             <a class="about-menu__item" href="#">
               <span>Why Us</span>
             </a>
@@ -69,10 +69,10 @@
                 <div class="about-leadership__role">Dr. Sonelal Patel</div>
                 <div class="about-leadership__cta">Director</div>
               </a>
-              <a class="about-leadership__card" href="leadership-vikas-jindal.html">
+              <!-- <a class="about-leadership__card" href="leadership-vikas-jindal.html">
                 <div class="about-leadership__role">Dr. Sanjay Kumar</div>
                 <div class="about-leadership__cta">Director</div>
-              </a>
+              </a> -->
               <a class="about-leadership__card" href="leadership-baljeet-singh.html">
                 <div class="about-leadership__role">Dr. Sanjay Kumar</div>
                 <div class="about-leadership__cta">Principal</div>
@@ -80,7 +80,7 @@
             </div>
           </section>
 
-          <section class="about-block" id="infrastructure" aria-label="Infrastructure">
+          <!-- <section class="about-block" id="infrastructure" aria-label="Infrastructure">
             <h2 class="about-block__title">Infrastructure</h2>
             <div class="placeholder">Add infrastructure content here.</div>
           </section>
@@ -96,7 +96,7 @@
               <a class="contact-tab" href="nirf-dental.html">Dental</a>
               <a class="contact-tab" href="nirf-overall.html">Overall</a>
             </div>
-          </section>
+          </section> -->
 
           <section class="about-block" id="why-us" aria-label="Why us">
             <h2 class="about-block__title">Why Us</h2>

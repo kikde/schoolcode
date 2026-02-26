@@ -1,4 +1,4 @@
-﻿{{-- resources/views/donations/index.blade.php --}}
+{{-- resources/views/donations/index.blade.php --}}
 @extends('layouts.app')
 
 @section('content')

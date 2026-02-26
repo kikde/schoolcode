@@ -1,4 +1,4 @@
-﻿<section class="updates" aria-label="Latest Updates">
+<section class="updates" aria-label="Latest Updates">
   <div class="container">
     <div class="updates__top">
       <div class="updates__kicker">CAMPUS HEADLINES</div>

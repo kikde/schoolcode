@@ -1,4 +1,4 @@
-﻿<section class="courses" aria-label="Our Academic Programmes">
+<section class="courses" aria-label="Our Academic Programmes">
   <div class="container">
     <div class="courses__top">
       <div class="courses__kicker">OUR COURSES</div>

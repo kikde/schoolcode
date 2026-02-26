@@ -1,4 +1,4 @@
-﻿    <main class="page">
+    <main class="page">
       <section class="contact-banner" aria-label="Director banner">
         <div class="container contact-banner__inner">
           <h1 class="contact-banner__title">{{ $dmessage->name ?? 'Director' }}</h1>
@@ -39,12 +39,18 @@
                   <img src="{{ asset('backend/uploads/'.$dmessage->image) }}" alt="Signature" style="max-width:200px; height:auto;" />
                 </div>
               @endif
+
+                <p class="message__sign">
+                <strong>Director,</strong><br />
+                {{ $dmessage->name }}<br />
+                Director of  {{$setting->title}}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <div class="home-social" aria-label="Social links">
+      <!-- <div class="home-social" aria-label="Social links">
         <a class="home-social__btn home-social__btn--fb" href="{{ $setting->facebook_url}}" aria-label="Facebook">
           <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
@@ -61,5 +67,5 @@
 
       <a class="home-top" href="#top" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-      </a>
+      </a> -->
     </main>

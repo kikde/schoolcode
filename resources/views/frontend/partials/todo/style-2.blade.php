@@ -1,4 +1,4 @@
-﻿<section class="departments" aria-label="What We Do">
+<section class="departments" aria-label="What We Do">
   <div class="departments__wrap">
     <div class="departments__top">
       <div class="departments__kicker">PROGRAMS</div>

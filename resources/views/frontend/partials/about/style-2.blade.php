@@ -1,4 +1,4 @@
-﻿ <main class="page">
+ <main class="page">
       <section class="contact-banner" aria-label="Our history banner">
         <div class="container contact-banner__inner">
           <h1 class="contact-banner__title">{{ $about->pagetitle ?? $about->name ?? "Our History" }}</h1>

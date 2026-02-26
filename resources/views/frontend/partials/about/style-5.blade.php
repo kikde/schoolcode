@@ -1,9 +1,9 @@
-﻿    <main class="page">
+    <main class="page">
       <section class="contact-banner" aria-label="Principal banner">
         <div class="container contact-banner__inner">
           <h1 class="contact-banner__title">Dr. Sanjay Kumar, Principal</h1>
           <nav class="contact-banner__crumbs" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a>
+            <a href="{{url('/')}}">Home</a>
             <span class="contact-banner__sep" aria-hidden="true">&raquo;</span>
             <span class="contact-banner__current" aria-current="page">Dr. Sanjay Kumar, Principal</span>
           </nav>
@@ -76,7 +76,7 @@
         </div>
       </section>
 
-      <div class="home-social" aria-label="Social links">
+      <!-- <div class="home-social" aria-label="Social links">
         <a class="home-social__btn home-social__btn--fb" href="#" aria-label="Facebook">
           <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
         </a>
@@ -93,5 +93,5 @@
 
       <a class="home-top" href="#top" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-      </a>
+      </a> -->
     </main>

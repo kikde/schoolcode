@@ -1,4 +1,4 @@
-﻿<footer class="site-footer" aria-label="Footer">
+<footer class="site-footer" aria-label="Footer">
       <div class="container footer__inner">
         <div class="footer__grid">
           <div class="footer__col">

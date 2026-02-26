@@ -1,4 +1,4 @@
-﻿<section class="gallery" aria-label="Photo Gallery">
+<section class="gallery" aria-label="Photo Gallery">
   <div class="container">
     <div class="gallery__top">
       <div class="gallery__kicker">MOMENTS THAT MATTER</div>
