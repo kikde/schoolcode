@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('mobile')->nullable();
             $table->string('password');
             $table->string('fname')->nullable();
+            $table->string('mother_name')->nullable();
             $table->string('dob')->nullable();
             $table->string('gender')->nullable();
             $table->string('education')->nullable();

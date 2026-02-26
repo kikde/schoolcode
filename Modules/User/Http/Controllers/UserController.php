@@ -258,6 +258,7 @@ use DB;
         $user->password    = Hash::make($request->password);
         $user->referrer_id   = $referrerId;
         $user->fname       = $request->fname;
+        $user->mother_name       = $request->mother_name;
         $user->dob         = $request->dob;
         $user->gender      = $request->gender;
         $user->education   = $request->education;
@@ -434,6 +435,7 @@ if ($request->hasFile('idproof_doc')) {
     }
 
     $user->fname      = $request->fname;
+    $user->mother_name       = $request->mother_name;
     $user->dob        = $request->dob;
     $user->gender     = $request->gender;
     $user->education  = $request->education;

@@ -38,22 +38,34 @@ return [
 ],
 
 'desg' => [
-    "Member"=>"Member",
-    "Incharge(Distt.)"=>"Incharge(Distt.)",
-    "Add.Incharge(Distt.)"=>"Add.Incharge(Distt)",
-    "Secretary(Distt)"=>"Secretary(Distt)",
-    "Spoke Person(Distt)" => "Spoke Person(Distt)",
-    "Executive Member(Distt.)" => "Executive Member(Distt)",
-    "Head (State)" => "Head (State)",
-    "Add.Incharge(State)"=>"Add.Incharge(State)",
-    "Secretary(State)"=>"Secretary(State)",
-    "Spoke Person(State)" => "Spoke Person(State)",
-    "Exe. Member(State)" => "Exe. Member(State)",
-    "Director" =>"Director",
-    "Coordinator" => "Coordinator",
-    "Treasurer"=>"Treasurer",
-    "Trustee"=>"Trustee",
+    "Class-6"=>"Class-6",
+    "Class-7"=>"Class-7",
+    "Class-8"=>"Class-8",
+    "Class-9"=>"Class-9",
+    "Class-10"=>"Class-10",
+    "Class-11"=>"Class-11",
+    "Class-12"=>"Class-12",
+   
 ],
+
+// 'desg' => [
+//     "Member"=>"Member",
+//     "Incharge(Distt.)"=>"Incharge(Distt.)",
+//     "Add.Incharge(Distt.)"=>"Add.Incharge(Distt)",
+//     "Secretary(Distt)"=>"Secretary(Distt)",
+//     "Spoke Person(Distt)" => "Spoke Person(Distt)",
+//     "Executive Member(Distt.)" => "Executive Member(Distt)",
+//     "Head (State)" => "Head (State)",
+//     "Add.Incharge(State)"=>"Add.Incharge(State)",
+//     "Secretary(State)"=>"Secretary(State)",
+//     "Spoke Person(State)" => "Spoke Person(State)",
+//     "Exe. Member(State)" => "Exe. Member(State)",
+//     "Director" =>"Director",
+//     "Coordinator" => "Coordinator",
+//     "Treasurer"=>"Treasurer",
+//     "Trustee"=>"Trustee",
+// ],
+
 
 'bpscell' => [
 

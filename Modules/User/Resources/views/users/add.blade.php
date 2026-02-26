@@ -121,10 +121,16 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6 col-12">
+                  <div class="col-md-3 col-12">
                     <div class="form-group">
                       <label for="company-column">S/O,W/O,Mrs./Mr</label>
-                      <input type="text" id="company-column" class="form-control" name="fname" placeholder="S/O,W/O,Mrs./Mr" required/>
+                      <input type="text" id="company-column" class="form-control" name="fname" placeholder="Father Name" required/>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-12">
+                    <div class="form-group">
+                      <label for="company-column">Mother Name</label>
+                      <input type="text" id="company-column" class="form-control" name="mother_name" placeholder="Mother Name" />
                     </div>
                   </div>
 

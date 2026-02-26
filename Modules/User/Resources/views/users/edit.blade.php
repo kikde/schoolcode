@@ -203,12 +203,22 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6 col-12">
+                                    <div class="col-sm-3 col-12">
                                         <div class="form-group">
                                             <label for="company-column">S/O,W/O,Mrs./Mr</label>
                                             <input type="text" id="company-column" class="form-control" name="fname" value="{{ $users->fname }}" placeholder="S/O,W/O,Mrs./Mr" required />
                                         </div>
                                     </div>
+                                  
+                                <div class="col-md-3 col-12">
+                                    <div class="form-group">
+                                    <label for="company-column">Mother Name</label>
+                                    <input type="text" id="company-column" class="form-control" name="mother_name" placeholder="Mother Name" value="{{ $users->mother_name }}" />
+                                    </div>
+                                </div>
+
+
+
                                     <div class="col-sm-3 col-12">
                                         <div class="form-group">
                                             <label for="fp-default">DOB</label>

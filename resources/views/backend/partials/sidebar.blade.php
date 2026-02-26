@@ -64,7 +64,7 @@
                </li>
                 <li class="nav-item {{Request::is('home') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/home')}}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span></a>           
                 </li>
-                <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Users</span></a>
+                <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Students</span></a>
                 </li>
                 <li class="nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Members by Designation</span></a>
                     <ul class="menu-content">
@@ -157,7 +157,7 @@
             @if (Auth::user()->role==1)
             <li class="nav-item {{Request::is('home') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/home')}}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span></a>           
             </li>
-            <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Members</span></a>
+            <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Students</span></a>
             </li>
             <li class="nav-item {{ Request::is('userslist/desg/*') ? 'sidebar-group-active open' : '' }}">
                 <a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Members by Designation</span></a>

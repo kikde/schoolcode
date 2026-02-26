@@ -141,7 +141,7 @@
   <div class="mr-card">
     <div class="mr-head">
       <i class="fa-solid fa-id-card-clip"></i>
-      <h2>Member Registration</h2>
+      <h2>Student Registration</h2>
     </div>
 
     <div class="mr-body">

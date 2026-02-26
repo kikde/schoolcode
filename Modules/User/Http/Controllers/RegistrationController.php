@@ -161,6 +161,7 @@ public function storeMemberRegistration(Request $request)
             $user->password    = Hash::make(Str::random(12));
 
             $user->fname       = $request->father_name;
+            $user->mother_name       = $request->mother_name;
             $user->dob         = $request->dob;
             $user->gender      = $request->gender;
             $user->education   = $request->profession;
