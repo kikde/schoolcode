@@ -680,7 +680,15 @@ public function demo(string $slug)
 
     
     public function aboutMission(){ return view('frontend.pages.about-mission'); }
-    public function aboutHistory(){\n    \ = \\Modules\\Page\\Entities\\Page::where('types','ab')->orderByDesc('id')->first();\n    return view('frontend.pages.about-history', compact('about'));\n  }
+    public function aboutHistory()
+    {
+        try {
+            $about = \Modules\Page\Entities\Page::where('types','ab')->orderByDesc('id')->first();
+        } catch (\Throwable $e) {
+            $about = null;
+        }
+        return view('frontend.pages.about-history', compact('about'));
+    }
     public function aboutLeadership(){ return view('frontend.pages.about-leadership'); }
     public function aboutPrincipal(){ return view('frontend.pages.about-principal'); }public function newsPost()
         {
