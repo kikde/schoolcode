@@ -1,4 +1,4 @@
-<header class="site-header">
+﻿<header class="site-header">
       <div class="topbar">
         <div class="container topbar-inner">
           <div class="topbar-left">
@@ -12,7 +12,7 @@
             <a class="social social-yt" href="{{ $setting->youtube}}" aria-label="YouTube">
               <i class="fa-brands fa-youtube" aria-hidden="true"></i>
             </a>
-            <a class="social social-wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,👋\nThank you for your support!') }}" aria-label="WhatsApp">
+            <a class="social social-wa" href="https://wa.me/{{ $setting->phone }}?text={{ urlencode('Hello Team,ðŸ‘‹\nThank you for your support!') }}" aria-label="WhatsApp">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
             </a>
           </div>
@@ -84,8 +84,8 @@
                     
                     </ul>
                   </li>
-                  <li><a href="{{ route('about') }}">Why Us</a></li>
-                  <li><a href="{{url('/bank-details')}}">Bank Details</a></li>
+                  <li><a href="{{ route('about.why') }}">Why Us</a></li>
+                  <li><a href="{{ route('about.bank') }}">Bank Details</a></li>
                 </ul>
               </li>
               <li class="navitem has-dropdown">

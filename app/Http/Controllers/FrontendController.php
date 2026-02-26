@@ -694,7 +694,9 @@ public function demo(string $slug)
     {
         try {
             $pmessage = \Modules\Page\Entities\Page::where('types','PM')->orderByDesc('id')->first();
-        } catch (\Throwable $e) {
+        } 
+    public function whyUs(){ return view('frontend.pages.why-us'); }
+    public function bankDetails(){ return view('frontend.pages.bank-details'); }catch (\Throwable $e) {
             $pmessage = null;
         }
         return view('frontend.pages.about-principal', compact('pmessage'));
