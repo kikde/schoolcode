@@ -1,4 +1,4 @@
-
+﻿
 /* Base */
 :root{
   --maroon:#a02226;
@@ -36,8 +36,7 @@ img{max-width:100%;display:block}
   color:#fff;
   font-size:14px;
 }
-@media (max-width: 720px){
-  .topbar{display:none}
+@media (max-width: 720px){ .topbar{display:block} }
 }
 
 /* Sticky nav (3rd row only) */
