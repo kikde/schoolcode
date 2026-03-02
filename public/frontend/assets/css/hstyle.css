@@ -11,7 +11,7 @@
   --shadow:0 10px 24px rgba(0,0,0,.08);
 
 }
-/* *{box-sizing:border-box} */
+*{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
@@ -4768,4 +4768,11 @@ textarea.field__control{resize:vertical;min-height:140px}
   .contact-tabs__inner{gap:8px}
   .contact-tab{width:100%}
   .contact-map iframe{height:280px}
+}
+
+
+/* Mobile fixes for nav + hero overflow */
+@media (max-width: 980px){
+  .home-hero__bg{ transform:none; }
+  .site-header, .topbar, .brandbar, .navwrap{ overflow-x:hidden; }
 }
