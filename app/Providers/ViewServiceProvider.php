@@ -34,6 +34,24 @@ class ViewServiceProvider extends ServiceProvider
 
             $view->with(compact('setting','secmenu','footermenu','testi','manage','statics','award', 'all_events'));
         });
+
+        // Ensure the base layout always gets $setting even when rendering via closure routes
+        View::composer('layouts.master', function ($view) {
+            $setting = cache()->remember('site_setting', 300, fn() => Setting::first());
+
+            // Provide a safe fallback object to avoid "Undefined variable $setting" errors
+            if (!$setting) {
+                $setting = (object) [
+                    'title'            => config('app.name'),
+                    'meta_description' => '',
+                    'meta_keywords'    => '',
+                    'meta_author'      => '',
+                    'favicon_icon'     => null,
+                ];
+            }
+
+            $view->with('setting', $setting);
+        });
     }
 }
  
