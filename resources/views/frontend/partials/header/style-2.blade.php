@@ -84,8 +84,8 @@
                     
                     </ul>
                   </li>
-                  <li><a href="{{ \\Route::has('about.why') ? route('about.why') : url('/why-us') }}">Why Us</a></li>
-                  <li><a href="{{ \\Route::has('about.bank') ? route('about.bank') : url('/bank-details') }}">Bank Details</a></li>
+                  <li><a href="{{ Route::has('about.why') ? route('about.why') : url('/why-us') }}">Why Us</a></li>
+                  <li><a href="{{ Route::has('about.bank') ? route('about.bank') : url('/bank-details') }}">Bank Details</a></li>
                 </ul>
               </li>
               <li class="navitem has-dropdown">
@@ -174,6 +174,7 @@
         </div>
       </div>
     </header>
+
 
 
 
