@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -225,9 +225,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     <script src="{{ asset('frontend/assets/js/hscript.js') }}?v={{ @file_exists(public_path('frontend/assets/js/hscript.js')) ? @filemtime(public_path('frontend/assets/js/hscript.js')) : time() }}"></script>
+<script>
+// Fallback binder for mobile nav toggle (in case main bundle fails earlier)
+(function(){
+  function bind(){
+    try{
+      var t=document.querySelector('[data-nav-toggle]');
+      var w=document.querySelector('[data-nav]');
+      if(!t||!w||t.__fallbackBound) return; t.__fallbackBound=true;
+      t.addEventListener('click', function(){
+        var open=w.getAttribute('data-open')==='true';
+        w.setAttribute('data-open', String(!open));
+      });
+    }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+})();
+</script>
 @stack('scripts')
 </body><!-- End of .page_wrapper -->
 </html>
+
 
 
 
