@@ -102,7 +102,7 @@ Route::get('/contact/enquiry', [FrontendController::class, 'contactEnquiry'])->n
 Route::get('/why-us', [FrontendController::class, 'whyUs'])->name('about.why');
 Route::get('/bank-details', [FrontendController::class, 'bankDetails'])->name('about.bank');
 Route::get('/about', [FrontendController::class, 'aboutUs'])->name('about');
-Route::get('/about/mission-vision', [FrontendController::class, 'aboutMission'])->name('about.mission');
+Route::get('/about/mission-vision', function(){ return view('frontend.pages.about-mission'); })->name('about.mission');
 Route::get('/about/history', [FrontendController::class, 'aboutHistory'])->name('about.history');
 Route::get('/about/leadership', [FrontendController::class, 'aboutLeadership'])->name('about.leadership');
 Route::get('/about/principal-message', [FrontendController::class, 'aboutPrincipal'])->name('about.principal');
