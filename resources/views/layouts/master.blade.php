@@ -226,25 +226,58 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <script src="{{ asset('frontend/assets/js/hscript.js') }}?v={{ @file_exists(public_path('frontend/assets/js/hscript.js')) ? @filemtime(public_path('frontend/assets/js/hscript.js')) : time() }}"></script>
 <script>
-// Fallback binder for mobile nav toggle (in case main bundle fails earlier)
+// Fallback binder for mobile nav + dropdowns (in case main bundle fails earlier)
 (function(){
+  function isMobile(){ return window.matchMedia('(max-width: 980px)').matches; }
   function bind(){
     try{
       var t=document.querySelector('[data-nav-toggle]');
       var w=document.querySelector('[data-nav]');
-      if(!t||!w||t.__fallbackBound) return; t.__fallbackBound=true;
-      t.addEventListener('click', function(){
-        var open=w.getAttribute('data-open')==='true';
-        w.setAttribute('data-open', String(!open));
+      if(t && w && !t.__fallbackBound){
+        t.__fallbackBound=true;
+        t.addEventListener('click', function(){
+          var open=w.getAttribute('data-open')==='true';
+          w.setAttribute('data-open', String(!open));
+        });
+      }
+      document.querySelectorAll('.navitem.has-dropdown .navlink').forEach(function(link){
+        if(link.__dropBound) return; link.__dropBound=true;
+        link.addEventListener('click', function(e){
+          if(!isMobile()) return;
+          e.preventDefault();
+          var li = link.closest('.navitem.has-dropdown');
+          if(!li) return;
+          var isOpen = li.getAttribute('data-open')==='true';
+          document.querySelectorAll('.navitem.has-dropdown[data-open]').forEach(function(x){x.removeAttribute('data-open')});
+          document.querySelectorAll('.dropdown li[data-open]').forEach(function(x){x.removeAttribute('data-open')});
+          li.setAttribute('data-open', String(!isOpen));
+        });
+      });
+      document.querySelectorAll('[data-sub-toggle]').forEach(function(st){
+        if(st.__subBound) return; st.__subBound=true;
+        st.addEventListener('click', function(e){
+          if(!isMobile()) return;
+          e.preventDefault();
+          var li = st.closest('li');
+          if(!li) return;
+          var isOpen = li.getAttribute('data-open')==='true';
+          var sibs = li.parentElement ? Array.prototype.slice.call(li.parentElement.children) : [];
+          sibs.forEach(function(s){ if(s!==li) s.removeAttribute('data-open'); });
+          li.setAttribute('data-open', String(!isOpen));
+        });
       });
     }catch(e){}
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+  window.addEventListener('resize', function(){ if(!isMobile()){ document.querySelectorAll('[data-open]').forEach(function(x){x.removeAttribute('data-open')}); }});
 })();
 </script>
 @stack('scripts')
 </body><!-- End of .page_wrapper -->
 </html>
+
+
+
 
 
 
