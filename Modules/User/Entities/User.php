@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace Modules\User\Entities;
 use Modules\User\Entities\Payment;
@@ -27,7 +27,7 @@ class User extends Authenticatable
         // If your Payment model lives in Modules\User\Entities too, use Payment::class.
         // If it lives in App\Models\Payment, use \App\Models\Payment::class instead.
         return $this->hasMany(\App\Models\Payment::class, 'user_id');
-        // return $this->hasMany(Payment::class, 'user_id'); // <— use this line if Payment is moved into Entities
+        // return $this->hasMany(Payment::class, 'user_id'); // <â€” use this line if Payment is moved into Entities
     }
 
     /**
@@ -102,7 +102,8 @@ public function latestPayment()
 
     public function getReferralLinkAttribute(): ?string
 {
-    return $this->referral_code ? url('/member-registration?ref='.$this->referral_code) : null;
+    return $this->referral_code ? url('/student-registration?ref='.$this->referral_code) : null;
 }
 
 }
+

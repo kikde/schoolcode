@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 namespace Modules\User\Http\Controllers;
 use App\Models\Payment;   
 use Illuminate\Contracts\Support\Renderable;
@@ -523,10 +523,10 @@ if ($request->hasFile('idproof_doc')) {
     }
 
     /* =========================================================================
-     | USERS LIST (members) â€” clearer name + back-compat alias
+     | USERS LIST (members) Ã¢â‚¬â€ clearer name + back-compat alias
      |========================================================================= */
 /* =========================================================================
- | USERS LIST (members) â€” clearer name
+ | USERS LIST (members) Ã¢â‚¬â€ clearer name
  |========================================================================= */
 public function usersIndex(Request $request, $desg = null)
 {
@@ -554,7 +554,7 @@ public function usersIndex(Request $request, $desg = null)
         $query->where('desg', $filterDesg);
     }
 
-    // ðŸ§© Show all if admin, or only referrer's users otherwise
+    // Ã°Å¸Â§Â© Show all if admin, or only referrer's users otherwise
     if ($authUser->role != 1) {
         $query->where('referrer_id', $authUser->id);
     }
@@ -605,7 +605,7 @@ public function usersIndex(Request $request, $desg = null)
 
     // build the share URL for /member-registration
     // (if you have a named route, you can use route('member.registration', ['ref' => $users->referral_code]))
-    $shareUrl = url('/member-registration?ref=' . $users->referral_code);
+    $shareUrl = url('/student-registration?ref=' . $users->referral_code);
 
     $currentUser = auth()->user();
     if ($currentUser->role == 1) {
@@ -817,7 +817,7 @@ public function updateAffi(Request $request, $id)
         'waitUntil'       => 'networkidle',
         'waitFor'         => 1200,
 
-        // â¬‡ï¸ Make sure your ApiShot::capture passes these through to the POST body
+        // Ã¢Â¬â€¡Ã¯Â¸Â Make sure your ApiShot::capture passes these through to the POST body
         'meta'         => ['user_id' => (int)$userId, 'kind' => 'affidavit', 'suggest' => $suggest],
         'datasinkMeta' => ['user_id' => (int)$userId, 'kind' => 'affidavit', 'suggest' => $suggest],
     ]);
@@ -847,7 +847,7 @@ public function updateAffi(Request $request, $id)
     public function AffiActivate($id) { return $this->affidavitQueue($id); }
     public function deactiveaffi($id) { return $this->affidavitDeactivate($id); }
 
-    /** Reset â€œafter verifyâ€ document to force re-upload */
+    /** Reset Ã¢â‚¬Å“after verifyÃ¢â‚¬Â document to force re-upload */
     public function afterVerify($id)
     {
         $user = User::find($id);
@@ -998,7 +998,7 @@ public function search(Request $request)
 
     $user = \App\Models\User::query()
         ->with(['referrer'])
-        ->whereIn('role', [2, 0])                         // â† role filter
+        ->whereIn('role', [2, 0])                         // Ã¢â€ Â role filter
         ->when($desg !== '', function ($q) use ($desg) {
             $q->where('desg', $desg);
         })
@@ -1055,7 +1055,7 @@ public function export(Request $request)
             'Name',
             'Email',
             'Mobile',
-            'Referrer (ID â€” Name)',
+            'Referrer (ID Ã¢â‚¬â€ Name)',
             'User Status',
             'Payment Status',
             'Valid Upto',
@@ -1090,8 +1090,8 @@ public function export(Request $request)
         }
 
         foreach ($q->orderBy('id')->cursor() as $u) {
-            // Referrer display: "id â€” name" or "â€”"
-            $refDisplay = $u->referrer ? ($u->referrer->id.' â€” '.$u->referrer->name) : 'â€”';
+            // Referrer display: "id Ã¢â‚¬â€ name" or "Ã¢â‚¬â€"
+            $refDisplay = $u->referrer ? ($u->referrer->id.' Ã¢â‚¬â€ '.$u->referrer->name) : 'Ã¢â‚¬â€';
 
             // Status text
             $userStatus    = ($u->useractive == 1) ? 'Activate' : 'Deactive';
@@ -1128,3 +1128,4 @@ public function export(Request $request)
 
 
 }
+

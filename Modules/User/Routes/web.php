@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Support\Facades\Route;
 use Modules\User\Http\Controllers\UserController;
@@ -24,6 +24,20 @@ use Modules\User\Http\Controllers\MemberController;
 Route::middleware('web')->group(function () {
     Route::get('member-registration',  [RegistrationController::class,'showMemberRegistrationForm'])
         ->name('member.register.show');
+    // Student Registration aliases
+    Route::get('student-registration',  [RegistrationController::class,'showMemberRegistrationForm'])
+        ->name('student.registration');
+    Route::post('student-registration', [RegistrationController::class,'storeMemberRegistration'])
+        ->name('student.register.store');
+    Route::get('student-registration/thanks/{id}', [RegistrationController::class,'showThankYou'])
+        ->name('student.register.thanks');
+    Route::post('student-registration/cities', [RegistrationController::class,'fetchCitiesByState'])
+        ->name('student.register.cities');
+
+    // Legacy redirects
+    Route::redirect('member-registration','/student-registration',301);
+    Route::redirect('member-registration/thanks/{id}','/student-registration/thanks/{id}',301);
+    Route::redirect('member-registration/cities','/student-registration/cities',301);
 
     Route::post('member-registration', [RegistrationController::class,'storeMemberRegistration'])
         ->name('member.register.store');
@@ -97,7 +111,7 @@ Route::put('/admins-update/{id}', [UserController::class, 'Adminupdate'])->name(
 
 /*
 |--------------------------------------------------------------------------
-| Members (role 2/0) â€“ list & CRUD screens
+| Members (role 2/0) Ã¢â‚¬â€œ list & CRUD screens
 |--------------------------------------------------------------------------
 */
 Route::get('/userslist',          [UserController::class, 'usersIndex'])->name('members.index'); // clean name
@@ -217,5 +231,6 @@ Route::middleware(['web','auth','verified'])->group(function () {
     Route::get('/doc/{user}/{type}/view', [SecureDocController::class, 'view'])->name('doc.view');
 
 });
+
 
 

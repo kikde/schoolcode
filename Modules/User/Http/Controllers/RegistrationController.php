@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace Modules\User\Http\Controllers;
 
@@ -202,7 +202,7 @@ public function storeMemberRegistration(Request $request)
             $user->save(); // <-- NOW we have $user->id
 
             // 2) FILES
-            // Profile photo → PUBLIC disk (displayable via Storage::url)
+            // Profile photo â†’ PUBLIC disk (displayable via Storage::url)
             // if ($request->hasFile('profile_image')) {
             //     $path = $request->file('profile_image')
             //         ->store("backend/uploads/members", 'public'); // storage/app/public/...
@@ -228,14 +228,14 @@ public function storeMemberRegistration(Request $request)
             }
           
 
-            // ID document → PRIVATE disk (not publicly accessible)
+            // ID document â†’ PRIVATE disk (not publicly accessible)
             if ($request->hasFile('document')) {
                 $path = $request->file('document')
                     ->store("users/{$user->id}/idproof", 'private'); // storage/app/private/...
                 $user->idproof_doc = $path;
             }
 
-            // Other document → PRIVATE disk
+            // Other document â†’ PRIVATE disk
             if ($request->hasFile('other_document')) {
                 $path = $request->file('other_document')
                     ->store("users/{$user->id}/other", 'private');
@@ -281,8 +281,7 @@ public function storeMemberRegistration(Request $request)
         } catch (\Throwable $mailEx) {
             \Log::warning('Registration mail/verification send failed', ['error' => $mailEx->getMessage()]);
         }
-        return redirect()
-            ->route('member.register.show')
+        return redirect()->route('student.registration')
             ->with([
                 'success'     => 'Registration received! Our team will verify and activate your ID soon.',
                 'member_name' => $request->name,
@@ -372,7 +371,7 @@ public function storeMemberRegistration(Request $request)
     }
 
     // 4. Map cardtype to DB column name
-    // 👉 I recommend using underscore column names in DB: idcard, honor_letter, certificate, payment_receipt
+    // ðŸ‘‰ I recommend using underscore column names in DB: idcard, honor_letter, certificate, payment_receipt
     $columnMap = [
         'idcard'           => 'idcard',
         'honor-letter'     => 'honor_letter',
@@ -408,3 +407,4 @@ public function storeMemberRegistration(Request $request)
 
 
 }
+

@@ -1,4 +1,4 @@
-<!-- Member Registration – Elegant UI (names unchanged) -->
+﻿<!-- Member Registration â€“ Elegant UI (names unchanged) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -82,7 +82,7 @@
     </div>
 
     <div class="mr-body">
-      <form class="auth-register-form" action="https://mdmks.kikde.com/member-registration" method="POST" enctype="multipart/form-data">
+      <form class="auth-register-form" action="https://mdmks.kikde.com/student-registration" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="gCdU8tOwc2ONmDuA4KyNoJT33aWYbLMONw0e3wqY">
 
         <!-- Row: Name / Gender -->
@@ -259,3 +259,4 @@
     </div>
   </div>
 </section>
+

@@ -444,7 +444,7 @@
         @endphp
         {{ $isPayment ? 'Payment Successful' : 'Registration Submitted' }}
       </div>
-      <button class="modal-close" type="button" aria-label="Close" onclick="closeRegModal()">Ã¢Å“â€“</button>
+      <button class="modal-close" type="button" aria-label="Close" onclick="closeRegModal()">X</button>
     </div>
 
     <div class="modal-body">
@@ -458,7 +458,7 @@
         </p>
         <ul>
           <li>Your application status: <strong>Pending verification</strong>.</li>
-          <li>WeÃ¢â‚¬â„¢ll notify you once your ID Card is active.</li>
+          <li>We will notify you once your ID Card is active.</li>
           <li>You can later download your ID Card from the website.</li>
         </ul>
       @endif
@@ -469,7 +469,7 @@
       @if($succType !== 'payment')
         <a href="{{ route('payment') }}" class="btn btn-primary">Proceed To Pay</a>
       @endif
-      <a href="{{ route('member.register.show') }}" class="btn btn-primary">Register Another Member</a>
+      <!-- <a href="{{ route('member.register.show') }}" class="btn btn-primary">Register Another Member</a> -->
       <a href="{{ url('/') }}" class="btn btn-ghost">Go to Homepage</a>
     </div>
   </div>

@@ -160,7 +160,7 @@
             <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">Students</span></a>
             </li>
             <li class="nav-item {{ Request::is('userslist/desg/*') ? 'sidebar-group-active open' : '' }}">
-                <a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Members by Designation</span></a>
+                <a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Students by Classes</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('userslist/desg/Director') ? 'active' : '' }}">
                         <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Director') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Directors</span></a>

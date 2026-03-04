@@ -1,4 +1,4 @@
-@extends('layouts.master')
+﻿@extends('layouts.master')
 
 @section('content')
 @if(session('success') || session('error') || session('message'))
@@ -11,14 +11,14 @@
   <div class="mr-card" style="max-width:520px;">
     <div class="mr-head">
       <i class="fa-solid  fab fa-credit-card"></i>
-      <h2>Pay Membership Fee</h2>
+      <h2>Pay Admission Fee</h2>
     </div>
     <div class="mr-body">
       <p style="margin-bottom:12px;">
-        Hi <strong>{{ $user->name }}</strong>, please complete your membership payment.
+        Hi <strong>{{ $user->name }}</strong>, please complete your Admission payment.
       </p>
       <p style="font-size:15px;margin-bottom:24px;">
-        Amount payable: <strong>₹ {{ number_format($amount, 2) }}</strong>
+        Amount payable: <strong>â‚¹ {{ number_format($amount, 2) }}</strong>
       </p>
 
       <button id="rzp-button" class="btn btn-primary btn-wide">Pay with Razorpay</button>
@@ -66,3 +66,4 @@
   }
 </script>
 @endsection
+

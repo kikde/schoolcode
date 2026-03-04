@@ -1,8 +1,8 @@
 <!-- Elegant Light NGO Form -->
 <style>
 :root {
-  --brand:#ff4d4d;
-  --brand2:#ff944d;
+  --brand:#a02226;
+  --brand2:#a02226;
   --ink:#1e293b;
   --muted:#6b7280;
   --bg:#f8fafc;
@@ -160,8 +160,8 @@ textarea{ min-height:90px; resize:vertical; }
       
       <div class="auth-footer-btn">
         <button type="submit" class="btn btn-primary" name="cardtype" value="idcard">IDCARD</button>
-        <button type="submit" class="btn btn-danger" name="cardtype" value="honor-letter">HONORARY LETTER</button>
-        <button type="submit" class="btn btn-warning" name="cardtype" value="certificate">CERTIFICATE</button>
+        <!-- <button type="submit" class="btn btn-danger" name="cardtype" value="honor-letter">HONORARY LETTER</button>
+        <button type="submit" class="btn btn-warning" name="cardtype" value="certificate">CERTIFICATE</button> -->
       </div>
         <!-- <button type="submit" class="btn btn-success white" name="cardtype" value="joinletter">Payment Receipt</button> -->
     
