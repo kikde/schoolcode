@@ -16,7 +16,9 @@
           @if(!empty($pmessage->name))<h1 class="message__title">{{ $pmessage->name }}</h1>@endif
 
           <div class="message__body">
-            <div class="message__photo" aria-label="Principal photo">\n              <img @if(!empty($pmessage->breadcrumb)) src="{{ asset('backend/uploads/'.$pmessage->breadcrumb) }}" @else src="{{ asset('backend/uploads/placeholder.jpg') }}" @endif alt="{{ $pmessage->name ?? ' }}" />\n            </div>
+<div class="message__photo" aria-label="Principal photo">
+  <img src="{{ !empty($pmessage->breadcrumb) ? asset('backend/uploads/'.$pmessage->breadcrumb) : asset('backend/uploads/placeholder.jpg') }}" alt="{{ $pmessage->name ?? 'Principal' }}" loading="lazy" />
+</div>
 
             <div class="message__text" aria-label="Message text">
               @if(!empty($pmessage->description))
