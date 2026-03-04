@@ -96,7 +96,9 @@ Route::post('/send-mail',[FrontendController::class, 'sendmail']);
 //=======================================================About Section=======================================================//
 
 Route::get('/contact', [FrontendController::class, 'contactus'])->name('contact');Route::get('/contact/location', [FrontendController::class, 'contactLocation'])->name('contact.location');
-Route::get('/contact/enquiry', [FrontendController::class, 'contactEnquiry'])->name('contact.enquiry');
+Route::get('/contact/enquiry', [FrontendController::class, 'contactEnquiry'])->name('contact.enquiry');// Student registration (was /member-registration)
+Route::get('/student-registration', function(){ return view('frontend.pages.member-registration'); })->name('student.registration');
+Route::redirect('/member-registration','/student-registration',301);
 
 
 Route::get('/why-us', [FrontendController::class, 'whyUs'])->name('about.why');
@@ -325,3 +327,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/{slug}', [FrontendController::class, 'demo'])
     ->where('slug', '^(?:(?:demo|donation|complaint)-[a-z0-9\-]+)$')
     ->name('demo.flat');
+

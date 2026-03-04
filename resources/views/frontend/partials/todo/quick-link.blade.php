@@ -1,4 +1,4 @@
-{{-- Quick Links Section --}}
+﻿{{-- Quick Links Section --}}
 <style>
   .quick-links-section{
     padding:30px 0 40px;
@@ -110,7 +110,7 @@
     {{-- IMPORTANT: remove d-flex here --}}
     <div class="ql-grid">
       {{-- Member Apply --}}
-      <a href="{{ url('/member-registration') }}" class="ql-card">
+      <a href="{{ route('student.registration') }}" class="ql-card">
         <div class="ql-icon">
           <i class="fas fa-user-plus"></i>
         </div>
@@ -143,3 +143,4 @@
     </div>
   </div>
 </section>
+

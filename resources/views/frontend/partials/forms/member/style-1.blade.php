@@ -1,5 +1,5 @@
 
-<!-- Member Registration – Elegant, mobile-first UI -->
+<!-- Member Registration â€“ Elegant, mobile-first UI -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -81,7 +81,7 @@
   align-items:center;
 }
 
-/* hide theme’s auto-enhanced select (like we did for donate form) */
+/* hide themeâ€™s auto-enhanced select (like we did for donate form) */
 #state + * {
   display:none !important;
 }
@@ -163,7 +163,39 @@
               <option value="Trans"  @selected($g==='Trans')>Trans</option>
             </select>
           </div>
+        
+        {{-- Row: Class / Designation --}}
+        @php $desgOptions = config('constants.desg') ?? []; $desgOld = old('desg'); @endphp
+        <div class="mr-grid">
+          <div class="mr-field">
+            <label><i class="fa-solid fa-graduation-cap"></i> Class</label>
+            <select class="mr-select" name="desg" required>
+              <option value="">Select Class</option>
+              @foreach($desgOptions as $key => $label)
+                <option value="{{ is_string($key) ? $key : $label }}" @selected($desgOld===(is_string($key)?$key:$label))>
+                  {{ $label }}
+                </option>
+              @endforeach
+            </select>
+          </div>
         </div>
+
+        {{-- Row: Class / Designation --}}
+        @php $desgOptions = config('constants.desg') ?? []; $desgOld = old('desg'); @endphp
+        <div class="mr-grid">
+          <div class="mr-field">
+            <label><i class="fa-solid fa-graduation-cap"></i> Class</label>
+            <select class="mr-select" name="desg" required>
+              <option value="">Select Class</option>
+              @foreach($desgOptions as $key => $label)
+                <option value="{{ is_string($key) ? $key : $label }}" @selected($desgOld===(is_string($key)?$key:$label))>
+                  {{ $label }}
+                </option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+</div>
 
         {{-- Row: DOB / Father --}}
         <div class="mr-grid">
@@ -382,7 +414,7 @@
              style="position:fixed;right:16px;top:16px;max-width:360px;z-index:2147483647;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.12);padding:12px 14px;color:#0f172a;">
           <div style="display:flex;gap:8px;align-items:flex-start">
             <div style="font-size:18px;">
-              @if(session('success')) ✅ @elseif(session('error') || $errors->any()) ⚠️ @endif
+              @if(session('success')) âœ… @elseif(session('error') || $errors->any()) âš ï¸ @endif
             </div>
             <div style="flex:1;">
               @if(session('success'))
@@ -400,7 +432,7 @@
                 </ul>
               @endif
             </div>
-            <button onclick="document.getElementById('toast').remove()" style="border:none;background:transparent;cursor:pointer;font-size:16px;line-height:1;margin-left:6px;">✖</button>
+            <button onclick="document.getElementById('toast').remove()" style="border:none;background:transparent;cursor:pointer;font-size:16px;line-height:1;margin-left:6px;">âœ–</button>
           </div>
         </div>
         <script>setTimeout(()=>{ const t=document.getElementById('toast'); if(t) t.remove(); }, 5000);</script>
@@ -427,7 +459,7 @@
         @endphp
         {{ $isPayment ? 'Payment Successful' : 'Registration Submitted' }}
       </div>
-      <button class="modal-close" type="button" aria-label="Close" onclick="closeRegModal()">✖</button>
+      <button class="modal-close" type="button" aria-label="Close" onclick="closeRegModal()">âœ–</button>
     </div>
 
     <div class="modal-body">
@@ -441,7 +473,7 @@
         </p>
         <ul>
           <li>Your application status: <strong>Pending verification</strong>.</li>
-          <li>We’ll notify you once your ID Card is active.</li>
+          <li>Weâ€™ll notify you once your ID Card is active.</li>
           <li>You can later download your ID Card from the website.</li>
         </ul>
       @endif
@@ -548,7 +580,7 @@ window.closeRegModal = closeRegModal;
         });
     }
 
-    // click on “Select State” box
+    // click on â€œSelect Stateâ€ box
     display.addEventListener('click', function (e) {
         e.stopPropagation();
         if (wrapper.classList.contains('is-open')) {
@@ -639,3 +671,4 @@ document.addEventListener('DOMContentLoaded', function () {
     @endif
 });
 </script>
+

@@ -1,4 +1,4 @@
-<style>
+﻿<style>
 :root{
   --nav-bg:#1a0a4a;          /* dark purple like screenshot */
   --nav-fg:#7d6aa6;          /* muted icon color */
@@ -111,7 +111,7 @@
 }
 .bottom-nav .fab i{ font-size:26px; }
 
-/* “Add” label under the button */
+/* â€œAddâ€ label under the button */
 .bottom-nav .fab-label{
   display:block;
   color:#fff;
@@ -146,7 +146,7 @@
     </li>
 
     <li><a href="{{ url('/complain-form') }}"><i class='bx bx-bell'></i><span class="title">Complaint</span></a></li>
-    <li><a href="{{ url('/member-registration') }}"><i class='bx bx-user'></i><span class="title">Register</span></a></li>
+    <li><a href="{{ route('student.registration') }}"><i class='bx bx-user'></i><span class="title">Register</span></a></li>
   </ul>
 </nav>
 
@@ -166,4 +166,5 @@
     console.log('FAB clicked');
   });
 </script>
+
 

@@ -50,7 +50,7 @@
             </div>
           </div>
 
-          <a class="apply-btn" href="{{url('/member-registration')}}">
+          <a class="apply-btn" href="{{route('student.registration')}}">
             <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
             <span>APPLY NOW</span>
           </a>
@@ -174,6 +174,7 @@
         </div>
       </div>
     </header>
+
 
 
 
