@@ -35,13 +35,30 @@
                 <li class="nav-item {{Request::is('userslist') ? 'active': ''}}"><a class="d-flex align-items-center" href="{{url('/userslist')}}"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Users">My Refferel</span></a>
                          </li>
                 <li class="nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="filter"></i><span class="menu-title text-truncate">Members by Designation</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Director') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Directors</span></a></li>
-                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Coordinator') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Coordinators</span></a></li>
-                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Treasurer') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Treasurers</span></a></li>
-                        <li><a class="d-flex align-items-center" href="{{ url('/userslist/desg/Trustee') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Trustees</span></a></li>
-                    </ul>
-                </li> 
+                                    <ul class="menu-content">
+                <ul class="menu-content">
+                    <li class="{{ Request::is('userslist/desg/Class-6') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Class-6') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Class 6</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Class-7') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Class-7') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Class 7</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Class-8') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Class-8') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Class 8</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Class-9') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Class-9') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Class 9</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Class-10') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Class-10') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Class 10</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Class-11') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Class-11') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Class 11</span></a>
+                    </li>
+                    <li class="{{ Request::is('userslist/desg/Class-12') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ url('/userslist/desg/Class-12') }}"><i data-feather="circle"></i><span class="menu-item text-truncate">Class 12</span></a>
+                    </li>
+                </ul>
 
             {{-- <li class="nav-item "><a class="d-flex align-items-center" href="#"><i data-feather="archive"></i><span class="menu-title text-truncate" data-i18n="Users">Support Tickets</span></a>
                 <ul class="menu-content"> 
@@ -362,3 +379,4 @@
     </div>
 </div>
 <!-- END: Main Menu-->
+
