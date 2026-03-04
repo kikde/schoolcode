@@ -34,7 +34,7 @@ class PaymentController extends Controller
 {
     $userId = auth()->id();
 
-    // 1) Validate the incoming file Ã¢â‚¬â€ only images for Ã¢â‚¬Å“screenshotÃ¢â‚¬Â
+    // 1) Validate the incoming file ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â only images for ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œscreenshotÃƒÂ¢Ã¢â€šÂ¬Ã‚Â
     $request->validate([
         'screenshot' => 'required|file|mimes:jpeg,jpg,png,webp,gif|max:5120',
     ], [
@@ -63,7 +63,7 @@ class PaymentController extends Controller
         $absPath = storage_path('app/public/' . $folder . '/' . $filename);
         Image::make($file->getPathname())->save($absPath, 90);
     } catch (\Intervention\Image\Exception\NotReadableException $e) {
-        // fallback: just move it if Intervention canÃ¢â‚¬â„¢t read (shouldnÃ¢â‚¬â„¢t happen with the validation)
+        // fallback: just move it if Intervention canÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢t read (shouldnÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢t happen with the validation)
         Storage::disk('public')->putFileAs($folder, $file, $filename);
     }
 
@@ -71,7 +71,7 @@ class PaymentController extends Controller
     $pay->screenshot = $folder . '/' . $filename;
     $pay->save();
 
-    // (Ã¢â‚¬Â¦your affidavit queue logic can run after this, unchangedÃ¢â‚¬Â¦)
+    // (ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦your affidavit queue logic can run after this, unchangedÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦)
     return back()->with('message', 'Screenshot uploaded. Thank you!');
 }
 
@@ -94,8 +94,13 @@ class PaymentController extends Controller
 
         $user = User::findOrFail($memberId);
 
-        // membership amount (Ã¢â€šÂ¹)
-        $amountInRupees = 1010;
+        // membership amount (ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹)
+                // Calculate fee based on class in $user->desg (e.g., "Class-6" => 600)
+        $classNum = 0;
+        if (preg_match('/(\d{1,2})/', (string)($user->desg ?? ''), $m)) {
+            $classNum = (int)$m[1];
+        }
+        $amountInRupees = ($classNum >= 6 && $classNum <= 12) ? ($classNum * 100) : 1000;
         $amountInPaise  = $amountInRupees * 100;
 
         $api = new Api(config('services.razorpay.key'), config('services.razorpay.secret'));
@@ -200,7 +205,7 @@ class PaymentController extends Controller
             // send confirmation email to member (non-blocking) with PDF attachment when available
             try {
                 if ($user && filled($user->email)) {
-                    $amt = isset($paymentDetails['amount']) ? number_format(((float)$paymentDetails['amount'])/100, 2) : 'Ã¢â‚¬â€';
+                    $amt = isset($paymentDetails['amount']) ? number_format(((float)$paymentDetails['amount'])/100, 2) : 'ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â';
                     $msg = '<p>Dear '.e($user->name).',</p>'
                          . '<p>We have received your membership payment. Details below:</p>'
                          . '<table><tr><th align="left">Payment ID</th><td>'.e($razorpayPaymentId).'</td></tr>'
@@ -479,7 +484,7 @@ public function membershipAutopayCallback(Request $request, RazorpayRecurringSer
     try {
         $user = $sub ? ($user ?? User::find($sub->user_id)) : null;
         if ($user && filled($user->email)) {
-            $amt = $sub?->amount_paise ? number_format(((float)$sub->amount_paise)/100, 2) : 'Ã¢â‚¬â€';
+            $amt = $sub?->amount_paise ? number_format(((float)$sub->amount_paise)/100, 2) : 'ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â';
             if ($receiptRel) {
                 // Attach the generated receipt
                 Mail::to($user->email)->send(new \App\Mail\MembershipPaymentReceipt($user, $saved, $receiptRel));
@@ -513,6 +518,7 @@ public function membershipAutopayCallback(Request $request, RazorpayRecurringSer
 
 
 }
+
 
 
 

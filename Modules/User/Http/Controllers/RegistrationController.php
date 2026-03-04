@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace Modules\User\Http\Controllers;
 
@@ -117,6 +117,7 @@ public function storeMemberRegistration(Request $request)
         'dob'             => 'nullable|date',
         'gender'          => 'nullable|string|max:20',
         'profession'      => 'nullable|string|max:190',
+        'desg'            => 'required|string|max:50',
         'address'         => 'nullable|string|max:500',
         'pincode'         => 'nullable|string|max:10',
         'state'           => 'nullable|string|max:100',
@@ -166,7 +167,7 @@ public function storeMemberRegistration(Request $request)
             $user->gender      = $request->gender;
             $user->education   = $request->profession;
             $user->occupation  = $request->profession;
-            $user->desg        = 'Member';
+            $user->desg        = $request->desg;
 
             $user->address     = $request->address;
             $user->landmark    = null;
@@ -407,4 +408,6 @@ public function storeMemberRegistration(Request $request)
 
 
 }
+
+
 

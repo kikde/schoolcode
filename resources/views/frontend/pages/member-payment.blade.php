@@ -18,7 +18,7 @@
         Hi <strong>{{ $user->name }}</strong>, please complete your Admission payment.
       </p>
       <p style="font-size:15px;margin-bottom:24px;">
-        Amount payable: <strong>â‚¹ {{ number_format($amount, 2) }}</strong>
+        Amount payable: <strong>₹ {{ number_format($amount, 2) }}</strong> <span style="color:#6b7280">(Class: {{ $user->desg }})</span>
       </p>
 
       <button id="rzp-button" class="btn btn-primary btn-wide">Pay with Razorpay</button>
@@ -40,7 +40,7 @@
       "amount": "{{ $order['amount'] }}",
       "currency": "{{ $order['currency'] }}",
       "name": "{{ $setting->title ?? 'Membership' }}",
-      "description": "Membership Fee",
+      "description": "Admission Fee (Class: {{ $user->desg }})",
       "order_id": "{{ $order['id'] }}",
       "prefill": {
           "name": "{{ $user->name }}",
@@ -66,4 +66,5 @@
   }
 </script>
 @endsection
+
 
